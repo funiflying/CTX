@@ -9,11 +9,11 @@ config(['$routeProvider', function ($routeProvider) {
 	 * ***********/
    $routeProvider.when('/audit', {
         templateUrl: 'partials/audit.html',
-    	controller:auditController
+    	controller:allianceAuditController
     });
     $routeProvider.when('/releasecar', {
         templateUrl: 'partials/releasecar.html',
-        controller:auditController
+        controller:carAuditController
     })
     $routeProvider.otherwise({
         redirectTo: '/index'

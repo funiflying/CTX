@@ -1,4 +1,6 @@
-function auditController($scope,ngDialog,AuditService){
+'use strict'
+//联盟商信息审核
+function allianceAuditController($scope,ngDialog,AllianceAuditService){
     $scope.member="";
 	$scope.openDialog=function(obj){
         $scope.member=obj;
@@ -8,7 +10,7 @@ function auditController($scope,ngDialog,AuditService){
 			scope:$scope
 		});
 	}
-	AuditService.getMembers().success(function(d){
+	AllianceAuditService.getMembers().success(function(d){
 		$scope.alliance=d.jsonstr;
 	});
 		
@@ -20,13 +22,26 @@ function auditController($scope,ngDialog,AuditService){
             UserID:_ID,
             AuditStatus:_status
         }
-        AuditService.auditStatus(data).success(function(d){
+        AllianceAuditService.auditStatus(data).success(function(d){
             
         }).error(function(e){
             $rootScope.Alert(e)
         })
     }
-
-	
+    
 }
-auditController.$inject=['$scope','ngDialog','AuditService']
+//allianceAuditController.$inject=['$scope','ngDialog','AllianceAuditService']
+//车源审核
+function carAuditController($scope,ngDialog,CarAuditService){
+    
+    //获取车源
+    $scope.carList="";
+    CarAuditService.getCarList().success(function(d){
+            if(d.Status==1){
+                $scope.carList=d.Data;
+            }
+        })
+
+   
+}
+//carAuditController.$inject=['$scope','ngDialog','CarAuditService']

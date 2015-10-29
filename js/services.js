@@ -16,7 +16,7 @@ angular.module('chetongxiang.services', []).service("AllianceRegService", functi
             return $http.post("/user/CheckAccount", _account);
         },
         register: function (data) {
-            return $http.post("/user/RegisterAlliance", data);
+            return $http.post("/account/AlliceRegister", data);
         }
 
     }
@@ -29,17 +29,23 @@ angular.module('chetongxiang.services', []).service("AllianceRegService", functi
             return $http.post("/common/getcity", {});
         },
         register: function (data) {
-            return $http.post("/user/RegisterDirect", data);
+            return $http.post("/account/DirectRegister", data);
         }
 
     }
 }).service("LoginService", function ($http) {
     return {
         allianceLogin: function (data) {
-            return $http.post("/user/AllianceLogin", data)
+            return $http.post("/account/AlliceLogin", data)
         },
         directLogin: function (data) {
-            return $http.post("/user/DirectLogin", data)
+            return $http.post("/account/DirectLogin", data)
+        },
+        outsiteLogin:function(data){
+            return $http.post("/account/OutsiteLogin", data)
+        },
+        loginOut:function(){
+            return $http.post("/account/LoginOff", data)
         }
     }
 }).service("RegisterService",function($http){
@@ -62,7 +68,7 @@ angular.module('chetongxiang.services', []).service("AllianceRegService", functi
             return $http.post("/user/CheckAccount", _account);
         },
          register:function(data){
-            return $http.post("",data)
+            return $http.post("/account/OutsiteRegister",data)
         }
     }
 
