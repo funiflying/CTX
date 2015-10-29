@@ -1,0 +1,22 @@
+'use strict';
+
+// Declare app level module which depends on filters, and services
+angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDialog']).
+config(['$routeProvider', function ($routeProvider) {
+	/*************
+	 *个人中心
+	 * 
+	 * ***********/
+    $routeProvider.when('/audit', {
+        templateUrl: 'partials/audit.html',
+    	controller:auditController
+    });
+    $routeProvider.when('/release', {
+        templateUrl: 'partials/releasecar.html'
+
+    });
+    $routeProvider.otherwise({
+        redirectTo: '/index'
+    });
+  }])
+  

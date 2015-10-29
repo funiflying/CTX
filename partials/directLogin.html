@@ -1,0 +1,42 @@
+
+<style type="text/css">
+	.ngdialog.ngdialog-theme-default .ngdialog-content{
+		padding: 30px 0;
+		width: 500px;
+	}
+	.form-group a{
+		float: right;
+		color: #032AF2;
+	}
+	.form-group a :hover{
+		text-decoration: none;
+		color: #032AF2;
+	}
+</style>
+
+
+<div class="row">
+
+	<div class="col-md-6 col-md-offset-2">
+			<div class="alert alert-warning alert-dismissable text-center" ng-show="Message.status">
+   			   {{Message.msg}}
+			</div>
+			
+		</div>
+	<form role="form" class="col-md-offset-3" name="directLoginForm">
+		
+		<div class=" form-group col-md-8">
+			<label for="name" >登录名：</label>
+			<input type="text" class="form-control col-md-6" name="Account" placeholder="请输入登录名" ng-model="logon.Account" required="required">
+		</div>
+		<div class=" form-group col-md-8">
+			<label for="name" >登录密码：</label><a href="">忘记密码?</a>
+			<input type="password" class="form-control" name="Pwd" placeholder="输入密码" ng-model="logon.Pwd" required="required">
+		</div>
+     <div class=" form-group col-md-8">
+			<input type="button" class=" tui-btn-default tui-btn-block tui-login-btn" value="登 录"  ng-click="directSignin()"/>
+			<a href="">免费注册</a>
+		</div>
+		
+	</form>
+</div>

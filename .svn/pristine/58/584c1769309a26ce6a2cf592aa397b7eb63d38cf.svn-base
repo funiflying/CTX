@@ -1,0 +1,49 @@
+<!doctype html >
+<html lang="en" ng-app="chetongxiang">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>厦门车同享二手车交易平台</title>
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/rewirte.css" />
+		<link rel="stylesheet" type="text/css" href="lib/ngDialog/css/ngDialog.css" />
+		<link rel="stylesheet" href="lib/ngDialog/css/ngDialog-theme-default.css">
+			<link href="lib/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div ng-include="'partials/header.html'"></div>
+		<div ng-view></div>
+		<div ng-include="'partials/footer.html'"></div>
+		<!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+  -->
+		<script src="lib/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="lib/angular/angular.1.4.0.js" type="text/javascript"></script>
+<!--		<script src="lib/angular/angular.min.js" type="text/javascript"></script>-->
+		<script src="lib/angular/angular-route.min.js" type="text/javascript"></script>
+		<script src="lib/ngDialog/js/ngDialog.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/bootstrap/js/bootstrap-datetimepicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/app.js"></script>
+		<script src="js/services.js"></script>
+		<script src="js/controllers.js"></script>
+		<script src="js/filters.js"></script>
+		<script src="js/directives.js"></script>
+		<script src="js/controllers-dk.js"></script>
+		<script src="js/services-dk.js"></script>
+	</body>
+
+</html>

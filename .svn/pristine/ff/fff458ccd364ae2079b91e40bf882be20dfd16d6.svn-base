@@ -1,0 +1,388 @@
+charset='urf-8'
+/*
+ *@version:1.0.0
+ *@author:wutianxiang
+ *@copyright:www.chetongxiang.com
+ *@date:2015-10-12
+ */
+
+* {
+	box-sizing: border-box;
+}
+body {
+	height: 100%;
+}
+.tui-reg-container {
+	height: 100%;
+	padding: 20px 0;
+	min-height: 500px;
+}
+.tui-reg-phone-container{
+	padding: 100px 0 0 0 !important;
+}
+.tui-reg-active {
+	color: #444;
+	border-bottom: 2px solid #fe6a00;
+}
+.tui-reg-active::before {
+	display: inline-block;
+	background: #fe6a00 !important;
+	color: #fff;
+	content: attr(data-step);
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	border-radius: 50%;
+	text-align: center;
+}
+.tui-label-top {
+	vertical-align: text-top;
+}
+.tui-tip{
+	vertical-align: middle;
+	line-height: 25px;
+	font-size: 12px;
+	color: #fe6a00;
+}
+/************************************
+ *
+ * 注册步骤
+ * 
+ *************************************/
+
+.tui-reg-step {
+	font-size: 16px;
+	color: #c9c9c9;
+	height: 40px;
+	text-align: center;
+	font-weight: 500;
+}
+.tui-reg-items {
+	width: 80%;
+	height: 100%;
+	border-bottom: 2px solid #e5e5e5;
+}
+.tui-reg-item {
+	display: inline-block;
+	margin: 0 40px;
+	padding: 0 40px;
+	height: 100%;
+}
+.tui-reg-item::before {
+	display: inline-block;
+	background: #c9c9c9;
+	color: #fff;
+	content: attr(data-step);
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	border-radius: 50%;
+	text-align: center;
+}
+/************************************
+ *
+ * 
+ * 
+ *************************************/
+
+.tui-reg-step-content {
+	padding: 50px 0 0 10px;
+	text-align: left;
+	color: #1c1c1c;
+	font-size: 14px;
+}
+.tui-reg-step-content a:hover {
+	text-decoration: none;
+}
+.tui-label-vertical-top{
+
+	vertical-align: top;
+	
+	
+}
+/************************************
+ *
+ * 文件上传控件
+ * 
+ *************************************/
+
+
+/************************************
+ *
+ * 按钮
+ * 
+ *************************************/
+
+ .tui-vercode-btn {
+	border: none;
+	display: inline-block;
+	height: 35px;
+	width: 110px;
+	line-height: 35px;
+	background: #cccccc;
+	color: #333;
+	border-radius:4px ;
+}
+.tui-reg-btn {
+	border: none;
+	display: inline-block;
+	height: 35px;
+	width: 180px;
+	line-height: 35px;
+	color: #fff;
+	border-radius: 5px;
+	font-size: 18px;
+	margin-top: 10px;
+	background: #fe6a00;
+	background: -moz-linear-gradient(top, #fe6a00, #d65900);
+	background: -webkit-linear-gradient(top, #fe6a00, #d65900);
+	background: -o-linear-gradient(top, #fe6a00, #d65900);
+	background: -ms-linear-gradient(top, #fe6a00, #d65900);
+	text-align: center;
+}
+.tui-reg-next{
+	margin-left: 150px;
+}
+.tui-reg-btn:hover {
+	background: -moz-linear-gradient(top, #d65900, #fe6a00);
+	background: -webkit-linear-gradient(top, #d65900, #fe6a00);
+	background: -o-linear-gradient(top, #d65900, #fe6a00);
+	background: -ms-linear-gradient(top, #d65900, #fe6a00);
+}
+.tui-vercode-img {
+	display: inline-block;
+	width: 85px;
+	height: 30px;
+	vertical-align: middle;
+	margin: 0 10px;
+}
+.tui-change-vercode {
+	color: #fe6a00;
+	text-decoration: none;
+}
+.tui-service-agreement {
+	height: 30px;
+	line-height: 30px;
+	color: #032af2;
+}
+.tui-service-agreement a {
+	color: #032af2;
+}
+.tui-member-btn {
+	width: 115px;
+	font-size: 14px;
+	text-align: center;
+}
+.tui-btn-saveMember,.tui-btn-partner {
+	font-size: 14px;
+	color: #fff;
+	width: 200px;
+	/*margin-left: 140px;*/
+}
+/************************************
+ *
+ * 上传
+ * 
+ *************************************/
+.icon-picture::before{
+	color: #25dd48;
+}
+.uploadify-button-text{
+	color: #4e4e4e;
+}
+.tui-upload-group {
+	padding: 5px 0;
+	position: relative;
+	width: 260px;
+}
+.tui-upload-group i {
+	color: #25dd48;
+}
+.tui-upload-group i span {
+	color: #4e4e4e;
+	font-size: 14px;
+}
+.tui-upload-btn {
+	display: inline-block;
+	height: 18px;
+	width: 40px;
+	background: #fe6a00;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	float: right;
+	font-size: 12px;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+.tui-upload-btn:hover {
+	color: #fff;
+	opacity: .8;
+}
+/************************************
+ *
+ * 评估师与员工
+ * 
+ *************************************/
+
+.tui-member-content {
+	min-height: 300px;
+}
+.tui-member-content hr {
+	background-color: #e5e5e5;
+	height: 2px;
+	width: 80%;
+	color: transparent;
+}
+.tui-reg-member-tool {
+	width: 750px;
+	display: inline-block;
+	text-align: left;
+}
+.tui-reg-member-tool i {
+	color: #ff6a00;
+}
+.tui-info-tab {
+	font-size: 16px;
+	color: #c9c9c9;
+	height: auto;
+	text-align: center;
+	font-weight: 500;
+}
+.tui-info-items {
+	width: 90px ;
+	height: 0;
+	text-align: left;
+	margin-top: 50px;
+}
+.tui-info-item {
+	width: 95px;
+	height: 35px;
+	line-height: 35px;
+	color: #333;
+	background-color: #E5E5E5;
+	text-align: center;
+	cursor: pointer;
+}
+.tui-info-active {
+	color: #FFFFFF;
+	background-color: #fe6a00;
+}
+.tui-user-icon,
+.tui-user-icon img {
+	width: 90px;
+	height: 100px;
+}
+.tui-reg-eappraiserInfo,
+.tui-reg-employeeInfo {
+
+}
+.tui-member-container{
+	display: none;
+}
+.tui-reg-partnerInfo{
+    float: left;
+}
+.tui-reg-member-items {
+	width: 750px;
+	display: inline-block;
+	text-align: left;
+	padding: 10px 0;
+}
+.tui-reg-member-item {
+	padding: 20px;
+	border: 1px solid #bebebe;
+	position: relative;
+	margin: 10px 0;
+}
+.tui-reg-member-item h3 {
+	font-size: 16px;
+	color: #666666;
+}
+.tui-reg-member-item label {
+	width: 100px;
+	padding-right: 0;
+}
+.tui-reg-member-item .tui-form-group {
+	margin: 0;
+}
+.tui-reg-member-item input[disabled] {
+	color: #666;
+	background-color: transparent;
+}
+.tui-reg-member-edit {
+	position: absolute;
+	color: #0e12c0;
+	bottom: 10px;
+	right: 50px;
+}
+.tui-reg-member-edit:hover {
+	text-decoration: none;
+}
+.tui-icon-remove {
+	cursor: pointer;
+	color: #aaaaaa;
+	font-size: 18px;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	transition: ease .2s;
+}
+.tui-icon-remove:hover{
+	transform: rotate(90deg) ;
+	color: #fe6a00;
+}
+/********************
+ *密碼強度
+ ********************/
+
+.tui-pwd-bar .tui-pwd-box {
+	background-color: #c3b39f;
+	color: #fff;
+	cursor: default;
+	display: inline-block;
+	font-size: 12px;
+	font-style: normal;
+	height: 15px;
+	line-height: 15px;
+	margin-left: 1px;
+	text-align: center;
+	vertical-align: middle;
+	width: 80px;
+}
+.tui-pwd-bar .tui-pwd-active {
+	background-color: #957043;
+}
+/************************************
+ *
+ * 注册成功
+ * 
+ *************************************/
+
+.tui-reg-success-container {
+	padding: 80px 0;
+}
+.tui-reg-success {
+	height: 100px;
+	line-height: 100px;
+	font-size: 30px;
+	color: #1c1c1c;
+	text-align: center;
+}
+.tui-reg-success i {
+	color: #0ea52b;
+	font-size: 40px;
+}
+.tui-reg-success span {
+	color: #fe6a00;
+}
+.tui-reg-success-tip {
+	height: 40px;
+	color: #4e4e4e;
+	line-height: 40px;
+	background: #fff8eb;
+	text-align: center;
+	border-radius: 5px;
+	border: dashed 1px #ff7918;
+}

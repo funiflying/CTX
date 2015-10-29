@@ -1,0 +1,56 @@
+'use strict';
+/*
+ *版本：1.0
+ *文件：Controllers
+ *作者：dekent
+ *时间：2015-10-22
+ */
+
+//我要卖车-车源信息发布数据
+angular.module('chetongxiang.services-dk', []).service("CTXService", function($http) {
+	return {
+		//获取品牌接口数据
+		Getbrandlist: function(obj) {
+			return $http.get('test/brandlist-new.json', obj);
+		},
+		//获取首页推荐汽车接口数据
+		GetIndexHot: function(obj) {
+			return $.ajax({
+				type: "POST",
+				//url: "http://192.168.0.198/CarSource/RequestHomeData",
+				url: "http://ctx/RequestHomeData.php",
+				async: false,
+				data: obj,
+				dataType: "jsonp"
+			});
+		},
+		//获取汽车详细接口数据
+//		GetCarInfo: function(obj) {
+//			var retdata = $.ajax({
+//				type: "POST",
+//				//url: "http://192.168.0.198/CarSource/RequestHomeData",
+//				url: "http://ctx/GetCardata.php?callback=jsonpReturn",
+//				async: false,
+//				data: obj,
+//				dataType: "jsonp",
+//				success:function(jsonpReturn) {
+//					console.log(jsonpReturn);
+//					return jsonpReturn;
+//				}
+//			});
+//			
+//			//return retdata.success;
+//			//console.log(retdata);
+//			
+//			//console.log($http.jsonp("http://ctx/GetCardata.php?callback=JSON_CALLBACK",obj));
+//			
+//			//return $http.jsonp("http://ctx/GetCardata.php?callback=JSON_CALLBACK",obj);
+//		},
+		//获取汽车详细接口数据
+		GetCarInfo: function(obj){
+			return $http.jsonp("http://ctx/GetCardata.php?callback=JSON_CALLBACK",obj)
+		}
+		
+	}
+
+})

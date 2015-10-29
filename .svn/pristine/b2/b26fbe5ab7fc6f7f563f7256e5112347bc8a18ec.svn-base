@@ -1,0 +1,132 @@
+
+    
+    {
+        "ALLIANCE_MEMBERS":[{
+             "catalogid": "1",
+             "name": "福建省",
+             "children":[
+                    {
+                        "catalogid": "101",
+                        "name": "厦门市",
+                        "children":[{
+                            "catalogid": "1011",
+                            "name": "思明区",
+                            "children":[
+                            	{
+                            "catalogid": "1012",
+                            "name": "湖里区"
+                           },
+                           {
+                            "catalogid": "1013",
+                            "name": "集美区"
+                           },
+                                    {
+                            "catalogid": "1014",
+                            "name": "同安区"
+                           },
+                                    {
+                            "catalogid": "1015",
+                            "name": "翔安区"
+                           },
+                                    {
+                            "catalogid": "1016",
+                            "name": "海沧区"
+                           }
+                            
+                            
+                            ]
+                           },
+                           {
+                            "catalogid": "1012",
+                            "name": "湖里区"
+                           },
+                           {
+                            "catalogid": "1013",
+                            "name": "集美区"
+                           },
+                                    {
+                            "catalogid": "1014",
+                            "name": "同安区"
+                           },
+                                    {
+                            "catalogid": "1015",
+                            "name": "翔安区"
+                           },
+                                    {
+                            "catalogid": "1016",
+                            "name": "海沧区"
+                           }
+                        ]
+                    },
+                 {
+                        "catalogid": "102",
+                        "name": "福州市",
+                        "children":[{
+                            "catalogid": "1021",
+                            "name": "鼓楼区"
+                           },
+                           {
+                            "catalogid": "1022",
+                            "name": "晋安区"
+                           },
+                           {
+                            "catalogid": "1023",
+                            "name": "台江区"
+                           },
+                                    {
+                            "catalogid": "1024",
+                            "name": "仓山区"
+                           },
+                                    {
+                            "catalogid": "1025",
+                            "name": "马尾区"
+                           }
+                        ]
+                    }
+                
+                ]
+        
+             },
+            {
+             "catalogid": "1",
+             "name": "广东省",
+             "children":[
+                    {
+                        "catalogid": "101",
+                        "name": "厦门市",
+                        "children":[{
+                            "catalogid": "1011",
+                            "name": "思明区"
+                           },
+                           {
+                            "catalogid": "1012",
+                            "name": "湖里区"
+                           },
+                           {
+                            "catalogid": "1013",
+                            "name": "集美区"
+                           },
+                                    {
+                            "catalogid": "1014",
+                            "name": "同安区"
+                           },
+                                    {
+                            "catalogid": "1015",
+                            "name": "翔安区"
+                           },
+                                    {
+                            "catalogid": "1016",
+                            "name": "海沧区"
+                           }
+                        ]
+                    }
+                
+                ]
+        
+             }
+        
+        ]
+   
+    
+    
+    }

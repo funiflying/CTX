@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="css/shoppingCart.css">
+       <script>
+            $(function(){
+            
+                //数量减
+			$('.tui-decrement').bind('click', function() {
+				var itxt = $(this).siblings('input.tui-itxt');
+				var count = parseInt(itxt.val());
+				if (count == 1) {
+					itxt.val(parseInt(itxt.val()) - 1)
+				}
+			});
+			//数量加
+			$('.tui-increment').bind('click', function() {
+				var itxt = $(this).siblings('input.tui-itxt');
+				var count = parseInt(itxt.val());
+				itxt.val(parseInt(itxt.val()) + 1)
+			});
+            })
+
+       </script>
+        <div class="tui-shopping-container">
+			<div class="tui-shopping-body">
+				<h3 class="tui-shopping-caption">商品清单</h3>
+				<div class="tui-shopping-separationline"></div>
+				<div class="tui-shopping-tabs">
+					<ul class="tui-shoppigcart">
+					    <li class="tui-shoppingcart-item">
+					        <div class="tui-shoppingcart-item-caption">
+					            <div class="col-md-2">车款图片</div>
+					            <div class="col-md-2">车款</div>
+					            <div class="col-md-1">地区</div>
+					            <div class="col-md-3">活动</div>
+					            <div class="col-md-1">数量</div>
+					            <div class="col-md-1">金额</div>
+                                <div class="col-md-2">操作</div>
+					        </div>
+					        <div class="tui-shoppingcart-item-body">
+					            <div class="col-md-2">
+                                    <img src="/images/04.jpg" alt="">
+                                </div>
+					            <div class="col-md-2">车款</div>
+					            <div class="col-md-1">厦门</div>
+					            <div class="col-md-3">
+                                    
+                                
+                                </div>
+					            <div class="col-md-1">
+                                    <div class="tui-quantity-form">
+										<a class="tui-decrement" href="javascript:void(0);">-</a>
+										<input type="text" value="1" class="tui-itxt" autocomplete="off">
+										<a class="tui-increment" href="javascript:void(0);">+</a>
+									</div>
+                                </div>
+					            <div class="col-md-1">
+                                10万
+                                </div>
+                                <div class="col-md-2 tui-shoppingcart-operation">
+                                    <p><a href="javascript:void(0)" class="tui-shopping-favorite">移入收藏夹</a></p>
+									<p><a href="javascript:void(0)" class="tui-shopping-del">删除</a></p>
+                                </div>
+					            
+					        </div>
+					        
+					        
+					    </li>
+					    
+					    
+					    
+					</ul>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				</div>
+				<div class="tui-shopping-separationline"></div>
+				<div class="tui-shopping-toolbar">
+					<input type="checkbox" name="CheckAll" id="CheckAll" value="" />
+					<label for="CheckAll"> 全选</label>
+					<a href="javascript:void(0)" class="tui-shopping-delall">删除</a>
+					<a href="javascript:void(0)" class="tui-shopping-favoriteall">移动收藏夹</a>
+				</div>
+				<div class="tui-shopping-account">
+					<p style="color: #111;">商品总价：100000</p>
+					<p>应付总计：100000</p>
+					<p>定金：999</p>
+					<p style="color: #ff6a00;font-size: 18px;">本次应付定金：999</p>
+					<p>
+						<input type="button" value="提交订单" class="tui-btn-default tui-btn-shopping" />
+
+					</p>
+
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,203 @@
+/*
+ *@version:1.0.0
+ *@author:wutianxing
+ *@copyright:chetongxiang.com
+ *@date:2015.10.23
+ */
+
+/***************
+ *
+ *******index
+ *
+ **************/
+body{
+    font-size: 14px;
+}
+a:hover{
+    text-decoration: none;
+}
+.tui-admin-navbar{
+    background-color: #363f45;
+    height: 60px;
+    line-height: 60px;
+}
+
+.tui-admin-bar {
+    background: url(/admin/images/logo.png) left center no-repeat;
+    height: 100%;
+    text-align: right;
+}
+.tui-admin-bar i{
+    color: #fff;
+    font-size: 16px;
+    margin: 0 10px;
+}
+.tui-admin-bar span.badge{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 10px;
+    background: #fe5621;
+    font-weight: normal;
+    border-radius: 50%;
+    padding: 0;
+}
+.tui-admin-sidebar{
+    height: 100%;
+    background: #f5f5f5;
+    text-align: center;
+    padding: 30px 0;
+}
+.tui-admin-aside{
+  
+
+}
+.tui-admin-aside a{
+    margin: 0 10px;
+    color: #333333;
+}
+.tui-admim-headIcon{
+    width: 125px;
+    height: 125px;
+}
+.tui-admin-name {
+    color:#999999;
+    line-height: 30px;
+}
+
+.tui-admin-aside-nav {
+    padding: 30px 0;
+    font-size: 16px;
+    color: #4c4c4c;
+}
+
+.tui-admin-asidenav-item {
+    height: 55px;
+    line-height: 50px;
+}
+.tui-admin-asidenav-item:hover,
+.tui-admin-asidenav-item-active{
+    background: #fff;
+}
+.tui-admin-asidenav-item a{
+    display: block;
+    outline: none;
+}
+.tui-admin-asidenav-item a:hover{
+color: #4c4c4c;
+}
+.tui-admin-personcenter{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.tui-admin-h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.tui-admin-h2+a {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.tui-admin-personinfo {
+    width: 50%;
+    height: 60px;
+    vertical-align: center;
+}
+.tui-admin-progressbar
+{
+    width: 60%;
+    padding-top:10px;
+}
+.tui-admin-progressbar .progress{
+    display: inline-block;
+    width: 90%;
+}
+
+.tui-admin-coin {
+    width: 280px;
+    height: 170px;
+    background: #f5f5f5;
+    padding: 10px;
+}
+
+.tui-admin-icon-count {
+    height: 90px;
+    background-color: #fff;
+    background-image: url(/admin/images/coin-count.png);
+    background-position: 20px center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.tui-admin-location {
+    height: 45px;
+    line-height: 45px;
+}
+/***************
+ *
+ *******orders
+ *
+ **************/
+.tui-admin-order-item {
+    height: 210px;
+    border: 1px solid #e2e2e2;
+    margin-bottom: 10px;
+}
+.tui-admin-order-caption>div{
+    height: 40px;
+    line-height: 40px;
+    background: #f0f0f0;
+    text-align: center;
+}
+.tui-admin-order-body>div{
+    height: 170px;
+    line-height: 170px;
+    text-align: center;
+    color: #333333;
+}
+.tui-admin-order-body>div h2{
+    font-size: 18px;
+    color: #333333;
+}
+.tui-admin-order-body>div p strong{
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6a00;
+}
+.tui-admin-order-body>div p label{
+    color: #ff6a00;
+}
+.tui-admin-order-body>div img{
+   width: 190px;
+   height: 150px;
+}
+.tui-admin-order-body>div a{
+   color: #3250be;
+    vertical-align:middle;
+}
+.tui-admin-order-body>div.tui-order-car{
+    padding-top: 30px;
+    line-height: 40px;
+}
+.tui-order-carinfo{
+ 
+ border: 1px solid #e2e2e2;
+    height: 40px;
+    line-height: 20px;
+}
+.tui-order-carinfo li{
+    display: inline-block;
+    width: 23%;
+    font-size: 12px;
+    color: #aaaaaa;
+    border-right: 1px solid #e2e2e2;
+}
+.tui-order-carinfo li>p{
+    font-size: 12px;
+    color: #333333;
+}
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>经销商注册</title>
+		<link rel="stylesheet" href="css/base.css" media="all" />
+		<link rel="stylesheet" href="css/register.css" media="all" />
+	</head>
+
+	<body>
+		<!--for header-->
+		
+		<!--end of header-->
+		<!--for register-->
+		<div class="wrapper tui-reg-container tc">
+			<div class="tui-reg-step">
+				<ul class="tui-reg-items clearfix">
+					<li class="tui-reg-item tui-reg-step-1 " data-step=1>
+						设置登录名
+					</li>
+					<li class="tui-reg-item tui-reg-step-2" data-step=2>
+						填写用户信息
+					</li>
+					<li class=" tui-reg-item tui-reg-step-3 tui-reg-active" data-step="√">
+						注册成功
+					</li>
+				</ul>
+			</div>
+			<!--成功-->
+			<div class="tui-reg-step-content tui-reg-success-container">
+				<form action="">
+						<p class="tui-reg-success">
+							<i class="icon-ok-circle"></i>
+							<span>{{PersonName}}</span>， 恭喜亲成功开通车同享服务!
+						</p>
+						<p class="tui-reg-success-tip">您的手机号{{reg.contact}}也可以作为用户名登录车同享服务</p>
+				</form>
+			</div>
+		</div>
+		<!--end of register-->
+		</div>
+		<!--for footer-->
+		
+		<!--end of footer-->
+
+	</body>
+
+</html>

@@ -1,0 +1,72 @@
+<ul class="tui-oa-orders">
+    
+    <li class="tui-oa-order-item">
+        <div class="tui-oa-order-caption">
+            <div class="col-md-3">
+                车辆图片
+            </div>
+            <div class="col-md-5">
+                车辆信息
+            </div>
+            <div class="col-md-2">
+                车辆编号
+            </div>
+            <div class="col-md-2">
+                操作
+            </div>
+        </div>
+         <div class="tui-oa-order-body">
+            <div class="col-md-3">
+                <img src="/images/default.jpg" alt="">
+            </div>
+            <div class="col-md-5 tui-order-car">
+                <h2>马自达8 2011款 2.3 自动 双驱至尊版</h2>
+                <p><strong>￥17.8</strong><label>万</label>(新车价24.1万，比新车<label>省16.3万</label>)</p>
+                <ul class="tui-order-carinfo">
+                    <li>
+                        <p>2015-9</p>
+                           上牌时间
+                    </li>
+                    <li>
+                        <p>1万公里</p>
+                        里程
+                    </li>
+                    <li>
+                        <p>自动</p>
+                        变速箱
+                    </li>
+                    <li style="border:none;">
+                        <p>厦门</p>
+                        归属地
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                BMW-ML350
+            </div>
+            <div class="col-md-2" style="line-height:30px;padding-top:60px;">
+               <button type="button" class="btn btn-info" ng-click="permit(obj.UserID,1)">通过</button>
+				<button type="button" class="btn btn-warning" ng-click="permit(obj.UserID,0)">禁止</button>
+               <br>
+                <a href="">查看详情</a>
+            </div>
+        </div>
+    </li>
+</ul>
+<di class="tui-pager">
+    <ul class="tui-pager">
+        <li class="tui-firstpage">首页</li>
+        <li class="tui-previous">上一页</li>
+        <li class="tui-next">下一页</li>
+        <li class="tui-lastpage">末页</li>
+        <li class="tui-turnpage">转跳到
+            <select name="" id="">
+                <option>1/3</option>
+                <option>2/3</option>
+                <option>3/3</option>
+            </select>
+            页
+        </li>
+    </ul>
+    
+</di>

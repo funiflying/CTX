@@ -1,0 +1,23 @@
+'use strict';
+
+/* Filters */
+
+angular.module('chetongxiang.filters', []).
+filter('isNullOrEmpty', function() {
+	return function(str) {
+		if (str == null || str.replace(/(^s*)|(s*$)/g, "").length == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+});
+
+
+angular.module('chetongxiang.filters', []).
+filter('FormatPrice', function() {
+	return function(num) {
+		//return (num/100000000 > 1) ? (num/100000000).'亿' : ((num/10000 > 1) ? (num/10000).'万' : num);
+		return num/10000;
+	}
+});

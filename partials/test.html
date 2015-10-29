@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>AngularJS 级联菜单</title>
+	
+	<link rel="stylesheet" type="text/css" href="lib/ngDialog/css/ngDialog.css" />
+		<link rel="stylesheet" href="lib/ngDialog/css/ngDialog-theme-default.css">
+		<link rel="stylesheet" href="lib/ngDialog/css/ngDialog-theme-plain.css">
+		<link rel="stylesheet" href="lib/ngDialog/css/ngDialog-custom-width.css">
+  </head>
+<body>
+    <div class='content' ng-app >
+    <div ng-init="districts=[
+				{code: '99', name: '省直', units: [
+				{code: '9901', name: '省单位1', positions: [
+				{code: '990101', name: '省职位1' },
+				{code: '990102', name: '省职位2' }
+				]},
+				{code: '9902', name: '省单位2', positions: [
+				{code: '990201', name: '省职位3' },
+				{code: '990202', name: '省职位4' }
+				]}
+				]},
+				{code: '01', name: '长沙', units: [
+				{code: '0101', name: '长沙单位1', positions: [
+				{code: '010101', name: '长沙职位1' },
+				{code: '010102', name: '长沙职位2' }
+				]},
+				{code: '0201', name: '长沙单位2', positions: [
+				{code: '010201', name: '长沙职位3' },
+				{code: '010202', name: '长沙职位4' }
+				]}
+				]}]" >
+			<select ng-model="selectedDistrict" ng-change="selectedUnit=''" ng-options="district.name for district in districts" >
+			<option value="">---请选择考区---</option>
+			</select>
+			<select ng-model="selectedUnit" ng-change="selectedPosition=''" ng-options="unit.name for unit in selectedDistrict.units">
+			<option value="">---请选择单位---</option>
+			</select>
+			<select ng-model="selectedPosition" ng-options="unit.name for unit in selectedUnit.positions">
+			<option value="">---请选择职位---</option>
+			</select>
+			</div>
+  </div>
+  <script src="lib/angular/angular.1.4.0.js" type="text/javascript"></script>
+  </body>
+</html>

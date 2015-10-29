@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="css/register.css">
+<!--for register-->
+<div class="container  tui-reg-container tc">
+	<!--<div class="tui-reg-step">
+		<ul class="tui-reg-items clearfix">
+			<li class="tui-reg-item tui-reg-step-1" data-step=1>
+				设置登录名
+			</li>
+			<li class="tui-reg-item tui-reg-step-2 tui-reg-active" data-step=2>
+				填写用户信息
+			</li>
+			<li class=" tui-reg-item tui-reg-step-3 " data-step="√">
+				注册成功
+			</li>
+		</ul>
+	</div>-->
+	<!--step2-->
+	<div class="tui-reg-info-container">
+		<div class="tui-reg-step-content ">
+			<form action="" id="tui-reg-form" name="registerForm" class=" form-horizontal" role="form" novalidate>
+				<!--信息-->
+				<div class="tui-reg-step1-content col-md-offset-3">
+					<div class="tui-reg-allianceInfo ">
+						<div class="form-group">
+							<label for="Account" class="col-md-2 control-label"> 用户名：</label>
+							<div class="col-md-4 ">
+								<input type="text" name="Account" id="Account" value="" class="form-control" required="required" ng-model="Account" ng-blur="checkAccout()"/>
+							</div>
+							<div class="col-md-2 " >
+								<span class="tui-tip" ng-show="registerForm.Account.$dirty&&registerForm.Account.$invalid">请输入用户名</span>
+								<span class="tui-tip" ng-show="registerForm.Account.$dirty&&registerForm.Account.$valid&&flag">该用户名已注册</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="Pwd" class="col-md-2 control-label">密码：</label>
+							<div class="col-md-4 ">
+								<input type="password" name="Pwd" id="Pwd" value="" class="form-control" ng-model="Pwd"  required="required"/>
+							</div>
+							<div class="col-md-2 " ng-show="registerForm.Pwd.$dirty&&registerForm.Pwd.$invalid">
+								<span class="tui-tip">请输入密码</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="ConfigPwd" class="col-md-2 control-label">确认密码：</label>
+							<div class="col-md-4 ">
+								<input type="password" name="ConfigPwd" id="Pwd" value="" class="form-control" ng-model="ConfigPwd" required="required" />
+							</div>
+							<div class="col-md-2 " ng-show="registerForm.ConfigPwd.$dirty&&registerForm.ConfigPwd.$invalid">
+								<span class="tui-tip">确认密码</span>
+							</div>
+						</div>
+
+						</div>
+					</div>
+				</div>
+			</form>
+			<input type="button" name="" id="" value="同意协议并注册" class="tui-reg-btn tui-reg-submit" ng-click="register()" />
+		<p class="tui-service-agreement"><a href="">《车同享服务协议》</a></p>
+	</div>
+
+<!--modal-->
+<!--end of register-->
+</div>
+
+

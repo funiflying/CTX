@@ -1,0 +1,32 @@
+<!--Footer Layout Begin-->
+		<footer class="w foot-wrap">
+			<div class="foot-layout wrapper">
+				<div class="foot-nav-w">
+					<div class="foot-nav-l">
+						<div class="foot-nav">
+							<ul>
+								<li><a href="#">上海二手车</a><a href="#">福州二手车</a><a href="#">厦门二手车</a><a href="#">福州二手车</a></li>
+								<li><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a></li>
+								<li><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a></li>
+								<li><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a></li>
+								<li><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a></li>
+								<li><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a></li>
+								<li><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a></li>
+								<li><a href="#">福州二手车</a><a href="#">福州二手车</a><a href="#">福州二手车</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="foot-nav-r">
+						<div class="qrcode-wrap"><img src="images/erweima.jpg"></div>
+					</div>
+				</div>
+
+				<div class="foot-main wrapper">
+					<p>车同享科技有限公司</p>
+					<p>座机：0592-1111111</p>
+					<p>地址：福建省厦门市思明区观音山国际运营中心9号楼20层</p>
+					<p>Copyright 2015 www.chetongxiang.com All Rights Reserved</p>
+				</div>
+			</div>
+		</footer>
+		<!--Footer Layout End-->

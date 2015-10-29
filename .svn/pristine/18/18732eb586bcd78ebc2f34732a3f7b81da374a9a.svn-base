@@ -1,0 +1,163 @@
+@charset "utf-8";
+.box-sell {
+	background: #fafafa;
+	display: inline-block;
+}
+/*我要卖车，车源发布*/
+
+.d-here {
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	margin-bottom: 10px;
+	font-size: 12px;
+	position: relative;
+	float: left;
+}
+.d-here a {
+	padding: 0 5px 0 5px;
+}
+.d-jiantou {
+	display: block;
+}
+.d-sell-title {
+	height: 35px;
+	line-height: 35px;
+	width: 100%;
+	float: left;
+	vertical-align: bottom;
+	padding-bottom: 6px;
+	border-bottom: 2px solid #dedede;
+}
+.d-sell-title h2 {
+	font-size: 18px;
+	padding: 0px 0 0 10px;
+	line-height: 35px;
+	margin: 0px;
+	float: left;
+}
+.d-sell-title span {
+	margin-left: 15px;
+	font-size: 16px;
+	line-height: 35px;
+	float: left;
+}
+.d-form-div {
+	margin: 10px 0px 10px 0px;
+	position: relative;
+	float: left;
+	width: 100%;
+	line-height: 30px;
+}
+.d-form-div label {
+	font-size: 14px;
+	width: 250px !important;
+	float: left;
+	/*padding-top: 0px;*/
+}
+.d-form-div label span {
+	color: #FF4400;
+	margin: 0px 5px 0px 0px;
+}
+.d-form-div span {
+	margin-left: 10px;
+}
+.d-form-div .d-date-wrap {
+	float: left; position: relative;
+}
+.d-form-div .d-color-change {
+	width: 650px;
+	float: left;
+}
+.d-form-div .d-color-change a {
+	width: 72px;
+	height: 72px;
+	float: left;
+	border: 1px solid #dedddc;
+	margin: 5px 10px 5px 0px;
+	text-align: center;
+	display: block;
+	position: relative;
+}
+.d-form-div .d-color-change a:hover {
+	text-decoration: none;
+	border: 1px solid #ff6a00;
+}
+.d-form-div .d-color-change .cborder {
+	border: 1px solid #ff6a00;
+}
+.d-color-m {
+	width: 42px;
+	height: 17px;
+	display: block;
+	margin: 15px auto 8px auto;
+	border: 1px solid #dedddc;
+}
+.d-form-div .on {
+	display: block;
+}
+.d-color-check {
+	background: url(../images/check-yes-icon.png);
+	display: none;
+	z-index: 10;
+	right: 0px;
+	bottom: 0px;
+	position: absolute;
+	width: 22px;
+	height: 19px;
+}
+.d-form-div .input-right40 {
+	margin-left: -40px;
+	color: #999999;
+}
+.d-form-div .input-right30 {
+	margin-left: -30px;
+	color: #999999;
+}
+.d-form-div .d-fr-div {
+	width: 550px;
+	float: left;
+	position: relative;
+	display: inline-block;
+}
+.d-form-div .d-multiple-change {
+	width: 650px;
+	line-height: 32px;
+	float: left;
+}
+.d-form-div .d-multiple-change a {
+	width: 82px;
+	height: 32px;
+	float: left;
+	border: 1px solid #dedddc;
+	margin: 5px 10px 5px 0px;
+	text-align: center;
+	display: block;
+	position: relative;
+}
+.d-form-div .d-multiple-change a:hover {
+	text-decoration: none;
+	border: 1px solid #ff6a00;
+}
+.d-form-div .d-multiple-change .cborder {
+	border: 1px solid #ff6a00;
+}
+.d-form-div button {
+	background: #f48e00;
+	padding: 15px 25px 15px 25px;
+	margin: auto;
+	width: 220px;
+	height: 60px;
+	display: block;
+	font-size: 18px;
+	line-height: 30px;
+}
+.d-form-div .ChangeBrand{
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.d-line-grey {
+	border-bottom: 1px solid #dedede;
+}

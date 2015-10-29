@@ -1,0 +1,167 @@
+<!doctype html >
+<html lang="en" ng-app="chetongxiang">
+<head>
+  <meta charset="utf-8">
+  <title>车同享</title>
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../lib/ngDialog/css/ngDialog.css" />
+  <link rel="stylesheet" href="../lib/ngDialog/css/ngDialog-theme-default.css">
+  <link rel="stylesheet" href="../css/base.css"/>
+  <link rel="stylesheet" href="css/oa.css">
+</head>
+<body>
+  
+  <div class="tui-oa-navbar">
+      <div class="wrapper tui-oa-bar">
+          <i class="glyphicon glyphicon-envelope">
+              <span class="badge">13</span>
+          </i>
+          <i class="glyphicon glyphicon-bookmark">
+               <span class="badge">1</span>
+          </i>
+          <i class="glyphicon glyphicon-cog"></i>
+          <i class="glyphicon glyphicon-search"></i>
+      </div>
+      
+  </div>
+  <div class="container wrapper">
+      <div class="row">
+             <!-- 左侧菜单  -->
+          <div class="col-md-2 tui-oa-sidebar">
+              <div class="tui-oa-aside">
+                  <img src="/images/06.jpg" alt="" class="tui-admim-headIcon">
+                  <p class="tui-oa-name">
+                      吴添祥    
+                  </p>
+                  <a href="">账号设置</a>|<a href="">消息</a>
+              </div>
+              <div class="tui-oa-aside-nav">
+                  <ul class="tui-oa-asidenav-items">
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">首页</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">审核 <i class=" glyphicon glyphicon-chevron-down tui-oa-down"></i></a>
+                          <ul style="display: none;">
+                          	<li><a href="#/audit">联盟商</a></li>
+                          	<li><a href="#/releasecar">车源信息</a></li>
+                          </ul>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">技能设定</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">评估管理</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">我的足迹</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">我的收藏</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">意见反馈</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">帮助中心</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+    <!--endof 左侧菜单  -->
+    <!-- 内容  -->
+          <div class=" col-md-10 tui-oa-personcenter">
+              <!--个人信息-->
+              <div class="row">
+                  <div class="col-md-6 clearfix">
+                      <div class="pull-left tui-oa-personinfo">
+                          <h2><span class="tui-oa-h2">吴添祥</span><a href="">我要认证&gt;&gt;</a></h2>
+                          <p style="line-height:40px">0个关注，0个粉丝，0个帖子</p>
+                      </div>
+                      <div class="pull-left tui-oa-personinfo" style="line-height:60px;">
+                          <input type="button" value="充值" class="btn btn-default"> 
+                          <input type="button" value="提现" class="btn btn-default">
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="tui-oa-progressbar">
+                          等级:(小学生)
+                              <div class="progress">
+                               <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                  <span class="">40% 完成</span>
+                               </div>
+                            </div>
+                         
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="tui-oa-coin">
+                          <div class="tui-oa-icon-count">
+                             <span class="pull-right" style="color:#6dc9f9;font-size:16px;text-align:center;line-height:25px;margin:10px;">
+                                 我的车币
+                                 <br>
+                                  40
+                                
+                             </span>
+                             <p style="position:absolute;left:20px;bottom:0"><a href="" class="">如何获得&gt;&gt;</a></p> 
+                              
+                          </div>
+                          
+                      </div>
+                  
+                  </div>
+                  
+                  
+              </div>
+               <!--endof 个人信息-->
+               <!--页面定位-->
+               <div class="tui-oa-location">
+                   当前位置：<a href="">首页</a> &gt; <span>订单管理</span>
+               </div>
+               <!--endof页面定位-->
+               <div ng-view class="">
+          </div>
+          
+          
+          
+          
+      </div>
+      
+      
+      
+      
+      
+      
+  </div>    
+ 
+  	
+  	
+  </div>
+  <script src="../lib/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+   <script src="../lib/angular/angular.1.4.0.js" type="text/javascript"></script>
+  <script src="../lib/angular/angular-route.min.js" type="text/javascript"></script>
+  <script src="../lib/angular/angular-messages.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../lib/angular/ng-file-upload-all.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../lib/ngDialog/js/ngDialog.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="../js/util.js"></script>
+  <script src="js/app-oa.js"></script>
+  <script src="js/services-oa.js"></script>
+  <script src="js/controllers-oa.js"></script>
+  <script type="text/javascript">
+  	$(function(){
+  		$(".tui-oa-asidenav-item").on("click",function(){
+  			$(this).children("ul").toggle()
+  			
+  			
+  		})
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  	})
+  </script>
+</body>
+</html>

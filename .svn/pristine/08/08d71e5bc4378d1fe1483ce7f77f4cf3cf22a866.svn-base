@@ -1,0 +1,37 @@
+<div class="row " style="height: 430px;padding: 50px 0 ;">
+	<div class="col-md-3 text-center">
+		<img src="images/1.jpg" style="width:130px;height:180px;margin-top: 15px;" />
+         {{$scope.c}}
+	</div>
+	<div class="col-md-9">
+		<table border="0" cellspacing="0" cellpadding="0" class="tui-audit-members-tab">
+			<tr>
+				<th>姓名：</th><td>吴添祥</td>
+				<th>性别：</th><td>男</td>
+			</tr>
+			<tr>
+				<th>手机号：</th><td>18650320029</td>
+				<th>传真：</th><td>059226262678</td>
+			</tr>
+			<tr>
+				<th>入行日期：</th><td>2010-10-10</td>
+				<th>资格证书：</th><td rowspan="3">
+					<img src="images/zhengshu.jpg" alt="" style="width: 122px;height: 82px;" />
+				</td>
+			</tr>
+			<tr>
+				<th>企业全称：</th><td>厦门钱多多投资股份有限公司</td>
+			</tr>
+			<tr><th>企业负责人：</th><td>吴添祥</td></tr>
+			<tr>
+				<th>个人用户名：</th><td>funiflying</td>
+				
+			</tr>
+			<tr>
+				<th>身份证号码：</th><td>315010100111101011</td>
+			</tr>
+		</table>
+
+	</div>
+
+</div>

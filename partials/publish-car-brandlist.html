@@ -1,0 +1,30 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="lib/ngDialog/css/ngDialog.css" />
+		<link rel="stylesheet" href="lib/ngDialog/css/ngDialog-theme-default.css">
+		<link rel="stylesheet" href="lib/ngDialog/css/ngDialog-theme-plain.css">
+		<link rel="stylesheet" href="lib/ngDialog/css/ngDialog-custom-width.css">
+	</head>
+
+	<body>
+		<div style="position: relative; display: block;">
+			<!--<ul style="width: 100%; display: inline-block;">
+				<li style="width: 95px; margin: 2px; line-height: 25px; border: 1px dashed #F7E1B5; display: block; float: left;" ng-repeat="bd in brandslist">{{bd.brandName}}
+					<div>
+						<div ng-repeat="cx in bd.chexi">{{cx.SeriesName}}</div>
+					</div>
+				</li>
+			</ul>-->
+<!--bd.brandID as bd.brandName for bd -->
+			<select ng-model="selectedBrand" ng-change="selectedChexi=''" ng-options="(bd.AbcOrder+' -> '+bd.brandName) for bd in brandslist">
+				<option value="">---请选择品牌---</option>
+			</select>
+			<select ng-model="selectedChexi" ng-options="cx.SeriesName for cx in selectedBrand.chexi">
+				<option value="">---请选择车系---</option>
+			</select>
+		</div>
+	</body>
+
+</html>

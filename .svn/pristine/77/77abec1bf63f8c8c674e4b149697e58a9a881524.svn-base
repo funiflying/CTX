@@ -1,0 +1,36 @@
+{"data":[{
+			"NO": "3",
+			"SeriesName": "福克斯",
+			"brandID": "46",
+			"SeriesID": "3"
+		}, {
+			"NO": "16",
+			"SeriesName": "宝来",
+			"brandID": "32",
+			"SeriesID": "16"
+		}, {
+			"NO": "1",
+			"SeriesName": "POLO",
+			"brandID": "32",
+			"SeriesID": "1"
+		}, {
+			"NO": "8",
+			"SeriesName": "帕萨特",
+			"brandID": "32",
+			"SeriesID": "8"
+		}, {
+			"NO": "9",
+			"SeriesName": "途观",
+			"brandID": "32",
+			"SeriesID": "9"
+		}, {
+			"NO": "2",
+			"SeriesName": "宝马5系",
+			"brandID": "7",
+			"SeriesID": "2"
+		}, {
+			"NO": "6",
+			"SeriesName": "马自达3",
+			"brandID": "105",
+			"SeriesID": "6"
+		}]};

@@ -1,0 +1,437 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/carlist.css" />
+<!--Index Main Begin-->
+
+<div class="w box-bg">
+	<div class="wrapper">
+		<div class="d-search-w">
+			<div class="d-search-main">
+				<form ng-class="{focus:focus}" ng-submit="submit()">
+					<input type="text" name="as_q" placeholder="我要买一辆车" ng-focus="focus=true" ng-blur="focus=false" ng-model="carfilter.SearchWord" docs-search-input autocomplete="off" name="search" />
+					<button class="d-s-submit"></button>
+			</div>
+			<div class="d-s-keyword"><a href="#">卡罗拉</a><a href="#">CR-V</a><a href="#">福克斯</a><a href="#">朗逸</a><a href="#">帕沙特</a></div>
+			<div class="d-s-sales"><span>1758</span>辆车出售中</div>
+		</div>
+
+		<div class="d-change-w mb10 clearfix">
+			<dl class="change">
+				<dt>品牌：</dt>
+				<dd id="data-brandID">
+					<a href="javascript:;" class="on">不限</a>
+					<a class="" href="javascript:;">大众</a>
+					<a class="" href="javascript:;">丰田</a>
+					<a class="" href="javascript:;">本田</a>
+					<a class="" href="javascript:;">日产</a>
+					<a class="" href="javascript:;">奥迪</a>
+					<a class="" href="javascript:;">别克</a>
+					<a class="" href="javascript:;">奔驰</a>
+					<a class="" href="javascript:;">福特</a>
+					<a class="" href="javascript:;">马自达</a>
+					<a class="" href="javascript:;">宝马</a>
+					<a class="" href="javascript:;">雷克萨斯</a>
+					<a class="" href="javascript:;">比亚迪</a>
+					<a class="" href="javascript:;">长安</a>
+					<a class="" href="javascript:;">捷豹</a>
+					<a class="" href="javascript:;">Smart</a>
+					<a class="" href="javascript:;">长城</a>
+					<a class="" href="javascript:;">Jeep</a>
+					<a class="" href="javascript:;">猎豹</a>
+					<span class="brand-all z30"><em data-role="show">全部<i></i></em></span>
+				</dd>
+			</dl>
+			<dl class="change">
+				<dt>车系：</dt>
+				<dd id="data-chexilist">
+					<a class="on" href="javascript:;">不限</a>
+					<a class="" href="javascript:;">高尔夫</a>
+					<a class="" href="javascript:;">轩逸</a>
+					<a class="" href="javascript:;">C级</a>
+					<a class="" href="javascript:;">福克斯</a>
+					<a class="" href="javascript:;">凯越</a>
+					<a class="" href="javascript:;">Polo</a>
+					<a class="" href="javascript:;">CR-V</a>
+					<a class="" href="javascript:;">花冠</a>
+					<a class="" href="javascript:;">ES</a>
+					<a class="" href="javascript:;">A4L</a>
+					<a class="" href="javascript:;">汉兰达</a>
+					<a class="" href="javascript:;">1系</a>
+					<a class="" href="javascript:;">速腾</a>
+					<a class="" href="javascript:;">君威</a>
+					<a class="" href="javascript:;">卡罗拉</a>
+				</dd>
+			</dl>
+			<dl class="change">
+				<dt>价格：</dt>
+				<dd id="data-pricelist">
+					<a class="on" href="javascript:;" data-value="0">不限</a>
+					<a class="" href="javascript:;" data-value="1">5万以下</a>
+					<a class="" href="javascript:;" data-value="2">5-10万</a>
+					<a class="" href="javascript:;" data-value="3">10-15万</a>
+					<a class="" href="javascript:;" data-value="4">15-20万</a>
+					<a class="" href="javascript:;" data-value="5">20-30万</a>
+					<a class="" href="javascript:;" data-value="6">30-40万</a>
+					<a class="" href="javascript:;" data-value="7">40-50万</a>
+					<a class="" href="javascript:;" data-value="8">50万以上</a>
+					<span>
+			                <label>
+			                    <input type="text" value="" data-default-value="0" size="4" maxlength="3" id="my_price_b" name="b">
+			                </label>
+			                <label><i class="input-line">-</i></label>
+			                <label>
+			                    <input type="text" value="" data-default-value="999" size="4" maxlength="3" id="my_price_e" name="e">
+			                </label>
+			                <label>万</label>
+			                <label><a href="#">筛选</a></label>
+			                </span>
+				</dd>
+			</dl>
+			<dl class="change"><dt>车龄：</dt>
+				<dd id="data-caryearlist">
+					<a class="on" href="javascript:;" data-value="0">不限</a>
+					<a class="" href="javascript:;" data-value="1">1年以内</a>
+					<a class="" href="javascript:;" data-value="2">3年内</a>
+					<a class="" href="javascript:;" data-value="3">5年内</a>
+					<a class="" href="javascript:;" data-value="4">5年以上</a>
+				</dd>
+			</dl>
+			<dl class="more" id="chexing">
+				<dt>更多：</dt>
+				<dd>
+					<div class="more-btn">
+						<a href="javascript:void();">车型</a>
+					</div>
+					<div class="more-box">
+						<div class="more-in-wrap">
+							<div class="moreitem-opts" data-name="Style">
+								<a class="one" href="javascript:;" data-value="0">不限</a>
+								<a href="javascript:;" data-value="1">小型车</a>
+								<a href="javascript:;" data-value="2">紧凑型车</a>
+								<a href="javascript:;" data-value="3">中型车</a>
+								<a href="javascript:;" data-value="4">豪华型车</a>
+								<a href="javascript:;" data-value="5">SUV</a>
+								<a href="javascript:;" data-value="6">MPV</a>
+								<a href="javascript:;" data-value="7">跑车</a>
+								<a href="javascript:;" data-value="8">商用车</a>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="more-btn">
+						<a href="javascript:void();">行驶里程</a>
+					</div>
+					<div class="more-box">
+						<div class="more-in-wrap">
+							<div class="moreitem-opts" data-name="Mileage">
+								<a class="one" href="javascript:;" data-value="0">不限</a>
+								<a class="" href="javascript:;" data-value="1">1万公里内</a>
+								<a class="" href="javascript:;" data-value="2">3万公里内</a>
+								<a class="" href="javascript:;" data-value="3">5万公里内</a>
+								<a class="" href="javascript:;" data-value="4">5万公里以上</a>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="more-btn">
+						<a href="javascript:void();">变速箱</a>
+					</div>
+					<div class="more-box">
+						<div class="more-in-wrap">
+							<div class="moreitem-opts" data-name="GearBox">
+								<a class="one" href="javascript:;" data-value="0">不限</a>
+								<a class="" href="javascript:;" data-value="1">手动</a>
+								<a class="" href="javascript:;" data-value="2">自动</a>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="more-btn">
+						<a href="javascript:;">排量</a>
+					</div>
+					<div class="more-box">
+						<div class="more-in-wrap">
+							<div class="moreitem-opts" data-name="OutputVolume">
+								<a class="one" href="javascript:;" data-value="0">不限</a>
+								<a class="" href="javascript:;" data-value="1">1.0L以下</a>
+								<a class="" href="javascript:;" data-value="2">1.0-1.6L</a>
+								<a class="" href="javascript:;" data-value="3">1.6-2.0L</a>
+								<a class="" href="javascript:;" data-value="4">2.0-3.0L</a>
+								<a class="" href="javascript:;" data-value="5">3.0L以上</a>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="more-btn">
+						<a href="javascript:;">排放标准</a>
+					</div>
+					<div class="more-box">
+						<div class="more-in-wrap">
+							<div class="moreitem-opts" data-name="DischargeStandard">
+								<a class="one" href="javascript:;" data-value="0">不限</a>
+								<a class="" href="javascript:;" data-value="1">国二及以上</a>
+								<a class="" href="javascript:;" data-value="2">国三及以上</a>
+								<a class="" href="javascript:;" data-value="3">国四及以上</a>
+								<a class="" href="javascript:;" data-value="4">国五</a>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="more-btn">
+						<a href="javascript:;">颜色</a>
+					</div>
+					<div class="more-box">
+						<div class="more-in-wrap moreitem-color">
+							<div class="moreitem-opts" data-name="Color">
+								<a class="cur" href="javascript:;" data-value="0"><i></i>不限</a>
+								<a class="" href="javascript:;" data-value="1"><i class="color-01"></i>黑色</a>
+								<a class="" href="javascript:;" data-value="2"><i class="color-02"></i>白色</a>
+								<a class="" href="javascript:;" data-value="3"><i class="color-03"></i>银灰色</a>
+								<a class="" href="javascript:;" data-value="4"><i class="color-04"></i>深灰色</a>
+								<a class="" href="javascript:;" data-value="5"><i class="color-05"></i>红色</a>
+								<a class="" href="javascript:;" data-value="6"><i class="color-06"></i>橙色</a>
+								<a class="" href="javascript:;" data-value="7"><i class="color-07"></i>绿色</a>
+								<a class="" href="javascript:;" data-value="8"><i class="color-08"></i>蓝色</a>
+								<a class="" href="javascript:;" data-value="9"><i class="color-09"></i>咖啡色</a>
+								<a class="" href="javascript:;" data-value="10"><i class="color-10"></i>紫色</a>
+								<a class="" href="javascript:;" data-value="11"><i class="color-11"></i>香槟色</a>
+								<a class="" href="javascript:;" data-value="12"><i class="color-12"></i>多彩色</a>
+								<a class="" href="javascript:;" data-value="13"><i class="color-13"></i>黄色</a>
+								<a class="" href="javascript:;" data-value="14"><i class="color-14"></i>其它</a>
+							</div>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<div class="more-btn">
+						<a href="javascript:;">国别</a>
+					</div>
+					<div class="more-box">
+						<div class="more-in-wrap">
+							<div class="moreitem-opts" data-name="Country">
+								<a class="one" href="javascript:;" data-value="0">不限</a>
+								<a class="" href="javascript:;" data-value="1">德系</a>
+								<a class="" href="javascript:;" data-value="2">日系</a>
+								<a class="" href="javascript:;" data-value="3">美系</a>
+								<a class="" href="javascript:;" data-value="4">法系</a>
+								<a class="" href="javascript:;" data-value="5">韩系</a>
+								<a class="" href="javascript:;" data-value="6">自主</a>
+								<a class="" href="javascript:;" data-value="7">其他</a>
+							</div>
+						</div>
+					</div>
+				</dd>
+				</dd>
+
+				<dd id="data-check" class="d-check-wrap">
+					<label data-value="3">
+						<input type="checkbox" class="d-check-lab">降价急售
+					</label>
+					<label data-value="4">
+						<input type="checkbox" class="d-check-lab" checked>准新车
+					</label>
+					<label data-value="2">
+						<input type="checkbox" class="d-check-lab">女车主
+					</label>
+					<label data-value="7">
+						<input type="checkbox" class="d-check-lab">7座车
+					</label>
+				</dd>
+			</dl>
+		</div>
+
+		<div class="d-list-title">
+			<div class="d-title-wrap">
+				<span class="d-title-left">
+						为您找到<em class="d-orange">1758</em>辆认证二手车
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						什么是<em class="d-orange">“车同享好车认证”>></em>
+						</span>
+				<span class="d-title-right">
+					<a href="carlist.html?Sort=0">上架时间</a><span>|</span>
+				<a href="carlist.html?Sort=1">价格</a><span>|</span>
+				<a href="carlist.html?Sort=2">车龄</a><span>|</span>
+				<a href="carlist.html?Sort=3">里程</a>
+				</span>
+			</div>
+		</div>
+
+		<div class="retlist">
+			<div class="list" id="carlist">
+				<ul class="list-ul">
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="d-page-wrap">
+			<div class="d-page-list fl">
+				<a href="javascript:;" data-page="1" ng-click="gotopage(1)">上一页</a>
+				<a href="javascript:;" data-page="1" ng-click="gotopage(2)">1</a>
+				<a href="javascript:;" data-page="2" ng-click="gotopage(3)">2</a>
+				<a href="javascript:;" data-page="3" ng-click="gotopage(4)">3</a>
+				<a href="javascript:;" data-page="4" ng-click="gotopage(5)">4</a>
+				<a href="javascript:;" data-page="5" ng-click="gotopage(6)">5</a>
+				<a href="javascript:;" data-page="2" ng-click="gotopage(7)">下一页</a>
+			</div>
+			<div class="d-page-search fr">
+				共100页，到第
+				<input type="text" name="page-search" value="1" /> 页
+				<button>确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Index Main End-->

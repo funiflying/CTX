@@ -1,0 +1,355 @@
+<meta charset="utf-8">
+<!--Index Main Begin-->
+<div class="w">
+	<div class="banner">
+		<div class="banner-img" style="background: url(images/banner1.jpg) no-repeat center;"></div>
+		<div class="search-wrap">
+			<div class="wrapper main-box">
+				<div class="search-layout" style="display: none;">
+					<div class="search-main">
+						<input name="search" value="我要找一辆车" />
+						<button class="search-submit"></button>
+					</div>
+					<div class="d-index-brand">
+						<div class="d-title">品牌<span class="d-more">更多 〉</span></div>
+						<div class="d-content">
+							<a href="#">大众</a>
+							<a href="#">丰田</a>
+							<a href="#">福特</a>
+							<a href="#">奔驰</a>
+							<a href="#">宝马</a>
+						</div>
+					</div>
+					<div class="d-index-brand">
+						<div class="d-title">价格</div>
+						<div class="d-content">
+							<a href="#">5万以下</a>
+							<a href="#">5－10万</a>
+							<a href="#">10－15万</a>
+							<a href="#">15－20万</a>
+							<a href="#">20－30万</a>
+							<a href="#">30－50万</a>
+							<a href="#">50万以上</a>
+						</div>
+					</div>
+				</div>
+				<!--筛选区域开始-->
+				<div class="shaixuan">
+					<div class="index-search">
+						<div class="por" data-default-count="10">
+							<input data-role="keywordInput" type="text" placeholder="我要找一辆..." name="keyword" class="sx-input" autocomplete="off">
+							<button class="search-submit"></button>
+						</div>
+						<div class="sx">
+							<div class="sx-pinpai" ng-init="BrandList()">
+								<div class="dt">品牌</div>
+								<div class="dd">
+									<a href="#carlist/?brandID=7" class="i-dazhong">大众</a>
+									<a href="#carlist/?brandID=43" class="i-toyota">丰田</a>
+									<a href="#carlist/?brandID=18" class="i-honda">本田</a>
+									<a href="#carlist/?brandID=16" class="i-benz">奔驰</a>
+									<a href="#carlist/?brandID=7" class="i-bmw">宝马</a>
+									<a href="#carlist/?brandID=4" class="i-audi">奥迪</a>
+								</div>
+								<div class="poa ppmore" id="AllBrand">
+									<div class="leftline"></div>
+									<p>所有品牌</p>
+									<table class="tbl">
+										<!--<tr ng-repeat="(key, value) in ABCBrand">
+											<td class="zm">{{key}}</td>
+											<td>
+												{{value}}
+											</td>
+										</tr>-->
+										<tr>
+											<td class="zm">A</td>
+											<td><a href="#/carlist/brandID/1">阿尔法罗密欧</a><a href="#/carlist/brandID/2">阿斯顿·马丁</a><a href="#/carlist/brandID/3">安凯客车</a><a href="#/carlist/brandID/4">奥迪</a></td>
+										</tr>
+										<tr>
+											<td class="zm">B</td>
+											<td>
+												<a href="#/carlist/brandID/5">巴博斯</a>
+												<a href="#/carlist/brandID/6">宝骏</a>
+												<a href="#/carlist/brandID/7">宝马</a>
+												<a href="#/carlist/brandID/8">宝沃</a>
+												<a href="#/carlist/brandID/9">保时捷</a>
+												<a href="#/carlist/brandID/10">北京</a>
+												<a href="#/carlist/brandID/11">北汽幻速</a>
+												<a href="#/carlist/brandID/12">北汽绅宝</a>
+												<a href="#/carlist/brandID/13">北汽威旺</a>
+												<a href="#/carlist/brandID/14">北汽新能源</a>
+												<a href="#/carlist/brandID/15">北汽制造</a>
+												<a href="#/carlist/brandID/16">奔驰</a>
+												<a href="#/carlist/brandID/17">奔腾</a>
+												<a href="#/carlist/brandID/18">本田</a>
+												<a href="#/carlist/brandID/19">比亚迪</a>
+												<a href="#/carlist/brandID/20">标致</a>
+												<a href="#/carlist/brandID/21">别克</a>
+												<a href="#/carlist/brandID/22">宾利</a>
+												<a href="#/carlist/brandID/23">布加迪</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="zm">C</td>
+											<td>
+												<a href="#/carlist/brandID/24">昌河</a><a href="#/carlist/brandID/25">成功汽车</a><a href="#/carlist/brandID/26">长安</a><a href="#/carlist/brandID/27">长安商用</a><a href="#/carlist/brandID/28">长城</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="zm">D</td>
+											<td>
+												<a href="#/carlist/brandID/29">Dacia</a><a href="#/carlist/brandID/30">DS</a><a href="#/carlist/brandID/31">大发</a><a href="#/carlist/brandID/32">大众</a><a href="#/carlist/brandID/33">道奇</a><a href="#/carlist/brandID/34">东风</a><a href="#/carlist/brandID/35">东风风度</a>
+												<a
+												href="#/carlist/brandID/36">东风风行</a><a href="#/carlist/brandID/37">东风风神</a><a href="#/carlist/brandID/38">东风小康</a><a href="#/carlist/brandID/39">东南</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="zm">F</td>
+											<td>
+												<a href="#/carlist/brandID/40">Fisker</a><a href="#/carlist/brandID/41">法拉利</a><a href="#/carlist/brandID/42">菲亚特</a><a href="#/carlist/brandID/43">丰田</a><a href="#/carlist/brandID/44">福迪</a><a href="#/carlist/brandID/45">福汽启腾</a><a href="#/carlist/brandID/46">福特</a><a href="#/carlist/brandID/47">福田</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="zm">G</td>
+											<td>
+												<a href="#/carlist/brandID/48">GMC</a><a href="#/carlist/brandID/49">Gumpert</a><a href="#/carlist/brandID/50">观致</a><a href="#/carlist/brandID/51">光冈</a><a href="#/carlist/brandID/52">广汽传祺</a><a href="#/carlist/brandID/53">广汽吉奥</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="zm">H</td>
+											<td><a href="#/carlist/brandID/54">Hennessey</a><a href="#/carlist/brandID/55">哈飞</a><a href="#/carlist/brandID/56">哈弗</a><a href="#/carlist/brandID/57">海格</a><a href="#/carlist/brandID/58">海马</a><a href="#/carlist/brandID/59">悍马</a><a href="#/carlist/brandID/60">恒天</a>
+												<a href="#/carlist/brandID/61">红旗</a><a href="#/carlist/brandID/63">华普</a><a href="#/carlist/brandID/64">华骐</a><a href="#/carlist/brandID/65">华颂</a><a href="#/carlist/brandID/66">华泰</a><a href="#/carlist/brandID/67">黄海</a></td>
+										</tr>
+										<tr>
+											<td class="zm">J</td>
+											<td><a href="#/carlist/brandID/68">Jeep</a><a href="#/carlist/brandID/69">吉利汽车</a><a href="#/carlist/brandID/70">江淮</a><a href="#/carlist/brandID/71">江铃</a><a href="#/carlist/brandID/72">江铃集团轻汽</a><a href="#/carlist/brandID/73">捷豹</a><a href="#/carlist/brandID/74">金杯</a>
+												<a href="#/carlist/brandID/75">金龙</a><a href="#/carlist/brandID/76">金旅</a><a href="#/carlist/brandID/77">九龙</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="zm">K</td>
+											<td><a href="#/carlist/brandID/78">KTM</a><a href="#/carlist/brandID/79">卡尔森</a><a href="#/carlist/brandID/80">卡威</a><a href="#/carlist/brandID/81">开瑞</a><a href="#/carlist/brandID/82">凯佰赫</a><a href="#/carlist/brandID/83">凯迪拉克</a><a href="#/carlist/brandID/84">凯翼</a>
+											<a href="#/carlist/brandID/85">科尼赛克</a><a href="#/carlist/brandID/86">克莱斯勒</a></td>
+										</tr>
+										<tr>
+											<td class="zm">L</td>
+											<td><a href="#/carlist/brandID/87">兰博基尼</a><a href="#/carlist/brandID/88">蓝旗亚</a><a href="#/carlist/brandID/89">朗世</a><a href="#/carlist/brandID/90">劳斯莱斯</a><a href="#/carlist/brandID/91">雷克萨斯</a><a href="#/carlist/brandID/92">雷诺</a><a href="#/carlist/brandID/93">理念</a><a href="#/carlist/brandID/94">力帆</a><a href="#/carlist/brandID/95">莲花汽车</a><a href="#/carlist/brandID/96">猎豹汽车</a><a href="#/carlist/brandID/97">林肯</a><a href="#/carlist/brandID/98">铃木</a><a href="#/carlist/brandID/99">领志</a><a href="#/carlist/brandID/100">陆风</a><a href="#/carlist/brandID/101">路虎</a><a href="#/carlist/brandID/102">路特斯</a></td>
+										</tr>
+									</table>
+									<table class="tbr">
+										<tr>
+											<td class="zm">M</td>
+											<td><a href="#/carlist/brandID/103">MG</a><a href="#/carlist/brandID/104">MINI</a><a href="#/carlist/brandID/105">马自达</a><a href="#/carlist/brandID/106">玛莎拉蒂</a><a href="#/carlist/brandID/107">迈巴赫</a><a href="#/carlist/brandID/108">迈凯伦</a><a href="#/carlist/brandID/109">摩根</a>
+											</td>
+										</tr>
+										<tr>
+											<td class="zm">N</td>
+											<td><a href="#/carlist/brandID/110">Noble</a><a href="#/carlist/brandID/111">纳智捷</a><a href="#/carlist/brandID/112">南京金龙</a></td>
+										</tr>
+										<tr>
+											<td class="zm">O</td>
+											<td><a href="#/carlist/brandID/113">讴歌</a><a href="#/carlist/brandID/114">欧宝</a><a href="#/carlist/brandID/115">欧朗</a></td>
+										</tr>
+										<tr>
+											<td class="zm">P</td>
+											<td><a href="#/carlist/brandID/116">帕加尼</a><a href="#/carlist/brandID/117">佩奇奥</a></td>
+										</tr>
+										<tr>
+											<td class="zm">Q</td>
+											<td><a href="#/carlist/brandID/118">奇瑞</a><a href="#/carlist/brandID/119">启辰</a><a href="#/carlist/brandID/120">起亚</a></td>
+										</tr>
+										<tr>
+											<td class="zm">R</td>
+											<td><a href="#/carlist/brandID/122">Rinspeed</a><a href="#/carlist/brandID/123">日产</a><a href="#/carlist/brandID/124">荣威</a><a href="#/carlist/brandID/125">如虎</a><a href="#/carlist/brandID/126">瑞麒</a></td>
+										</tr>
+										<tr>
+											<td class="zm">S</td>
+											<td><a href="#/carlist/brandID/127">Scion</a><a href="#/carlist/brandID/128">smart</a><a href="#/carlist/brandID/129">SPIRRA</a><a href="#/carlist/brandID/130">SSC</a><a href="#/carlist/brandID/131">萨博</a><a href="#/carlist/brandID/132">赛麟</a><a href="#/carlist/brandID/133">三菱</a><a href="#/carlist/brandID/134">上海</a><a href="#/carlist/brandID/135">上汽大通</a><a href="#/carlist/brandID/136">世爵</a><a href="#/carlist/brandID/137">双环</a><a href="#/carlist/brandID/138">双龙</a><a href="#/carlist/brandID/139">思铭</a><a href="#/carlist/brandID/140">斯巴鲁</a><a href="#/carlist/brandID/141">斯柯达</a></td>
+										</tr>
+										<tr>
+											<td class="zm">T</td>
+											<td><a href="#/carlist/brandID/142">特斯拉</a><a href="#/carlist/brandID/143">腾势</a></td>
+										</tr>
+										<tr>
+											<td class="zm">W</td>
+											<td><a href="#/carlist/brandID/144">威麟</a><a href="#/carlist/brandID/145">威兹曼</a><a href="#/carlist/brandID/146">潍柴英致</a><a href="#/carlist/brandID/147">沃尔沃</a><a href="#/carlist/brandID/148">沃克斯豪尔</a><a href="#/carlist/brandID/149">五菱汽车</a><a href="#/carlist/brandID/150">五十铃</a></td>
+										</tr>
+										<tr>
+											<td class="zm">X</td>
+											<td><a href="#/carlist/brandID/151">西雅特</a><a href="#/carlist/brandID/152">现代</a><a href="#/carlist/brandID/153">雪佛兰</a><a href="#/carlist/brandID/154">雪铁龙</a></td>
+										</tr>
+										<tr>
+											<td class="zm">Y</td>
+											<td><a href="#/carlist/brandID/155">亚琛施纳泽</a><a href="#/carlist/brandID/156">野马汽车</a><a href="#/carlist/brandID/157">一汽</a><a href="#/carlist/brandID/158">依维柯</a><a href="#/carlist/brandID/159">英菲尼迪</a><a href="#/carlist/brandID/160">永源</a><a href="#/carlist/brandID/161">游侠</a></td>
+										</tr>
+										<tr>
+											<td class="zm">Z</td>
+											<td><a href="#/carlist/brandID/162">Zenvo</a><a href="#/carlist/brandID/163">之诺</a><a href="#/carlist/brandID/164">知豆</a><a href="#/carlist/brandID/165">中华</a><a href="#/carlist/brandID/166">中兴</a><a href="#/carlist/brandID/167">众泰</a></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="sx-price">
+								<div class="dt">价格</div>
+								<div class="dd">
+									<a target="_blank" href="#/carlist/PriceID/1">5万以下</a>
+									<a target="_blank" href="#/carlist/PriceID/2">5-10万</a>
+									<a target="_blank" href="#/carlist/PriceID/3">10-15万</a>
+									<a target="_blank" href="#/carlist/PriceID/4">15-20万</a>
+									<a target="_blank" href="#/carlist/PriceID/5">20-30万</a>
+									<a target="_blank" href="#/carlist/PriceID/6">30-40万</a>
+									<a target="_blank" href="#/carlist/PriceID/7">40-50万</a>
+									<a target="_blank" href="#/carlist/PriceID/8">50万以上</a>
+								</div>
+							</div>
+							<div class="sx-chexing">
+								<div class="dt">车型</div>
+								<div class="dd">
+									<a href="#/carlist/Style/1">小型车</a>
+									<a href="#/carlist/Style/2">紧凑型车</a>
+									<a href="#/carlist/Style/3">中型车</a>
+									<a href="#/carlist/Style/4">豪华型车</a>
+									<a href="#/carlist/Style/5">SUV</a>
+									<a href="#/carlist/Style/6">MPV</a>
+									<a href="#/carlist/Style/7">跑车</a>
+									<a href="#/carlist/Style/8">商用车</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--筛选区域结束-->
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="w" style="display: none;">
+	<div class="wrapper">
+		<ul class="index-info">
+			<li><span><i class="icons icons1"></i>100%个人二手车</span></li>
+			<li><span><i class="icons icons2"></i>259项全面检测</span></li>
+			<li><span><i class="icons icons3"></i>评估师陪同看车</span></li>
+			<li><span><i class="icons icons4"></i>14天可退1年质保</span></li>
+		</ul>
+	</div>
+</div>
+
+<div class="w index-box-bg">
+	<div class="wrapper">
+
+		<div class="retlist" id="tabmain" ng-init="GetIndexHot()">
+			<div class="index-title-wrap">
+				<span class="title-left"><strong>已为你找到全城靠谱好车</strong></span>
+				<span class="title-left" id="tabcarlist">
+				<a href="javascript:;" data-name="Carsource0">最新上架</a>
+				<a href="javascript:;" data-name="Carsource1">降价急售</a>
+				<a href="javascript:;" data-name="Carsource2">准新车</a>
+				<a href="javascript:;" data-name="Carsource3">练手车</a>
+				<a href="javascript:;" data-name="Carsource4">SUV</a>
+				<a href="javascript:;" data-name="Carsource5">女车主</a>
+				</span>
+				<span class="title-right"><a href="#/carlist">查看全部>></a></span>
+			</div>
+
+			<div class="list" id="carlist">
+				<ul class="list-ul">
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+					<li>
+						<a href="#"><img src="images/default.jpg"></a>
+						<p class="title"><a href="#">别克凯越 2008款 1.6 自动 LE 舒适版</a></p>
+						<p><span>2011年12月上牌</span><span>|</span>行驶3.8万公里</p>
+						<p class="price"><span>￥5.38万</span></p>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="d-i-more"><a href="#/carlist">查看全部车源>></a></div>
+	</div>
+</div>
+
+<div class="w">
+	<div style=" height: 520px;" class="wrapper">
+		<img src="images/index-tamenshuo.gif">
+	</div>
+</div>
+
+<div class="w index-box-bg">
+	<div class="wrapper">
+		<div class="d-service">
+			<img src="images/s-logo.png" height="120"> 我们提供
+			<i class="d-ser-icons d-ser-icon1"></i> 经过259项检测的靠谱二手车
+			<i class="d-ser-icons d-ser-icon2"></i> 买家和车主都满意的成交价格
+			<i class="d-ser-icons d-ser-icon3"></i> 一份可靠省心的买车卖车体验
+		</div>
+	</div>
+</div>
+<!--Index Main End-->
+<script type="text/javascript">
+	$(document).ready(function() {
+		var auto = 1; //等于1则自动切换，其他任意数字则不自动切换
+		if (auto == 1) {
+			var number = 0;
+			var maxNumber = $('#tabmain #tabcarlist a').length;
+
+			function autotab() {
+				number++;
+				number == maxNumber ? number = 0 : number;
+				$('#tabmain #tabcarlist a:eq(' + number + ')').addClass('on').siblings().removeClass('on');
+				$('#tabmain #carlist ul:eq(' + number + ')').show().siblings().hide();
+			}
+			var tabChange = setInterval(autotab, 3000);
+			//鼠标悬停暂停切换
+			$('#tabmain').mouseover(function() {
+				clearInterval(tabChange);
+			});
+			$('#tabmain').mouseout(function() {
+				tabChange = setInterval(autotab, 3000);
+			});
+		}
+	});
+</script>

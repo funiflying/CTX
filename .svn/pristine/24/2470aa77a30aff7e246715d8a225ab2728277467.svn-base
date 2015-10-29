@@ -1,0 +1,17 @@
+function auditController($scope,ngDialog,AuditService){
+    $scope.c="c"
+	$scope.openDialog=function(index){
+		ngDialog.open({
+			template: 'partials/membersInfo.html',
+			showClose: true,
+			scope:$scope
+		});
+	}
+	AuditService.getMembers().success(function(d){
+		$scope.alliance=d.jsonstr;
+	})
+		
+
+	
+}
+auditController.$inject=['$scope','ngDialog','AuditService']

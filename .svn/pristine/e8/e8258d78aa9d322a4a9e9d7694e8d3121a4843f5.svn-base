@@ -1,0 +1,24 @@
+{
+	"jsonstr": [
+		{
+			"UserID":"",
+			"CompanyName": "车同享科技",
+			"Charger": "车同享",
+			"OrganizationCode": "35020512582135",
+			"OrganizationPicAddr": "image/pic.png",
+			"BusinessLicenseNo": "8545221453",
+			"BusinessLicenseAddr": "image/pic.png",
+			"PersonName": "funiflying",
+			"PersonID": "3508241842112",
+			"Account": "funiflying",
+			"Pwd": "123456",
+			"Question": "您的生日是什么时候",
+			"Answer": "2015-10-10",
+			"Email": "funiflying@163.com",
+			"Contact": "18650320029",
+			"Address": "福建厦门",
+			"IdentityTag": 11
+		}
+	]
+}
+
