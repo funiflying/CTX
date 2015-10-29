@@ -1,6 +1,6 @@
 'use strict'
 //联盟商信息审核
-function allianceAuditController($scope,ngDialog,AllianceAuditService){
+function allianceAuditController($scope,ngDialog,AllianceAuditService,$rootScope){
     $scope.member="";
 	$scope.openDialog=function(obj){
         $scope.member=obj;
@@ -32,7 +32,7 @@ function allianceAuditController($scope,ngDialog,AllianceAuditService){
 }
 //allianceAuditController.$inject=['$scope','ngDialog','AllianceAuditService']
 //车源审核
-function carAuditController($scope,ngDialog,CarAuditService){
+function carAuditController($scope,ngDialog,CarAuditService,$rootScope){
     
     //获取车源
     $scope.carList="";
@@ -41,7 +41,21 @@ function carAuditController($scope,ngDialog,CarAuditService){
                 $scope.carList=d.Data;
             }
         })
-
+    
+     //审核
+    //_status=1 通过
+    //_status=0 不通过
+    $scope.permit=function(_ID,_status){
+        var data={
+            UserID:_ID,
+            AuditStatus:_status
+        }
+        CarAuditService.auditStatus(data).success(function(d){
+            
+        }).error(function(e){
+            $rootScope.Alert(e)
+        })
+    }
    
 }
 //carAuditController.$inject=['$scope','ngDialog','CarAuditService']

@@ -244,24 +244,50 @@ function SellCarController($scope, CTXService, $timeout, $filter, $location, ngD
 		});
 	}
 	
-	$('#sellcarform').submit(function(){
-		console.log($(this).serialize());
+	//$scope.SellCarSubmit = function(){
+		$('#sellcarform').submit(function(){
+			console.log($(this).serialize());
 		
-		$.ajax({
-			type: "POST",
-			url: "http://192.168.0.105/common/car/Publish",
-			async: false,
-			data: $(this).serialize(),
-			dataType: "json",
-//			beforeSend:function() {
-//				$("#carlist").html("请稍后，数据加载中...");
-//			},
-			success: function(ret) {
-				console.log(ret);
-			}
+			$.ajax({
+				type: "POST",
+				url: "http://192.168.0.105/common/car/Publish",
+				async: false,
+				data: $(this).serialize(),
+				dataType: "json",
+				beforeSend:function() {
+					
+//					$scope.errorMessage = "请稍后，您的车辆信息提交中...";
+//					
+//					ngDialog.open({
+//						template: 'partials/DialogMessage.html',
+//						appendTo: true,
+//						showClose: true,
+//						scope:$scope
+//					});
+				},
+				success: function(ret) {
+					//ngDialog.closeAll();
+					console.log(ret);
+					
+					$scope.errorMessage = "您的车辆信息发布成功，稍后我们的人员会与您联系！";
+					
+					ngDialog.open({
+						template: 'partials/DialogMessage.html',
+						appendTo: true,
+						showClose: false,
+						scope:$scope
+					});
+					$location.path('/carlist');
+				}
+			});
+			return false; 
 		});
-		return false; 
-	});
+
+	//}
+	
+//	$('#sellcarform').submit(function(){
+//		
+//	});
 
 }
 SellCarController.$inject = ["$scope", "CTXService", "$timeout", "$filter", "$location", "ngDialog"];
@@ -688,7 +714,7 @@ function CarInfoController($scope, CTXService, $timeout, $filter, $routeParams, 
 				for (var i = 0, ln = $scope.carinfoimg.value.length; i < ln; i++) {
 					thumbhtml += "<li><img data-img=\"demo/carimg.jpg\" src='" + $scope.carinfoimg.value[i].PicAddr + "'></li>";
 					if (i == 11) {
-						thumbhtml += "</ul><ul class=\"display-ul d-thumb-img clearfix\">";
+						thumbhtml += "</ul><ul class=\"display-ul d-thumb-img\">";
 						tstatus = 1;
 					} else {
 						tstatus = 0;
@@ -705,6 +731,12 @@ function CarInfoController($scope, CTXService, $timeout, $filter, $routeParams, 
 				$(document).on("click", "#data-info-thumb > ul >li", function() {
 					$("#data-info-img").find("img").attr('src', $(this).find("img").attr('data-img'));
 					console.log($(this).find("img").attr('data-img'));
+				});
+				
+				$(document).on("click", "#thumb-prev", function() {
+					console.log("123");
+					//$("#data-info-thumb > ul");
+					$("#data-info-thumb ul").addClass('display-ul').siblings().removeClass('display-ul');
 				});
 			})
 		.error(

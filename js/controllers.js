@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 Array.prototype.remove = function(index) {
 		if (isNaN(index) || index > this.length) {
 			return false;
@@ -165,7 +165,7 @@ function registerController($scope,RegisterService,$rootScope,$location){
 				}).error(function(e) {
                     
 				});
-				$location.path('/registerInfo');
+				$location.path('/registerinfo');
 			}
 		}
     //验证用户名
@@ -409,7 +409,7 @@ regularRegController.$inject = ["$scope", "RegularRegService", "$timeout", "$fil
 function loginController($scope, LoginService, $rootScope, $location) {
 	$scope.logon = {};
 	$scope.allianceSignin = function() {
-		if ($scope.allianceLoginForm.$valid) {
+		if ($scope.loginForm.$valid) {
 			LoginService.allianceLogin($scope.logon).success(function(d) {
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message);
@@ -422,8 +422,21 @@ function loginController($scope, LoginService, $rootScope, $location) {
 		}
 	}
 	$scope.directSignin = function() {
-		if ($scope.directLoginForm.$valid) {
+		if ($scope.loginForm.$valid) {
 			LoginService.directLogin($scope.logon).success(function(d) {
+				if (d.Status == 0) {
+					$rootScope.Alert(d.Message);
+				} else {
+
+				}
+			}).error(function(e) {
+				$rootScope.Alert(e);
+			})
+		}
+	}
+    $scope.signin = function() {
+		if ($scope.loginForm.$valid) {
+			LoginService.outsiteLogin($scope.logon).success(function(d) {
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message);
 				} else {

@@ -152,6 +152,7 @@
             chunked: false,
             chunkSize: 512 * 1024,
             server: 'http://ctx/server/fileupload.php',
+            //server: 'http://192.168.0.105/common/car/UpLoadProcess',
             // runtimeOrder: 'flash',
 
             // accept: {
@@ -405,7 +406,7 @@
                 stats = uploader.getStats();
                 if ( stats.uploadFailNum ) {
                     text = '已成功上传' + stats.successNum+ '张照片至XX相册，'+
-                        stats.uploadFailNum + '张照片上传失败，<a class="retry" href="#">重新上传</a>失败图片或<a class="ignore" href="#">忽略</a>'
+                        stats.uploadFailNum + '张照片上传失败，<a class="retry" href="javascript:;">重新上传</a>失败图片或<a class="ignore" href="javascript:;">忽略</a>'
                 }
 
             } else {

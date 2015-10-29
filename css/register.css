@@ -368,14 +368,10 @@ body {
 	font-size: 30px;
 	color: #1c1c1c;
 	text-align: center;
-    position: relative;
 }
 .tui-reg-success i {
 	color: #0ea52b;
 	font-size: 40px;
-    margin-top: 30px;
-    position:  relative;
-    top: 10px;
 }
 .tui-reg-success span {
 	color: #fe6a00;

@@ -15,14 +15,26 @@
 				<div class="d-form-div">
 					<label><span>*</span>车型：</label>
 					<div class="d-fr-div">
-						<input type="text" value="请选择品牌" ng-click="BrandList()" class="tui-form-border">
+						<input type="text" value="请选择品牌" ng-init="BrandList()" class="tui-form-border">
 						<span>找不到您的车？填写一个</span>
 						<section id="ChangeBrand" class="ChangeBrand">
-							<select class="tui-form-border" ng-model="selectedBrand" ng-change="selectedChexi=''" ng-options="(bd.AbcOrder+' -> '+bd.brandName) for bd in brandslist">
+							<select name="Brand" class="tui-form-border" ng-model="selectedBrand" ng-change="selectedChexi=''" ng-options="(bd.AbcOrder+' -> '+bd.brandName) for bd in brandslist">
 								<option value="">---请选择品牌---</option>
 							</select>
-							<select class="tui-form-border" ng-model="selectedChexi" ng-options="cx.SeriesName for cx in selectedBrand.chexi">
+							<select name="Series" class="tui-form-border" ng-model="selectedChexi" ng-options="cx.SeriesName for cx in selectedBrand.chexi">
 								<option value="">---请选择车系---</option>
+							</select>
+							<select name="Series" class="tui-form-border">
+								<option value="">---请选择车型---</option>
+								<option value="0" selected="">不限</option>
+								<option value="1">小型车</option>
+								<option value="2">紧凑型车</option>
+								<option value="3">中型车</option>
+								<option value="4">豪华型车</option>
+								<option value="5">SUV</option>
+								<option value="6">MPV</option>
+								<option value="7">跑车</option>
+								<option value="8">商用车</option>
 							</select>
 						</section>
 					</div>
@@ -269,8 +281,7 @@
 				</div>
 				<div class="d-form-div d-line-grey"></div>
 				<div class="d-form-div">
-					<input type="submit" value="发布车源">
-					<button class="tui-btn-default">发布车源</button>
+					<button class="tui-btn-default" type="submit" >发布车源</button>
 				</div>
 			</form>
 		</div>

@@ -1223,23 +1223,23 @@ menu {
  *******个人中心分页
  *
  **************/
-.tui-pager{
+.tui-admin-pager{
     height: 40px;
     line-height: 40px;
     text-align: center;
     color: #666666;
     font-size: 14px;
 }
-.tui-pager .tui-pager li{
+.tui-admin-pager .tui-admin-pager li{
     display: inline-block;
     cursor: pointer;
     margin: 0 10px;
 }
-.tui-pager .tui-pager li>select{
+.tui-admin-pager .tui-admin-pager li>select{
     border: 1px solid #666;
     border-radius: 4px;
     min-width: 50px;
 }
-.tui-pager .tui-pager li:hover{
+.tui-admin-pager .tui-admin-pager li:hover{
     color: #ff6a00;
 }

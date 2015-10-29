@@ -4,34 +4,37 @@
 angular.module('chetongxiang', ['chetongxiang.filters', 'chetongxiang.services-dk', 'chetongxiang.services', 'chetongxiang.directives', 'ngRoute', 'ngDialog']).
 config(['$routeProvider',
 	function($routeProvider) {
+        
+        $routeProvider.when('/register', {
+			templateUrl: 'partials/register.html',
+			controller: registerController
+		});
+		$routeProvider.when('/registerinfo', {
+			templateUrl: 'partials/registerinfo.html',
+			controller: registerController
+		});
+        
 		/*************
 		 *联盟商注册
 		 *
-		 * ***********/
-		$routeProvider.when('/allianceReg', {
-			templateUrl: 'partials/allianceReg.html',
-			controller: allianceRegController
-		});
-		$routeProvider.when('/allianceRegInfo', {
-			templateUrl: 'partials/allianceRegInfo.html',
+		 */
+		$routeProvider.when('/alliancereg', {
+			templateUrl: 'partials/alliancereg.html',
 			controller: allianceRegController
 		});
 		/*************
 		 *直营商注册
 		 *
 		 * ***********/
-		$routeProvider.when('/regularReg', {
-			templateUrl: 'partials/regularReg.html',
-			controller: regularRegController
-		});
-		$routeProvider.when('/regularRegInfo', {
-			templateUrl: 'partials/regularRegInfo.html',
+		
+		$routeProvider.when('/directreg', {
+			templateUrl: 'partials/directreg.html',
 			controller: regularRegController
 		});
 
-		$routeProvider.when('/regSuccess', {
-			templateUrl: 'partials/regSuccess.html',
-			controller: allianceRegController
+		$routeProvider.when('/regsuccess', {
+			templateUrl: 'partials/regsuccess.html',
+			controller: registerController
 		});
 		$routeProvider.when('/carlist/:clname/:clvalue', {
 			templateUrl: 'partials/carlist.html',
@@ -61,15 +64,75 @@ config(['$routeProvider',
 		});
 	}
 ]).run(function($rootScope, ngDialog) {
+    
+    $rootScope.user={
+        name:"",
+        contact:""
+    }
+   
+    $rootScope.Alert=function(_msg){
+         $rootScope.Message={
+             status:0,
+             msg:""
+         }
+        setTimeout(function(){
+            $rootScope.Message.status=0;
+            $rootScope.msg=_msg;
+        },3000)
+    
+    
+    }
 	$rootScope.allianceMembers = [];
 	$rootScope.regularMembers = [];
 	$rootScope.regularPartner = [];
-	$rootScope.login = function() {
+
+   
+    //外网登录
+	$rootScope.outsiteLogin = function() {
 		ngDialog.open({
 			template: 'partials/login.html',
+			showClose: true,
+			controller: loginController
+		});
+	}
+    //联盟商登录
+	$rootScope.allianceLogin = function() {
+		ngDialog.open({
+			template: 'partials/alliancelogin.html',
+			showClose: true,
+			controller: loginController
+		});
+	}
+     //直营商登录
+	$rootScope.directLogin = function() {
+		ngDialog.open({
+			template: 'partials/directlogin.html',
 			appendTo: true,
 			showClose: true,
 			controller: loginController
 		});
 	}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 })

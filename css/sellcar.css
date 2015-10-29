@@ -289,8 +289,8 @@
 }
 
 #uploader .filelist li p.progress {
-    display: none;
-    /*position: absolute;
+    /*display: none;*/
+    position: absolute;
     width: 100%;
     bottom: 0;
     left: 0;
@@ -303,14 +303,14 @@
     margin: 0;
     outline: 0 none;
     padding: 0;
-    vertical-align: baseline;*/
+    vertical-align: baseline;
 }
 #uploader .filelist li p.progress span {
-    display: none;
-    /*overflow: hidden;
+    /*display: none;*/
+    overflow: hidden;
     width: 0;
     height: 100%;
-    background: #1483d8 url(./images/progress.png) repeat-x;
+    background: #1483d8 url(../images/progress.png) repeat-x;
 
     -webit-transition: width 200ms linear;
     -moz-transition: width 200ms linear;
@@ -331,7 +331,7 @@
     margin: 0;
     outline: 0 none;
     padding: 0;
-    vertical-align: baseline;*/
+    vertical-align: baseline;
 }
 
 @-webkit-keyframes progressmove {
