@@ -1,93 +1,10 @@
 <link rel="stylesheet" href="css/register.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-treeview.css" />
-<script src="js/bootstrap-treeview.min.js" type="text/javascript" charset="utf-8"></script>
-<style type="text/css">
-	.tree {
-		min-height: 20px;
-		padding: 19px;
-		margin-bottom: 20px;
-		background-color: #fbfbfb;
-		border: 1px solid #999;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05)
-	}
-	.tree li {
-		list-style-type: none;
-		margin: 0;
-		padding: 10px 5px 0 5px;
-		position: relative
-	}
-	.tree li::before,
-	.tree li::after {
-		content: '';
-		left: -20px;
-		position: absolute;
-		right: auto
-	}
-	.tree li::before {
-		border-left: 1px solid #999;
-		bottom: 50px;
-		height: 100%;
-		top: 0;
-		width: 1px
-	}
-	.tree li::after {
-		border-top: 1px solid #999;
-		height: 20px;
-		top: 25px;
-		width: 25px
-	}
-	.tree li span {
-		-moz-border-radius: 5px;
-		-webkit-border-radius: 5px;
-		border: 1px solid #999;
-		border-radius: 5px;
-		display: inline-block;
-		padding: 3px 8px;
-		text-decoration: none
-	}
-	.tree li.parent_li>span {
-		cursor: pointer
-	}
-	.tree>ul>li::before,
-	.tree>ul>li::after {
-		border: 0
-	}
-	.tree li:last-child::before {
-		height: 30px
-	}
-	.tree li.parent_li>span:hover,
-	.tree li.parent_li>span:hover+ul li span {
-		background: #eee;
-		border: 1px solid #94a0b4;
-		color: #000
-	}
-</style>
-<script type="text/javascript">
-	$(function() {
-		 
-		$('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-		$('.tree li.parent_li > span').on('click', function(e) {
-			var children = $(this).parent('li.parent_li').find(' > ul > li');
-			if (children.is(":visible")) {
-				children.hide('fast');
-				$(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-			} else {
-				children.show('fast');
-				$(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-			}
-			e.stopPropagation();
-		});
-	});
-</script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-treeview.css" />
+<script src="js/bootstrap-treeview.js" type="text/javascript" charset="utf-8"></script>
 
 <!--for register-->
 <div class="container  tui-reg-container tc">
-	<div class="tui-reg-step">
+	<!--<div class="tui-reg-step">
 		<ul class="tui-reg-items clearfix">
 			<li class="tui-reg-item tui-reg-step-1" data-step=1>
 				设置登录名
@@ -99,11 +16,11 @@
 				注册成功
 			</li>
 		</ul>
-	</div>
+	</div>-->
 	<!--step2-->
 	<div class="tui-reg-info-container">
 		<div class="tui-reg-step-content ">
-			<form action="" id="tui-reg-alliance-form" name="allianceForm" class=" form-horizontal" role="form" novalidate>
+			<form action="" id="tui-reg-alliance-form" name="regularForm" class=" form-horizontal" role="form" novalidate>
 				<!--信息-->
 				<div class="tui-reg-step1-content col-md-offset-3">
 					<div class="tui-reg-allianceInfo ">
@@ -112,7 +29,7 @@
 							<div class="col-md-4 ">
 								<input type="text" name="CompanyName" id="CompanyName" value="" class="form-control" required="required" ng-model="CompanyName" />
 							</div>
-							<div class="col-md-2 " ng-show="allianceForm.CompanyName.$dirty&&allianceForm.CompanyName.$invalid">
+							<div class="col-md-2 " ng-show="regularForm.CompanyName.$dirty&&regularForm.CompanyName.$invalid">
 								<span class="tui-tip">请输入企业名称</span>
 							</div>
 						</div>
@@ -121,7 +38,7 @@
 							<div class="col-md-4 ">
 								<input type="text" name="Charger" id="Charger" value="" class="form-control" required="required" ng-model="Charger" />
 							</div>
-							<div class="col-md-2 " ng-show="allianceForm.Charger.$dirty&&allianceForm.Charger.$invalid">
+							<div class="col-md-2 " ng-show="regularForm.Charger.$dirty&&regularForm.Charger.$invalid">
 								<span class="tui-tip">请输入企业负责人姓名</span>
 							</div>
 						</div>
@@ -130,7 +47,7 @@
 							<div class="col-md-4 ">
 								<input type="text" name="RegisterMoney" id="RegisterMoney" value="" class="form-control" required="required" ng-model="RegisterMoney" />
 							</div>
-							<div class="col-md-2 " ng-show="allianceForm.Charger.$dirty&&allianceForm.Charger.$invalid">
+							<div class="col-md-2 " ng-show="regularForm.Charger.$dirty&&regularForm.Charger.$invalid">
 								<span class="tui-tip">请输入企业负责人姓名</span>
 							</div>
 						</div>
@@ -177,32 +94,47 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="Fax" class="col-md-2 control-label">城市：</label>
+							<label for="City" class="col-md-2 control-label">城市：</label>
 							<div class="col-md-4 ">
 								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-										城市
+									<button type="button" class="btn btn-default dropdown-toggle" onclick="showCity()">
+										选择城市
 										<span class="caret"></span>
 									</button>
-									<div class="dropdown-menu">
-										
-
+									<div class="dropdown-menu" style="border: none;" id="city-tree">
+										<div id="treeview-city" class="treeview" style="width: 300px;;"></div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="DirectFlag" class="col-md-2 control-label">组织层级：</label>
+							<div class="col-md-4">
+								<select name="DirectFlag"   class="form-control" ng-model="DirectFlag">
+									<option value="">请选择</option>
+									<option value="255">总公司</option>
+									<option value="5">大区公司</option>
+									<option value="4">省分公司</option>
+									<option value="3">市直营公司</option>
+									<option value="2">县级子公司</option>
+									<option value="1">乡镇办事处</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="Fax" class="col-md-2 control-label">组织结构目录：</label>
 							<div class="col-md-4 ">
+
 								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-										展开更多
+									<button type="button" class="btn btn-default dropdown-toggle" onclick="showDirect()">
+										选择组织目录
 										<span class="caret"></span>
 									</button>
-									<div class="dropdown-menu">
-										<div id="treeview12" class=""></div>
+									<div class="dropdown-menu" style="border: none;" id="direct-tree">
+										<div id="treeview-direct" class="treeview" style="width: 300px;;"></div>
 									</div>
 								</div>
+
 							</div>
 						</div>
 					</div>
@@ -214,33 +146,32 @@
 			<div class="tui-reg-member-tool">
 				<input type="button" name="" id="" value="新增申请人 +" class="tui-btn-default tui-member-btn" data-toggle="modal" data-target="tui-modal-dialog" ng-click="clickToOpen()" />
 				<span id="">
-							 您已建立<i class=' tui-member-count'>{{allianceMembers.length}}</i>
+							 您已建立<i class=' tui-member-count' ng-bind="regularMembers.length"></i>
 							个申请人资料表，可建立多个
 						</span>
 			</div>
 			<div class="tui-reg-member-content">
 				<ul class="tui-reg-member-items">
-					<li class="tui-reg-member-item" ng-repeat="obj in allianceMembers">
-						<h3>{{obj.IsEvaluateRight==true?"评估师":"其他员工"}}   </h3>
+					<li class="tui-reg-member-item" ng-repeat="obj in regularMembers">
+						<h3></h3>
 						<div class="tui-form-group">
 							<label>姓名：</label>
-							<div class="tui-control-group">
-								<input type="text" name="Account" id="" value="{{obj.Account}} " disabled="disabled" />
+							<div class="tui-control-group" ng-bind="obj.Account">
+
 							</div>
 						</div>
 						<div class="tui-form-group">
 							<label>手机号码：</label>
-							<div class="tui-control-group">
-								<input type="text" name="Contact" id="" value="{{obj.Contact}}" disabled="disabled" />
+							<div class="tui-control-group" ng-bind="obj.Telephone">
+
 							</div>
 						</div>
 						<div class="tui-form-group">
 							<label>联系地址：</label>
-							<div class="tui-control-group">
-								<input type="text" name="Address" id="" value=" {{obj.Address}}" disabled="disabled" />
+							<div class="tui-control-group" ng-bind="obj.Address">
+
 							</div>
 						</div>
-						<a href="javascript:void(0)" class="tui-reg-member-edit">编辑</a>
 						<i class="glyphicon glyphicon-remove  tui-icon-remove" ng-click="remove($index)"></i>
 					</li>
 				</ul>
@@ -256,3 +187,12 @@
 <!--modal-->
 <!--end of register-->
 </div>
+
+<script type="text/javascript">
+	function showDirect(){
+		$('#direct-tree').toggle();
+	}
+	function showCity(){
+		$('#city-tree').toggle();
+	}
+</script>

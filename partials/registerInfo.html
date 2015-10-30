@@ -22,9 +22,11 @@
 				<div class="tui-reg-step1-content col-md-offset-3">
 					<div class="tui-reg-allianceInfo ">
 					    <div class="form-group">
-							<div class="col-md-4 ">
-								<input type="text" name="Account" id="Account" value="" class="form-control" required="required" ng-model="Account" ng-blur="checkAccout()"/>
-							</div>
+							<div class="col-md-8">
+						<div class="alert alert-warning alert-dismissable" ng-show="Message.status">
+   			  			    {{Message.msg}}
+						</div>
+		      		</div>
 						</div>
 						<div class="form-group">
 							<label for="Account" class="col-md-2 control-label"> 用户名：</label>
@@ -33,7 +35,7 @@
 							</div>
 							<div class="col-md-2 " >
 								<span class="tui-tip" ng-show="registerForm.Account.$dirty&&registerForm.Account.$invalid">请输入用户名</span>
-								<span class="tui-tip" ng-show="registerForm.Account.$dirty&&registerForm.Account.$valid&&flag">该用户名已注册</span>
+								<span class="tui-tip" ng-show="registerForm.Account.$dirty&&registerForm.Account.$valid&&flg">该用户名已注册</span>
 							</div>
 						</div>
 						<div class="form-group">

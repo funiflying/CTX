@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/register.css">
 <!--for register-->
 <div class="container tui-reg-container tc">
-	<div class="tui-reg-step">
+	<!--<div class="tui-reg-step">
 		<ul class="tui-reg-items clearfix">
 			<li class="tui-reg-item tui-reg-step-1 tui-reg-active" data-step=1>
 				设置登录名
@@ -13,35 +13,40 @@
 				注册成功
 			</li>
 		</ul>
-	</div>
+	</div>-->
 	<!--step1-->
 	<div class="tui-reg-step-content tui-reg-phone-container row">
-		<form action="" class=" form-horizontal" role="form">
+		<form  class=" form-horizontal" role="form" name="telephoneForm">
 			<div class="tui-reg-step1-content col-md-offset-3">
+				<div class="form-group">
+					<div class="col-md-5 col-md-offset-1">
+						<div class="alert alert-warning alert-dismissable" ng-show="Message.status||true">
+   			  			 {{Message.msg}}
+						</div>
+		      		</div>
+				</div>
 				<div class="form-group ">
 					<label for="Contact" class="col-md-2 control-label">手机号码：</label>
 					<div class="col-md-4 ">
 						<div class=" input-group">
 							<div class="input-group-btn">
 								<button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
-									中国大陆+086
+									{{reg.IRC}}
 									<span class="caret"></span>
 								</button>
-									<ul class="dropdown-menu ">
-										<li><a href="javascript:void(0)">中国大陆+086</a></li>
-										<li><a href="javascript:void(0)">澳门+853</a></li>
-										<li><a href="javascript:void(0)">台湾+886</a></li>
+									<ul class="dropdown-menu">
+										<li ng-click="getIRC($index)"  ng-repeat="a in area"><a href="javascript:void(0)">{{a}}</a></li>
+										
 									</ul>
 							</div>
-								
-							<input type="text" class="form-control" id="Contact" name="Contact" ng-model="reg.contact" placeholder="请输手机号">
+							<input type="text" class="form-control" id="Contact" name="Contact" ng-model="reg.contact" placeholder="请输手机号" ng-blur="Phone()" required="required" ng-pattern="/^(0|86)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/">
 					</div>
 					</div>
 				</div>
 				<div class="form-group">
 				<label for="Code" class="col-md-2 control-label">验证码：</label>
 				<div class="col-md-2">
-					<input type="text" class="form-control" id="Code" placeholder="请输验证码" ng-model="reg.code" name="Code">
+					<input type="text" class="form-control" id="Code" placeholder="请输验证码" ng-model="reg.code" name="Code" required="required">
 				</div>
 				<div class="col-md-1">
 					<input type="button"  value="获取短信验证码" class="tui-vercode-btn" ng-click="getCode()" />

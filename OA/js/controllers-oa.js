@@ -1,5 +1,24 @@
-'use strict'
-//联盟商信息审核
+function loginController($scope,$rootScope,LoginService,$location){
+	$scope.logon = {};
+	$scope.directSignin = function() {
+		if ($scope.loginForm.$valid) {
+			LoginService.directLogin($scope.logon).success(function(d) {
+				if (d.Status == 0) {
+					$rootScope.Alert(d.Message);
+				} else {
+					$location.path("/index")
+				}
+			}).error(function(e) {
+				$rootScope.Alert(e);
+			})
+		}
+	}
+	
+}
+
+
+loginController.$inject=["$scope","$rootScope","LoginService","$location"]
+
 function allianceAuditController($scope,ngDialog,AllianceAuditService,$rootScope){
     $scope.member="";
 	$scope.openDialog=function(obj){
@@ -10,7 +29,7 @@ function allianceAuditController($scope,ngDialog,AllianceAuditService,$rootScope
 			scope:$scope
 		});
 	}
-	AllianceAuditService.getMembers().success(function(d){
+	AllianceAuditService.getMembers(1,5).success(function(d){
 		$scope.alliance=d.jsonstr;
 	});
 		
@@ -28,15 +47,17 @@ function allianceAuditController($scope,ngDialog,AllianceAuditService,$rootScope
             $rootScope.Alert(e)
         })
     }
-    
 }
-//allianceAuditController.$inject=['$scope','ngDialog','AllianceAuditService']
-//车源审核
-function carAuditController($scope,ngDialog,CarAuditService,$rootScope){
-    
+allianceAuditController.$inject=["$scope","ngDialog","AllianceAuditService","$rootScope"]
+/*
+ */
+
+
+
+function carAuditControllerfunction($scope,ngDialog,CarAuditService,$rootScope){
     //获取车源
     $scope.carList="";
-    CarAuditService.getCarList().success(function(d){
+    CarAuditService.getCarList(1,5).success(function(d){
             if(d.Status==1){
                 $scope.carList=d.Data;
             }
@@ -51,11 +72,26 @@ function carAuditController($scope,ngDialog,CarAuditService,$rootScope){
             AuditStatus:_status
         }
         CarAuditService.auditStatus(data).success(function(d){
-            
         }).error(function(e){
             $rootScope.Alert(e)
         })
     }
-   
 }
-//carAuditController.$inject=['$scope','ngDialog','CarAuditService']
+carAuditControllerfunction.$inject=["$scope","ngDialog","CarAuditService","$rootScope"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,31 @@
 <link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-treeview.css" />
+<script src="js/bootstrap-treeview.js" type="text/javascript" charset="utf-8"></script>
+<style>
+    .dropdown-menu {
+    background-clip: padding-box;
+    background-color: transparent;
+    border: none;
+    border-radius:0;
+    box-shadow: 0 0 0 ;
+    display: none;
+    float: left;
+    font-size: 14px;
+    left: 0;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+}
+
+</style>
 <!--for register-->
 <div class="container  tui-reg-container tc">
-	<div class="tui-reg-step">
+	<!--<div class="tui-reg-step">
 		<ul class="tui-reg-items clearfix">
 			<li class="tui-reg-item tui-reg-step-1" data-step=1>
 				设置登录名
@@ -13,7 +37,7 @@
 				注册成功
 			</li>
 		</ul>
-	</div>
+	</div>-->
 	<!--step2-->
 	<div class="tui-reg-info-container">
 		<div class="tui-reg-step-content ">
@@ -71,21 +95,18 @@
 
 						</div>
 						<div class="form-group">
-							<label for="PersonName" class="col-md-2 control-label">姓名：</label>
+							<label for="City" class="col-md-2 control-label">城市：</label>
 							<div class="col-md-4 ">
-								<input type="text" name="PersonName" id="PersonName" value="" class="form-control" required="required"  ng-model="PersonName" />
-							</div>
-							<div class="col-md-2 " ng-show="allianceForm.PersonName.$dirty&&allianceForm.PersonName.$invalid">
-							   <span class="tui-tip">请输入姓名</span>	
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="PersonID" class="col-md-2 control-label">身份证号码：</label>
-							<div class="col-md-4 ">
-								<input type="text" name="PersonID" id="PersonID" value="" class="form-control" required="required" ng-model="PersonID" ng-pattern="/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{4}$/" />
-							</div>
-							<div class="col-md-2 " ng-show="allianceForm.PersonID.$dirty&&allianceForm.PersonID.$invalid">
-							   <span class="tui-tip">请输入企业负责人姓名</span>	
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle"  onclick="showCity()">
+										选择城市
+										<span class="caret"></span>
+									</button>
+									<div class="dropdown-menu"  style="border: none;" id="city-tree">
+									   	 <div id="treeview-city" class="treeview"  style="width: 300px;;"></div>
+									</div>
+									
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
@@ -110,26 +131,24 @@
 			<div class="tui-reg-member-content">
 				<ul class="tui-reg-member-items">
 					<li class="tui-reg-member-item" ng-repeat="obj in allianceMembers">
-						<h3>{{obj.IsEvaluateRight==true?"评估师":"其他员工"}}   </h3>
+						<h3 ng-bind='obj.IdentityTag==2?"评估师":"其他员工"'> </h3>
 						<div class="tui-form-group">
 							<label>姓名：</label>
-							<div class="tui-control-group">
-								<input type="text" name="Account" id="" value="{{obj.Account}} " disabled="disabled" />
+							<div class="tui-control-group" ng-bind="obj.PersonName">
 							</div>
 						</div>
 						<div class="tui-form-group">
 							<label>手机号码：</label>
-							<div class="tui-control-group">
-								<input type="text" name="Contact" id="" value="{{obj.Contact}}" disabled="disabled" />
+							<div class="tui-control-group" ng-bind="obj.Contact">
+							
 							</div>
 						</div>
 						<div class="tui-form-group">
 							<label>联系地址：</label>
-							<div class="tui-control-group">
-								<input type="text" name="Address" id="" value=" {{obj.Address}}" disabled="disabled" />
+							<div class="tui-control-group" ng-bind="obj.Address">
+							
 							</div>
 						</div>
-						<a href="javascript:void(0)" class="tui-reg-member-edit">编辑</a>
 						<i class="glyphicon glyphicon-remove  tui-icon-remove" ng-click="remove($index)"></i>
 					</li>
 				</ul>
@@ -139,9 +158,14 @@
 		<p class="tui-service-agreement"><a href="">《车同享服务协议》</a></p>
 	</div>
 </div>
-
-</div>
+<script type="text/javascript">
+	function showDirect(){
+		$('#direct-tree').toggle();
+	}
+	function showCity(){
+		$('#city-tree').toggle();
+	}
+</script>
 
 <!--modal-->
 <!--end of register-->
-</div>

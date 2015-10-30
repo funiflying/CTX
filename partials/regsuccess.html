@@ -14,7 +14,7 @@
 		<!--end of header-->
 		<!--for register-->
 		<div class="wrapper tui-reg-container tc">
-			<div class="tui-reg-step">
+			<!--<div class="tui-reg-step">
 				<ul class="tui-reg-items clearfix">
 					<li class="tui-reg-item tui-reg-step-1 " data-step=1>
 						设置登录名
@@ -26,15 +26,15 @@
 						注册成功
 					</li>
 				</ul>
-			</div>
+			</div>-->
 			<!--成功-->
 			<div class="tui-reg-step-content tui-reg-success-container">
 				<form action="">
 						<p class="tui-reg-success">
-							<i class="icon-ok-circle"></i>
-							<span>{{PersonName}}</span>， 恭喜亲成功开通车同享服务!
+							<i class=""></i>
+							<span ng-show="user.name">{{user.name}},</span> 恭喜亲成功开通车同享服务!
 						</p>
-						<p class="tui-reg-success-tip">您的手机号{{reg.contact}}也可以作为用户名登录车同享服务</p>
+						<p class="tui-reg-success-tip" ng-show="user.contact">您的手机号{{user.contact}}也可以作为用户名登录车同享服务</p>
 				</form>
 			</div>
 		</div>

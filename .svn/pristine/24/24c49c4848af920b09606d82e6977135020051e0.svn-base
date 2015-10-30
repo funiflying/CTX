@@ -1,0 +1,305 @@
+<link rel="stylesheet" href="css/sellcar.css" />
+<link href="lib/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="lib/webuploader/webuploader.css">
+<div class="w box-sell">
+	<div class="wrapper">
+		<div class="d-here">
+			<a href="#">首页</a><i>&gt;</i>
+			<a href="#">我要卖车</a><i>&gt;</i>
+			<a href="#">发布车源</a>
+		</div>
+		<div class="d-sell-title">
+			<h2>填写您的二手车信息</h2><span>管理发布车源</span></div>
+		<div class="">
+			<form class="tui-form-group tui-control-group" id="sellcarform">
+				<div class="d-form-div">
+					<label><span>*</span>车型：</label>
+					<div class="d-fr-div">
+						<input type="text" value="请选择品牌" ng-init="BrandList()" class="tui-form-border">
+						<span>找不到您的车？填写一个</span>
+						<section id="ChangeBrand" class="ChangeBrand">
+							<select name="Brand" class="tui-form-border" ng-model="selectedBrand" ng-change="selectedChexi=''" ng-options="(bd.AbcOrder+' -> '+bd.brandName) for bd in brandslist">
+								<option value="">---请选择品牌---</option>
+							</select>
+							<select name="Series" class="tui-form-border" ng-model="selectedChexi" ng-options="cx.SeriesName for cx in selectedBrand.chexi">
+								<option value="">---请选择车系---</option>
+							</select>
+							<select name="Series" class="tui-form-border">
+								<option value="">---请选择车型---</option>
+								<option value="0" selected="">不限</option>
+								<option value="1">小型车</option>
+								<option value="2">紧凑型车</option>
+								<option value="3">中型车</option>
+								<option value="4">豪华型车</option>
+								<option value="5">SUV</option>
+								<option value="6">MPV</option>
+								<option value="7">跑车</option>
+								<option value="8">商用车</option>
+							</select>
+						</section>
+					</div>
+
+				</div>
+				<div class="d-form-div" ng-init="ChangeCarColor()">
+					<label><span>*</span>车身颜色：</label>
+					<input name="color" class="tui-form-border" type="hidden" value="1" />
+					<div class="d-color-change">
+						<a href="javascript:;" data-value="1" class="cborder"><i class="d-color-m color-01"></i>黑色<i class="d-color-check on"></i></a>
+						<a href="javascript:;" data-value="2"><i class="d-color-m color-02"></i>白色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="3"><i class="d-color-m color-03"></i>银灰色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="4"><i class="d-color-m color-04"></i>深灰色<i class="d-color-check"></i></a>
+
+						<a href="javascript:;" data-value="5"><i class="d-color-m color-05"></i>红色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="6"><i class="d-color-m color-06"></i>橙色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="7"><i class="d-color-m color-07"></i>多彩色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="8"><i class="d-color-m color-08"></i>绿色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="9"><i class="d-color-m color-09"></i>蓝色<i class="d-color-check"></i></a>
+
+						<a href="javascript:;" data-value="10"><i class="d-color-m color-10"></i>咖啡色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="11"><i class="d-color-m color-11"></i>紫色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="12"><i class="d-color-m color-12"></i>香槟色<i class="d-color-check"></i></a>
+
+						<a href="javascript:;" data-value="13"><i class="d-color-m color-13"></i>黄色<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="14"><i class="d-color-m color-14"></i>其它<i class="d-color-check"></i></a>
+					</div>
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>车牌所在地：</label>
+					<select name="RegisterPlace" class="tui-form-border">
+						<option>厦门</option>
+						<option>福州</option>
+					</select>
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>行驶里程：</label>
+					<input type="text" name="Mileage" value="5.6" class="tui-form-border"><span class="input-right40">万公里</span>
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>首次上牌时间：</label>
+					<div class="d-date-wrap w300">
+						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
+							<input class="form-control" size="16" type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+					</div>
+					<div class="fl w150 mt5">
+						<input type="hidden" id="dtp_input1" value="" />
+						<input type="checkbox" value="0"><span class="mt5 ml15">未上牌</span></div>
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>预售价格：</label>
+					<input name="Price" class="tui-form-border" type="text" value="15" placeholder="想卖多少价格" /><span class="input-right30">万元</span>
+					<input name="WholesalePrice" class="tui-form-border ml15" type="text" placeholder="批发价格" value="12" /><span class="input-right30">万元</span>
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>购买年限：</label>
+					<div class="d-date-wrap w300">
+						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
+							<input class="form-control" size="16" type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>过户次数：</label>
+					<input name="TransferNo" class="tui-form-border" placeholder="次数" type="number" value="0" />
+				</div>
+				<div class="d-form-div d-line-grey"></div>
+				<div class="d-form-div">
+					<label>车辆实拍照片：</label>
+					<!--<span>上传实拍照片可提高一倍售出成功率，最多上传 10 张，按Ctrl可多选图片</span>-->
+					<div class="uploader-wrap">
+						<div id="uploader">
+							<div class="queueList">
+								<div id="dndArea" class="placeholder">
+									<div id="filePicker"></div>
+									<p>或将照片拖到这里，上传实拍照片可提高一倍售出成功率,单次最多可选30张</p>
+								</div>
+							</div>
+							<div class="statusBar" style="display:none;">
+								<div class="progress">
+									<span class="text">0%</span>
+									<span class="percentage"></span>
+								</div>
+								<div class="info"></div>
+								<div class="btns">
+									<div id="filePicker2"></div>
+									<div class="uploadBtn">开始上传</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="d-form-div">
+					<label>车辆实拍视频：</label>
+					<span>上传3gp/mov/mp4/m4v等常用手机视频，时长小于3分钟</span>
+				</div>
+				<div class="d-form-div">
+					<label>车主自述：</label>
+					<div class="d-fr-div">
+						<textarea name="12" cols="87" rows="6" placeholder="例：我一直很爱惜自己的车，每次保养都是在4S店保养，小刮擦在所难免但绝对没有大事故。加装了自动大灯，门灯，点火线圈，胎压监测。保险还有9个月到期，可随时看车！">我一直很爱惜自己的车，每次保养都是在4S店保养，小刮擦在所难免但绝对没有大事故。加装了自动大灯，门灯，点火线圈，胎压监测。保险还有9个月到期，可随时看车！
+						</textarea>
+						<br>
+						<span>0  /  200  字，请不要输入与出售车辆无关内容或非法内容</span>
+					</div>
+				</div>
+				<div class="d-form-div d-line-grey"></div>
+				<div class="d-form-div">
+					<label>发动机号：</label>
+					<input name="EngineNo" class="tui-form-border" type="text" value="456123" />
+				</div>
+				<div class="d-form-div">
+					<label>车架号：</label>
+					<input name="FrameNumber" class="tui-form-border" type="text" value="123456" />
+				</div>
+				<div class="d-form-div">
+					<label>行驶证：</label>
+					<input name="DrivingLicense" class="tui-form-border" type="text" value="1" />
+				</div>
+				<div class="d-form-div">
+					<label>登记证：</label>
+					<input name="Registration" class="tui-form-border" type="text" value="1" />
+				</div>
+				<div class="d-form-div">
+					<label>初登日期：</label>
+					<div class="d-date-wrap w300">
+						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
+							<input name="InitialDate" class="form-control" size="16" type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="d-form-div">
+					<label>车身名牌：</label>
+					<input name="BodyBrand" class="tui-form-border" type="text" value="13" />
+				</div>
+				<div class="d-form-div">
+					<label>购车发票：</label>
+					<input name="PurchaseInvoices" class="tui-form-border" type="text" value="1" />
+				</div>
+				<div class="d-form-div">
+					<label>违章记录：</label>
+					<input name="ViolationRecord" class="tui-form-border" type="text" value="0" />
+				</div>
+				<div class="d-form-div d-line-grey"></div>
+				<div class="d-form-div">
+					<label><span>*</span>联系人：</label>
+					<input name="ContactName" class="tui-form-border" type="text" value="车某某" />
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>手机号：</label>
+					<input name="MobilePhone" class="tui-form-border" type="text" value="158467953245" />
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>验证码：</label>
+					<input name="Code" class="tui-form-border" type="text" value="1234" />
+				</div>
+				<div class="d-form-div">
+					<label>微信号：</label>
+					<input name="WeiXinNo" class="tui-form-border" type="text" value="weixinhao" />6-20个字母、数字下划线和减号，必须以字母开头
+				</div>
+				<div class="d-form-div d-line-grey"></div>
+				<div class="d-form-div">
+					<label>年检有效期至：</label>
+					<div class="d-date-wrap w300">
+						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
+							<input name="Annual_Inspect_Time" class="form-control" size="16" type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="d-form-div">
+					<label>交强险到期时间：</label>
+					<div class="d-date-wrap w300">
+						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
+							<input name="Compulsory_insurance_Time" class="form-control" size="16" type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="d-form-div">
+					<label>商业险到期时间：</label>
+					<div class="d-date-wrap w300">
+						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
+							<input name="Commercial_Insurance_Time" class="form-control" size="16" type="text" value="" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="d-form-div">
+					<label>车辆特点：</label>
+					<div class="d-multiple-change">
+						<a href="javascript:;" data-value="1" class="cborder">降价急售<i class="d-color-check on"></i></a>
+						<a href="javascript:;" data-value="2">准新车<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="3">练手车<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="4">女车主<i class="d-color-check"></i></a>
+						<a href="javascript:;" data-value="5">7座车<i class="d-color-check"></i></a>
+					</div>
+					<input name="TeDian" class="tui-form-border" type="hidden" value="" />
+				</div>
+				<div class="d-form-div">
+					<label>看车地点：</label>
+					<div class="d-fr-div" ng-init="districts=[
+				{code: '99', name: '福建省', units: [
+				{code: '9901', name: '厦门市', positions: [
+				{code: '990101', name: '思明区' },
+				{code: '990102', name: '湖里区' }
+				]},
+				{code: '9902', name: '泉州市', positions: [
+				{code: '990201', name: '晋江区' },
+				{code: '990202', name: '石狮区' }
+				]}
+				]},
+				{code: '01', name: '广东省', units: [
+				{code: '0101', name: '广东市', positions: [
+				{code: '010101', name: '地区1' },
+				{code: '010102', name: '地区2' }
+				]},
+				{code: '0201', name: '城市2', positions: [
+				{code: '010201', name: '地区3' },
+				{code: '010202', name: '地区14' }
+				]}
+				]}]">
+						<select ng-model="selectedDistrict" name="" ng-change="selectedUnit=''" ng-options="district.name for district in districts">
+							<option value="">---请选择省份---</option>
+						</select>
+						<select ng-model="selectedUnit" ng-change="selectedPosition=''" ng-options="unit.name for unit in selectedDistrict.units">
+							<option value="">---请选择城市---</option>
+						</select>
+						<select ng-model="selectedPosition" ng-options="unit.name for unit in selectedUnit.positions">
+							<option value="">---请选择地区---</option>
+						</select>
+						<input name="selectedDistrict.name" class="tui-form-border tui-control-big mt5" type="text" placeholder="例：观音山国际运营中心附近" value="观音山国际运营中心附近" />
+					</div>
+				</div>
+				<div class="d-form-div d-line-grey"></div>
+				<div class="d-form-div">
+					<button class="tui-btn-default" type="submit" >发布车源</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="lib/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="upload/upload.js"></script>
+
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="lib/bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	$('.form_datetime').datetimepicker({
+		language: 'zh-CN',
+		format: "yyyy-mm-dd",
+		autoclose: true,
+		todayBtn: true,
+		viewSelect: 'month',
+		minView: 2
+	});
+</script>

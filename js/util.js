@@ -241,9 +241,10 @@ util.Form = {
 						if (_name != undefined & _name != "") {
 							o[_name] = _value;  
 						}
+						break;
 					case 'radio':
 					case 'checkbox':
-						if ($(this).checked) {
+						if (this.checked) {
 							if (_type == 'radio') {
 								if (_name != undefined & _name != "") {
 									o[_name] = _value

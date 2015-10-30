@@ -1,0 +1,51 @@
+<!-- 左侧菜单  -->
+          <div class="col-md-2 tui-oa-sidebar">
+              <div class="tui-oa-aside">
+                  <img src="/images/06.jpg" alt="" class="tui-admim-headIcon">
+                  <p class="tui-oa-name">
+                      吴添祥    
+                  </p>
+                  <a href="">账号设置</a>|<a href="">消息</a>
+              </div>
+              <div class="tui-oa-aside-nav">
+                  <ul class="tui-oa-asidenav-items">
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">首页</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">审核 <i class=" glyphicon glyphicon-chevron-down tui-oa-down"></i></a>
+                          <ul style="display: none;">
+                          	<li><a href="#/audit">联盟商</a></li>
+                          	<li><a href="#/releasecar">车源信息</a></li>
+                          </ul>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">技能设定</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">评估管理</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">我的足迹</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">我的收藏</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">意见反馈</a>
+                      </li>
+                      <li class="tui-oa-asidenav-item">
+                          <a href="">帮助中心</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+    <!--endof 左侧菜单  -->
+    	<script type="text/javascript">
+  	$(function(){
+  		$(".tui-oa-asidenav-item").on("click",function(){
+  			$(this).children("ul").toggle()
+  		})
+  	})
+  </script>
+    

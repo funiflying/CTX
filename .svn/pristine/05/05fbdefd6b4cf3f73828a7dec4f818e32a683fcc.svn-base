@@ -1,0 +1,431 @@
+/*汽车详细页*/
+
+.d-info-w {
+	width: 100%;
+	position: relative;
+	float: left;
+}
+.d-info-w .d-info-left {
+	float: left;
+	width: 634px;
+	position: relative;
+}
+.d-info-w .d-info-right {
+	float: right;
+	width: 538px;
+	position: relative;
+}
+.d-info-left .d-info-img {
+	background: #a6a6a6;
+	width: 634px;
+	height: 415px;
+	position: relative;
+	border-radius: 10px;
+}
+.d-info-left .d-info-img img {
+	border-radius: 10px;
+}
+.d-info-left .d-img-list {
+	width: 100%;
+	height: 127px;
+	float: left;
+}
+.thumb-arrow-prew {
+	background: url(../images/info-img-left-btn1.jpg) no-repeat;
+	width: 30px;
+	height: 127px;
+	display: block;
+}
+.thumb-arrow-next {
+	background: url(../images/info-img-right-btn1.jpg) no-repeat;
+	width: 30px;
+	height: 127px;
+	display: block;
+}
+.thumb-arrow-prew:hover {
+	background: url(../images/info-img-left-btn.jpg) no-repeat;
+	width: 30px;
+	height: 127px;
+	display: block;
+}
+.thumb-arrow-next:hover {
+	background: url(../images/info-img-right-btn.jpg) no-repeat;
+	width: 30px;
+	height: 127px;
+	display: block;
+}
+.d-thumb-list {
+	width: 572px;
+	height: 127px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	margin-left: 2px;
+}
+.d-thumb-list .d-thumb-in {
+	float: left;
+}
+.d-thumb-in .d-thumb-img {
+	width: 572px;
+	float: left;
+	margin: 0 1px 0 0;
+}
+.d-thumb-in .d-thumb-img li {
+	float: left;
+	display: inline;
+	margin: 0 1px 1px 0;
+	position: relative;
+	width: 94px;
+	height: 63px;
+	text-align: center;
+	line-height: 60px;
+	float: left;
+	background: #000000;
+}
+.d-thumb-in .display-ul {
+	display: none;
+}
+.d-info-title {
+	width: 100%;
+}
+.d-info-title h1 {
+	margin: 0px;
+	padding: 0px;
+	line-height: 30px;
+	font-size: 21.6px;
+}
+.d-info-from {
+	line-height: 30px;
+	position: relative;
+	display: block;
+}
+.d-info-from .d-share-small {
+	text-align: right;
+}
+.d-info-from .d-share-small a {
+	padding: 0 6px 0 6px;
+}
+.d-price-wrap {
+	width: 100%;
+	height: 120px;
+	/*border: 1px dashed #dedede;*/
+	
+	padding: 20px;
+	background: #fff;
+}
+.d-price-wrap .price-w {
+	width: 180px;
+	text-align: center;
+	padding-right: 10px;
+	height: auto;
+	float: left;
+	overflow: hidden;
+	border-right: 1px solid #e6e6e6;
+}
+.d-price-wrap .price-w p {
+	width: 100%;
+}
+.d-price-wrap .price-w span {
+	font-size: 14px;
+}
+.d-price-wrap .price-w .d-price {
+	color: #fd5736;
+	font-size: 36px;
+	font-weight: bold;
+	height: 60px;
+	line-height: 60px;
+}
+.d-price-wrap .d-info-licheng {
+	padding-top: 5px;
+	line-height: 25px;
+}
+.d-price-wrap .d-info-licheng span {
+	color: #999999;
+}
+.d-info-contact {
+	height: auto;
+	/*border: 1px dashed #dedede;*/
+	
+	width: 100%;
+	position: relative;
+	float: left;
+	background: #fffaf6;
+	padding: 20px;
+	font-size: 16px;
+	color: #ff6a00;
+}
+.d-info-contact span {
+	font-weight: bold;
+	font-size: 20px;
+}
+.d-info-contact .d-contact-w {
+	float: left;
+	height: 60px;
+	width: 380px;
+	border-right: 1px solid #dedede;
+	padding-top: 10px;
+	padding-left: 65px;
+	background: url(../images/tel-icon.jpg) 8px no-repeat;
+}
+.d-info-contact .d-contact-w p {
+	float: left;
+}
+.d-buy-w {
+	padding: 20px 0px 20px 10px;
+	width: 100%;
+	position: relative;
+	float: left;
+	text-align: center;
+}
+.d-buy-w a {
+	padding: 15px 35px 15px 35px;
+	border: 1px solid #f0cab6;
+	border-radius: 5px;
+	margin-right: 10px;
+	background: #ffe4d0;
+	color: #e5511d;
+	font-size: 16px;
+}
+.d-buy-w a:hover {
+	background: #ff4400;
+	color: #fff;
+	border: 1px solid #ff4400;
+	text-decoration: none;
+}
+/*.d-buy-w .buy-now { background: #ffe4d0; color: #e5511d; font-size: 16px;}
+.d-buy-w .buy-now:hover { background: #ff4400; color: #fff; font-size: 16px; text-decoration: none;}
+.d-buy-w .add-cart {background: #ff4400; color: #fff; font-size: 16px;}
+.d-buy-w .add-cart {background: #ff4400; color: #fff; font-size: 16px;}*/
+
+.d-buy-w .trust-evaluation {
+	background: #f5f5f5;
+	color: #ff6a00;
+	font-size: 16px;
+}
+.d-buy-w .trust-evaluation:hover {
+	background: #f5f5f5;
+	color: #e5511d;
+	font-size: 16px;
+	text-decoration: none;
+}
+.d-trust-e-icon {
+	background: url(../images/Trust-evaluation-icon.png) no-repeat;
+	width: 25px;
+	height: 21px;
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 5px;
+}
+.d-info-service {
+	width: 100%;
+	position: relative;
+	float: left;
+	text-align: center;
+	background: #fff;
+	padding-bottom: 15px;
+}
+.d-info-service .d-provide {
+	text-align: center;
+	width: 135px;
+	padding-top: 15px;
+}
+.d-info-service .d-provide p {
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+.d-info-service .d-w33 {
+	width: 33%;
+	float: left;
+}
+.d-info-service .d-w33 i {} .d-info-service .d-info-s-main {
+	font-size: 14px;
+}
+.d-info-service .d-info-s-main p {
+	line-height: 23px;
+	text-align: center;
+	padding: 0px 12px 0px 12px;
+}
+/*详细信息-检测结果*/
+
+.d-detection-result {
+	width: 100%;
+	position: relative;
+	float: left;
+	background: #fff;
+	border: 1px solid #dedddc;
+}
+.d-detection-result .d-jcs-photo {
+	height: 265px;
+	width: 200px;
+	text-align: center;
+	border-left: 1px solid #dedddc;
+}
+.d-detection-result .d-jcs-photo img {
+	margin-top: 25px;
+	margin-bottom: 20px;
+}
+.d-detection-result .d-jcs-photo p {
+	width: 100%;
+	font-size: 14px;
+	padding-top: 5px;
+}
+.d-detection-result .d-dr-main {
+	width: 998px;
+}
+.d-detection-result .d-dr-main .d-dr-title {
+	width: 100%;
+	background: #f2f2f2;
+	font-weight: bold;
+	line-height: 50px;
+	height: 50px;
+	border-bottom: 1px solid #dedddc;
+	font-size: 16px;
+	padding-left: 20px;
+}
+.d-dr-main .d-dr-title span {
+	margin-left: 20px;
+	margin-right: 20px;
+	font-size: 14px;
+}
+.d-dr-main .d-dr-content {
+	margin: 20px;
+}
+.d-dr-content .d-dr-txt {
+	font-size: 12px;
+	line-height: 25px;
+}
+.d-dr-main .d-dr-content .d-dr-result {
+	width: 100%;
+	margin-top: 10px;
+	border-top: 1px solid #dedddc;
+}
+.d-dr-content .d-dr-result ul {
+	width: 100%;
+	position: relative;
+	float: left;
+	margin-top: 10px;
+}
+.d-dr-content .d-dr-result li {
+	width: 25%;
+	float: left;
+	line-height: 25px;
+}
+.d-dr-content .d-dr-result strong {
+	font-size: 14px;
+	font-weight: bold;
+}
+/*详细信息tab导航*/
+
+.d-tab-nav {
+	width: 100%;
+	position: relative;
+	float: left;
+	border: 1px solid #dedddc;
+	display: inline-block;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.d-tab-nav .d-tab-list {
+	width: 75%;
+}
+.d-tab-nav .d-tab-buy {
+	width: 25%;
+	text-align: right;
+	line-height: 30px;
+}
+.d-tab-nav .d-tab-list a {
+	padding: 15px 25px 15px 25px;
+	display: block;
+	font-size: 18px;
+	line-height: 30px;
+	float: left;
+	width: 180px;
+	text-align: center;
+	border-right: 1px solid #dedddc;
+}
+.d-tab-nav .d-tab-list a:hover {
+	background-color: #dfdfdf;
+	color: #333332;
+	text-decoration: none;
+}
+.d-tab-nav .d-tab-buy span {
+	font-size: 26px;
+	/*vertical-align: middle;*/
+	
+	color: #ff6a00;
+	font-weight: bold;
+	margin-right: 10px;
+}
+.d-tab-nav .d-tab-buy button {
+	font-size: 26px;
+	height: 60px;
+	width: 150px;
+	color: #fff;
+	font-weight: bold;
+	background-color: #ff6a00;
+	border: none;
+}
+.d-tab-nav .d-tab-buy button:hover {
+	background-color: #ff4e00;
+	cursor: default;
+}
+/*车辆详细描述*/
+
+.d-car-desc {
+	width: 100%;
+	position: relative;
+	float: left;
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: 15px;
+}
+.d-car-desc .d-cd-title {
+	width: 30%;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+.d-car-desc .d-cd-baseinfo {
+	width: 70%;
+	text-align: center;
+	float: left;
+}
+.d-cd-baseinfo .d-cdb-title {
+	margin-top: 30px;
+	color: #000000;
+	font-size: 16px;
+	line-height: 30px;
+	widows: 100%;
+	text-align: left;
+}
+.d-cd-baseinfo .d-cd-ul {
+	width: 32%;
+	text-align: left;
+	float: left;
+	font-size: 16px;
+	line-height: 30px;
+	color: #000000;
+}
+.d-cd-baseinfo .d-cd-ul .d-cd-txt {
+	width: 30%;
+	float: left;
+	color: #a5a5a5;
+	text-align: right;
+	line-height: 30px;
+}
+.d-cd-baseinfo .d-cd-reminder {
+	width: 100%;
+	margin: 15px 0px 10px 0px;
+	border-top: 1px solid #e9e9e9;
+	padding-top: 25px;
+	padding-left: 35px;
+	display: block;
+	font-size: 14px;
+	line-height: 25px;
+	position: relative;
+	float: left;
+	text-align: left;
+}
+
+

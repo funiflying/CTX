@@ -17,7 +17,6 @@ Array.prototype.remove = function(index) {
  * ngDialog
  * ******************************/
 function ngDialogController($scope, ngDialog, $rootScope, AllianceRegService) {
-
 	//验证用户名
 	$scope.checkAccout = function() {
 			if ($scope.memberForm.Account.$valid) {
@@ -86,20 +85,17 @@ function ngDialogController($scope, ngDialog, $rootScope, AllianceRegService) {
 	$scope.savePartners = function() {
 		if ($scope.partnerForm.$valid) {
 			var o = util.Form.getForm("tui-reg-partner-form");
+			o.IdentityTag="14";
 			o.DirectStockholder_User_UserID = [{
 				"EquityRatio": $scope.parnters.EquityRatio,
 				"ProfitRatio": $scope.parnters.ProfitRatio,
 			}];
 			$rootScope.regularMembers.push(o);
-			ngDialog.close();
+			 ngDialog.close();
 		}
 
 	}
-
-
 }
-ngDialogController.$inject = ['$scope',  '$rootScope', 'AllianceRegService']
-
 /********************************
  * 外网用户注册
  * ******************************/
@@ -159,8 +155,13 @@ function registerController($scope,RegisterService,$rootScope,$location){
 					"Phone": $scope.reg.contact,
 					"Code": $scope.reg.code
 				}
-				RegisterService.sendCode(obj).success(function() {
-
+				RegisterService.sendCode(obj).success(function(d) {
+						if(d.Status==0){
+							$rootScope.Alert(d.Message)
+						}
+						else{
+							$rootScope.reg_phone=$scope.reg.contact
+						}
 
 				}).error(function(e) {
                     
@@ -169,13 +170,13 @@ function registerController($scope,RegisterService,$rootScope,$location){
 			}
 		}
     //验证用户名
-    $scope.flg=false;
+    
 	$scope.checkAccout = function() {
 			if ($scope.registerForm.Account.$valid) {
 				var  data={
 					Account:$scope.Account
 				}
-				$scope.check = false;
+                $scope.flg=false;
 				RegisterService.checkAccout(data).success(function(d) {
 					if (d.Status == 0) {
 						$scope.flg = true;
@@ -185,37 +186,28 @@ function registerController($scope,RegisterService,$rootScope,$location){
 		}
 		//注册
 	$scope.register = function() {
-        if ($scope.registerForm.$valid) {
-		var data = {
-			Account: $scope.Account,
-			Pwd: $scope.Pwd
-		}
-		RegisterService.register(data).success(function(d) {
-			if (d.Status == 0) {
-				$rootScope.Alert(d.message)
-			} else {
-				$location.path('/regsuccess');
-			}
-		})
+        if ($scope.registerForm.$valid&&!$scope.flg) {
+            var data = {
+                Account: $scope.Account,
+                Pwd: $scope.Pwd,
+                Contact:$rootScope.reg_phone
+            }
+            RegisterService.register(data).success(function(d) {
+                if (d.Status == 0) {
+                    $rootScope.Alert(d.Message)
+                } else {
+                	$rootScope.user={
+                		name:d.Message.Account,
+                		contact:d.Message.Contact
+                	}
+                    $location.path('/regsuccess');
+                }
+            })
         }
 
 	}
 }
 registerController.$inject=["$scope","RegisterService","$rootScope","$location"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /********************************
@@ -228,8 +220,6 @@ function allianceRegController($scope, AllianceRegService, $timeout, $filter, $l
 	$scope.Charger = "";
 	$scope.OrganizationCode = "";
 	$scope.BusinessLicenseNo = "";
-	$scope.PersonName = "";
-	$scope.PersonID = "";
 	$scope.CityID = "";
 	$scope.Fax = "";
 
@@ -252,7 +242,6 @@ function allianceRegController($scope, AllianceRegService, $timeout, $filter, $l
 	$scope.clickToOpen = function() {
 		ngDialog.open({
 			template: 'partials/allianceMembers.html',
-			appendTo: true,
 			showClose: true,
 			controller: ngDialogController
 		});
@@ -269,8 +258,6 @@ function allianceRegController($scope, AllianceRegService, $timeout, $filter, $l
 			Charger: $scope.Charger,
 			OrganizationCode: $scope.OrganizationCode,
 			BusinessLicenseNo: $scope.BusinessLicenseNo,
-			PersonName: $scope.PersonName,
-			PersonID: $scope.PersonID,
 			CityID: $scope.CityID,
 			Fax: $scope.Fax,
 			User_Alliance_AllianceCode: $rootScope.allianceMembers
@@ -314,6 +301,7 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 	$scope.Address = "";
 	$scope.Fax = "";
 	$scope.DirectBusinessID = "";
+    $scope.DirectFlag="";
 
 	//组织目录树
 	RegularRegService.getDirect().success(function(d) {
@@ -352,7 +340,6 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 	$scope.clickToOpen = function() {
 		ngDialog.open({
 			template: 'partials/regularMembers.html',
-			appendTo: true,
 			showClose: true,
 			controller: ngDialogController
 		});
@@ -379,12 +366,12 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 				BusinessLicenseNo: $scope.BusinessLicenseNo,
 				Fax: $scope.Fax,
 				Address: $scope.Address,
+				DirectFlag:$scope.DirectFlag,
 				User_DirectBusiness_DirectCode: $rootScope.regularMembers
 			}]
 		}
 		if ($scope.regularForm.$valid) {
 			var data = $scope.regular
-
 			RegularRegService.register(data).success(function(d) {
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message)
@@ -415,19 +402,6 @@ function loginController($scope, LoginService, $rootScope, $location) {
 					$rootScope.Alert(d.Message);
 				} else {
 					window.location.href = "http://192.168.0.218/CTXWeb/admin/index.html";
-				}
-			}).error(function(e) {
-				$rootScope.Alert(e);
-			})
-		}
-	}
-	$scope.directSignin = function() {
-		if ($scope.loginForm.$valid) {
-			LoginService.directLogin($scope.logon).success(function(d) {
-				if (d.Status == 0) {
-					$rootScope.Alert(d.Message);
-				} else {
-
 				}
 			}).error(function(e) {
 				$rootScope.Alert(e);
