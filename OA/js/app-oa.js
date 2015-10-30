@@ -1,24 +1,36 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDialog']).
-config(['$routeProvider',function ($routeProvider) {
+angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDialog','ngCookies']).
+config(['$routeProvider','ACCESS_LEVELS','$httpProvider',function ($routeProvider,ACCESS_LEVELS,$httpProvider) {
 	/*************
 	 *个人中心
 	 * 
 	 * ***********/
    $routeProvider.when('/audit', {
         templateUrl: 'partials/audit.html',
-    	controller:allianceAuditController
+    	controller:allianceAuditController,
+    	access_levels: ACCESS_LEVELS.user
     });
     $routeProvider.when('/releasecar', {
         templateUrl: 'partials/releasecar.html',
-        controller:carAuditControllerfunction
+        controller:carAuditControllerfunction,
+        access_levels: ACCESS_LEVELS.user
     })
     $routeProvider.otherwise({
-        redirectTo: '/index'
+        redirectTo: '/index',
+        access_levels: ACCESS_LEVELS.user
     });
- }]).run(function($rootScope,$timeout){
+    $httpProvider.interceptors.push('UserInterceptor');
+ }]).constant('ACCESS_LEVELS', {
+    pub: 0,
+    user: 1,
+    admin: 2
+}).run(function($rootScope,$timeout,AuthService){
+	$rootScope.setUser=function(_user){
+	  return $rootScope.user=_user
+	}
+	
   	//全信息提示层
 	$rootScope.Message = {
 		status: 0,
@@ -36,9 +48,32 @@ config(['$routeProvider',function ($routeProvider) {
 		}
 	//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
-					console.log($rootScope.Message)
+		if(next.access_levels&&!AuthService.Authenticated()){
+			window.location.href="/CTX/OA/login.html"
+		}
 	});
-  }).controller("loginController",['$scope',"$rootScope","LoginService","$location",function($scope,$rootScope,LoginService,$location){
+  }).factory('UserInterceptor', ["$q","$rootScope",function ($q,$rootScope) {
+	return {
+        request:function(config){
+            
+            return config;
+        },
+        requestError:function(request){
+           // console.log(request)
+        },
+        /*response:function(response){
+        	if(response.data.Status==1){
+
+        		return 
+        	}
+        	
+        },
+        responseError: function (response) {
+        	
+            
+        }*/
+    }
+}]).controller("loginController",['$scope',"$rootScope","LoginService","$location",'SessionService',function($scope,$rootScope,LoginService,$location,SessionService){
 	$scope.logon = {};
 	$scope.directSignin = function() {
 		if ($scope.loginForm.$valid) {
@@ -46,12 +81,15 @@ config(['$routeProvider',function ($routeProvider) {
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message);
 				} else {
-					$location.path("/index")
+					$rootScope.setUser(d)
+					SessionService.setSession("AUTH",d)
+					window.location.href="/CTX/OA/#/index"
 				}
 			}).error(function(e) {
 				$rootScope.Alert("登录失败");
 			})
 		}
+		//window.location.href="/CTX/OA/#/index"
 	}
 }])
   
