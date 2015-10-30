@@ -7,10 +7,6 @@ config(['$routeProvider',function ($routeProvider) {
 	 *个人中心
 	 * 
 	 * ***********/
-	$routeProvider.when('/login.html', {
-    	controller:loginController
-    });
-    
    $routeProvider.when('/audit', {
         templateUrl: 'partials/audit.html',
     	controller:allianceAuditController
@@ -38,6 +34,10 @@ config(['$routeProvider',function ($routeProvider) {
 				}
 			}, 3000)
 		}
+	//路由控制
+	$rootScope.$on("$routeChangeStart", function(event, next, current) {
+					console.log($rootScope.Message)
+	});
   }).controller("loginController",['$scope',"$rootScope","LoginService","$location",function($scope,$rootScope,LoginService,$location){
 	$scope.logon = {};
 	$scope.directSignin = function() {
@@ -49,7 +49,7 @@ config(['$routeProvider',function ($routeProvider) {
 					$location.path("/index")
 				}
 			}).error(function(e) {
-				$rootScope.Alert(e);
+				$rootScope.Alert("登录失败");
 			})
 		}
 	}
