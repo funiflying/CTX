@@ -28,7 +28,7 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
   		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if(next.access_levels&&!AuthService.Authenticated()){
-			//window.location.href="/CTXWeb/index.html"
+			window.location.href="/CTXWeb/index.html"
 		}
 	});
 	

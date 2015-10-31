@@ -67,8 +67,8 @@ function carAuditControllerfunction($scope,ngDialog,CarAuditService,$rootScope){
     //获取车源
     $scope.carList="";
     CarAuditService.getCarList(1,5).success(function(d){
-            if(d.Status==1){
-                $scope.carList=d.Data;
+            if(d){
+                $scope.carList=d;
             }
         })
     

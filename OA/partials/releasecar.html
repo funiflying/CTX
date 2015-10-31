@@ -16,12 +16,12 @@
             </div>
         </div>
          <div class="tui-oa-order-body">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <img ng-src="{{obj.HomePicID}}" alt="">
             </div>
             <div class="col-md-5 tui-order-car">
-                <h2 ng-bind="obj.Name"></h2>
-                <p><strong ng-bind="obj.Price/10000| currency : '￥'"></strong><label>万</label>(新车价<span ng-bind="obj.CostPrice/10000|currency:'￥'"></span>万，比新车<label>省{{(obj.CostPrice-obj.Price)/10000}}万</label>)</p>
+                <h2 ng-bind="obj.SpecName"></h2>
+                <p><strong ng-bind="obj.Price/10000| currency : '￥'"></strong><label>万</label></p>
                 <ul class="tui-order-carinfo">
                     <li>
                         <p ng-bind='obj.InitialDate| date: "yyyy-MM"'></p>
@@ -41,7 +41,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-2" ng-bind="obj.CarNo">
+            <div class="col-md-3" ng-bind="obj.CarNo">
                 
             </div>
             <div class="col-md-2" style="line-height:30px;padding-top:60px;">

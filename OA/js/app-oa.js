@@ -16,6 +16,11 @@ config(['$routeProvider','ACCESS_LEVELS','$httpProvider',function ($routeProvide
         templateUrl: 'partials/releasecar.html',
         controller:carAuditControllerfunction,
         access_levels: ACCESS_LEVELS.user
+    });
+    $routeProvider.when('/index', {
+        templateUrl: 'partials/index.html',
+        controller:mainController,
+        access_levels: ACCESS_LEVELS.user
     })
     $routeProvider.otherwise({
         redirectTo: '/index',
