@@ -19,6 +19,7 @@ config(['$routeProvider','ACCESS_LEVELS','$httpProvider',function ($routeProvide
     })
     $routeProvider.otherwise({
         redirectTo: '/index',
+        controller:mainController,
         access_levels: ACCESS_LEVELS.user
     });
     $httpProvider.interceptors.push('UserInterceptor');
@@ -30,7 +31,6 @@ config(['$routeProvider','ACCESS_LEVELS','$httpProvider',function ($routeProvide
 	$rootScope.setUser=function(_user){
 	  return $rootScope.user=_user
 	}
-	
   	//全信息提示层
 	$rootScope.Message = {
 		status: 0,
@@ -49,28 +49,24 @@ config(['$routeProvider','ACCESS_LEVELS','$httpProvider',function ($routeProvide
 	//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if(next.access_levels&&!AuthService.Authenticated()){
-			window.location.href="/CTX/OA/login.html"
+			window.location.href="/CTXWeb/OA/login.html"
 		}
 	});
   }).factory('UserInterceptor', ["$q","$rootScope",function ($q,$rootScope) {
 	return {
-        request:function(config){
+        /*request:function(config){
             
             return config;
         },
         requestError:function(request){
-           // console.log(request)
+            console.log(request)
         },
-        /*response:function(response){
-        	if(response.data.Status==1){
-
-        		return 
-        	}
+       response:function(response){
+        	console.log(response)
         	
         },
         responseError: function (response) {
-        	
-            
+        	console.log(response)
         }*/
     }
 }]).controller("loginController",['$scope',"$rootScope","LoginService","$location",'SessionService',function($scope,$rootScope,LoginService,$location,SessionService){
@@ -83,13 +79,12 @@ config(['$routeProvider','ACCESS_LEVELS','$httpProvider',function ($routeProvide
 				} else {
 					$rootScope.setUser(d)
 					SessionService.setSession("AUTH",d)
-					window.location.href="/CTX/OA/#/index"
+					window.location.href="/CTXWeb/OA/#/index"
 				}
 			}).error(function(e) {
 				$rootScope.Alert("登录失败");
 			})
 		}
-		//window.location.href="/CTX/OA/#/index"
 	}
 }])
   

@@ -75,10 +75,9 @@ a:hover{
 }
 
 .tui-admin-asidenav-item {
-    height: 55px;
     line-height: 50px;
 }
-.tui-admin-asidenav-item:hover,
+.tui-admin-asidenav-item a:hover,
 .tui-admin-asidenav-item-active{
     background: #fff;
 }

@@ -29,8 +29,11 @@ angular.module('chetongxiang.services-admin', []).service('AllianceAuditService'
 }).service("LoginService", function($http) {
 	return {
 		directLogin: function(data) {
-			return $http.get("/CTX/test/user.json") //$http.post("/account/DirectLogin", data)
-		}
+			return $http.post("/account/DirectLogin", data)
+		},
+		loginOut:function(){
+            return $http.post("/account/LoginOff", {})
+        }
 	}
 
 }).service("SessionService",function(){
@@ -46,12 +49,15 @@ angular.module('chetongxiang.services-admin', []).service('AllianceAuditService'
         }
     }
 	
-}).service("AuthService",function($http,SessionService){
+}).service("AuthService",function($http,SessionService,LoginService){
 	return{
 		Authenticated:function(){
 			return !!SessionService.getSeesion("AUTH")
+		},
+		Unauthorized:function(){
+			LoginService.loginOut();
+			SessionService.removeSession("AUTH")
 		}
-		
 	}
 	
 })

@@ -253,17 +253,19 @@ body {
 .tui-info-items {
 	width: auto ;
 	text-align: left;
-	padding-top: 50px;
+	margin-top: 50px;
     height: 40px;
+    border-bottom: 1px solid #CFCFCF;
 }
 .tui-info-item {
 	width: 95px;
-	height: 35px;
-	line-height: 35px;
+	height: 40px;
+	line-height: 40px;
 	color: #333;
 	background-color: #E5E5E5;
 	text-align: center;
 	cursor: pointer;
+	float: left;
 }
 .tui-info-active {
 	color: #FFFFFF;

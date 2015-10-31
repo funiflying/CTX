@@ -1,6 +1,6 @@
-<form action="" id="tui-reg-member-form" class=" form-horizontal" role="form" name="memberForm">
+<form action="" id="tui-reg-member-form" class=" form-horizontal" role="form" name="memberForm" style="padding-top: 20px;">
 	<!--信息-->
-	<div class="tui-reg-step1-content col-md-offset-2">
+	<div class="tui-reg-step1-content col-md-offset-2 ">
 		<div class="tui-reg-allianceInfo ">
 			<div class="form-group">
 				<label for="PersonName" class="col-md-2 control-label">姓名：</label>
@@ -18,12 +18,6 @@
 				</div>
 				<div class="col-md-3" ng-show="memberForm.Contact.$dirty&&memberForm.Contact.$invalid">
 					<span class="tui-tip">请输入正确的手机号</span>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="Address" class="col-md-2 control-label">联系地址：</label>
-				<div class="col-md-6 ">
-					<input type="text" name="Address" id="Address" value="" class="form-control" ng-model="Address" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -63,69 +57,17 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="" class="col-md-2 control-label">密保问题：</label>
-				<div class="col-md-6 ">
-					<select name="Question" class="form-control ">
-						<option value=" ">请选择密码保护问题</option>
-						<option value="您母亲的姓名是？">您母亲的姓名是？</option>
-						<option value="您父亲的姓名是？">您父亲的姓名是？</option>
-						<option value="您配偶的姓名是？">您配偶的姓名是？</option>
-						<option value="您高中班主任的名字是 ">您高中班主任的名字是？</option>
-						<option value="您父亲的生日是？">您父亲的生日是？</option>
-						<option value="您第一辆汽车的车牌号是？ ">您第一辆汽车的车牌号是？</option>
-						<option value="您就读的第一所学校是？ ">您就读的第一所学校是？</option>
-						<option value="您的出生地是？ ">您的出生地是？</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="Answer" class="col-md-2 control-label">密保答案：</label>
-				<div class="col-md-6 ">
-					<input type="text" name="Answer" id=" Answer" value=" " class="form-control " ng-model="Answer" />
-				</div>
-			</div>
-			<div class="form-group">
 				<label for="IdentityTag" class="col-md-2 control-label">成员身份：</label>
 				<div class="col-md-6 ">
 					<label class="checkbox-inline">
-						<input type="radio" id="" value="3" name="IdentityTag"  >法人代表
+						<input type="radio" id="" value="3" name="IdentityTag"  checked="">法人代表
 					</label>
 						<label class="checkbox-inline">
 						<input type="radio" id="" value="2" name="IdentityTag" > 评估师
 					</label>
 						<label class="checkbox-inline">
-						<input type="radio" id="" value="1" name="IdentityTag" checked=""> 普通员工
+						<input type="radio" id="" value="1" name="IdentityTag" > 普通员工
 					</label>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="" class="col-md-2 control-label">入行时间：</label>
-				<div class="col-md-6 ">
-					<div class="input-group date form_datetime">
-						<input class="form-control" size="16" type="text">
-						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="" class="col-md-2 control-label">资格证书：</label>
-				<div class="col-md-6 ">
-					<p class="tui-upload-group ">
-						<i class="icon-picture file-upload " id="file-upload-1 "> <span>图片</span></i>
-						<a href="javascript:void(0) " class="tui-upload-btn ">上传</a>
-					</p>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="" class="col-md-2 control-label">上传头像：</label>
-				<div class="col-md-6 ">
-					<div class="tui-user-icon tui-form-border ">
-						<img alt="头像 " src="" />
-					</div>
-					<p class="tui-upload-group ">
-						<i class="icon-picture file-upload " id="file-upload-2 "> <span>图片</span></i>
-						<a href="javascript:void(0) " class="tui-upload-btn ">上传</a>
-					</p>
 				</div>
 			</div>
 			<div class="form-group">
@@ -151,32 +93,5 @@
 	</div>
 	</div>
 </form>
-<!--<div class="tui-modal" >
-			<div class="tui-modal-title "><i class="icon-remove-circle tui-modal-remove "></i></div>
-			<div class="tui-modal-body ">
-				<div class="tui-reg-info-container clearfix ">
-					<!--<div class="tui-info-tab fl ">
-		<ul class="tui-info-items clearfix ">
-			<li class="tui-info-item tui-info-appraiser tui-info-active ">
-				评估师
-			</li>
-			<li class="tui-info-item tui-info-empolyee ">
-				其他员工
-			</li>
-		</ul>
-	</div>-->
 
-<script src="lib/bootstrap/js/bootstrap-datetimepicker.js"></script>
-<script src="lib/bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$('.form_datetime').datetimepicker({
-			language: 'zh-CN',
-			format: "yyyy-mm-dd",
-			autoclose: true,
-			todayBtn: true,
-			viewSelect: 'month',
-			minView: 2
-		});
-	})
-</script>
+

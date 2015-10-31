@@ -4,6 +4,17 @@
  *@date:2015-10-10
  */
 util = {};
+Array.prototype.remove = function(index) {
+		if (isNaN(index) || index > this.length) {
+			return false;
+		}
+		for (var i = 0, n = 0; i < this.length; i++) {
+			if (this[i] != this[index]) {
+				this[n++] = this[i]
+			}
+		}
+		this.length -= 1
+	}
 /************************
   控制台日志
  ***********************/

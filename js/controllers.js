@@ -1,15 +1,4 @@
 'use strict';
-Array.prototype.remove = function(index) {
-		if (isNaN(index) || index > this.length) {
-			return false;
-		}
-		for (var i = 0, n = 0; i < this.length; i++) {
-			if (this[i] != this[index]) {
-				this[n++] = this[i]
-			}
-		}
-		this.length -= 1
-	}
 	/* Controllers */
 
 //ngDialog controller
@@ -331,11 +320,6 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 			silent: true
 		});
 	});
-
-
-
-
-
 	//弹出层
 	$scope.clickToOpen = function() {
 		ngDialog.open({
@@ -355,23 +339,26 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 		//提交注册资料
 	$scope.register = function() {
 		$scope.regular = {
-			ParentID: $scope.DirectBusinessID,
+			
+			Charger: $scope.Charger,
+			BusinessStructID: $scope.BusinessStructID,
+			OrganizationCode: $scope.OrganizationCode,
+			BusinessLicenseNo: $scope.BusinessLicenseNo,
+			Fax: $scope.Fax,
+			Address: $scope.Address,
+			DirectFlag:$scope.DirectFlag,
 			Cityid: $scope.CityID,
+			Registeroney: $scope.Registeroney,
 			CompanyName: $scope.CompanyName,
-			DirectBusiness_DirectBusinessStruct_BusinessStructID: [{
-				Charger: $scope.Charger,
-				Registeroney: $scope.Registeroney,
-				BusinessStructID: $scope.BusinessStructID,
-				OrganizationCode: $scope.OrganizationCode,
-				BusinessLicenseNo: $scope.BusinessLicenseNo,
-				Fax: $scope.Fax,
-				Address: $scope.Address,
-				DirectFlag:$scope.DirectFlag,
-				User_DirectBusiness_DirectCode: $rootScope.regularMembers
-			}]
+			DirectBusiness_DirectBusinessStruct_BusinessStructID: {
+				ParentID: $scope.DirectBusinessID,
+				BusinessStructID: $scope.BusinessStructID
+			},
+			User_DirectBusiness_DirectCode: $rootScope.regularMembers
 		}
 		if ($scope.regularForm.$valid) {
 			var data = $scope.regular
+			console.log(data)
 			RegularRegService.register(data).success(function(d) {
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message)
@@ -385,7 +372,6 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 			}).error(function(e) {
 				$rootScope.Alert(e)
 			});
-
 		}
 	}
 }
@@ -393,7 +379,7 @@ regularRegController.$inject = ["$scope", "RegularRegService", "$timeout", "$fil
 /********************************
  *登录
  * ******************************/
-function loginController($scope, LoginService, $rootScope, $location) {
+function loginController($scope, LoginService, $rootScope, $location,SessionService) {
 	$scope.logon = {};
 	$scope.allianceSignin = function() {
 		if ($scope.loginForm.$valid) {
@@ -401,7 +387,8 @@ function loginController($scope, LoginService, $rootScope, $location) {
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message);
 				} else {
-					window.location.href = "http://192.168.0.218/CTXWeb/admin/index.html";
+					SessionService.setSession("_AUTH",d.Message);
+					$rootScope.user=d.Message;
 				}
 			}).error(function(e) {
 				$rootScope.Alert(e);
@@ -414,7 +401,8 @@ function loginController($scope, LoginService, $rootScope, $location) {
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message);
 				} else {
-
+					SessionService.setSession("_AUTH",d.Message);
+					$rootScope.user=d.Message;
 				}
 			}).error(function(e) {
 				$rootScope.Alert(e);
@@ -422,4 +410,4 @@ function loginController($scope, LoginService, $rootScope, $location) {
 		}
 	}
 }
-loginController.$inject = ['$scope', 'LoginService', '$rootScope', '$location'];
+loginController.$inject = ['$scope', 'LoginService', '$rootScope', '$location','SessionService'];

@@ -1,3 +1,13 @@
+function mainController($scope,AuthService){
+	$scope.loginOut=function(){
+		AuthService.Unauthorized();
+		window.location.href="/CTXWeb/OA/login.html"
+	}
+	
+}
+
+mainController.$inject=["$scope","AuthService"]
+
 function loginController($scope,$rootScope,LoginService,$location){
 	$scope.logon = {};
 	$scope.directSignin = function() {
@@ -6,14 +16,13 @@ function loginController($scope,$rootScope,LoginService,$location){
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message);
 				} else {
-					$location.path("/index")
+					window.location.href="/CTXWeb/OA/#/index"
 				}
 			}).error(function(e) {
 				$rootScope.Alert(e);
 			})
 		}
 	}
-	
 }
 
 

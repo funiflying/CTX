@@ -18,6 +18,9 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
             return $http.post("/account/AlliceRegister",data)
         }
     }
+    /*
+     *直营商注册
+     * */
 }).service("RegularRegService", function ($http) {
     return {
         getDirect: function () {
@@ -31,13 +34,13 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
         }
 
     }
+    /*
+     * 登录
+     */
 }).service("LoginService", function ($http) {
     return {
         allianceLogin: function (data) {
             return $http.post("/account/AlliceLogin", data)
-        },
-        directLogin: function (data) {
-            return $http.post("/account/DirectLogin", data)
         },
         outsiteLogin:function(data){
             return $http.post("/account/OutsiteLogin", data)
@@ -46,6 +49,9 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
             return $http.post("/account/LoginOff", data)
         }
     }
+    /*
+     *注册
+     * */
 }).service("RegisterService",function($http){
     return {
         validPhone:function(_phone){
@@ -70,4 +76,16 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
         }
     }
 
+}).service("SessionService",function(){
+	return {
+        getSeesion: function (key) {
+            return sessionStorage.getItem(key);
+        },
+        setSession: function (key, value) {
+            return sessionStorage.setItem(key, value);
+        },
+        removeSession: function (key) {
+            return sessionStorage.removeItem(key)
+        }
+    }
 })

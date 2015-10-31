@@ -1,9 +1,13 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('chetongxiang', ['chetongxiang.filters', 'chetongxiang.services-dk', 'chetongxiang.services', 'chetongxiang.directives', 'ngRoute', 'ngDialog']).
-config(['$routeProvider',
-	function($routeProvider) {
+angular.module('chetongxiang', ['chetongxiang.filters', 'chetongxiang.services-dk', 'chetongxiang.services', 'chetongxiang.directives', 'ngRoute', 'ngDialog']).constant('ACCESS_LEVELS', {
+    pub: 0,
+    user: 1,
+    admin: 2
+}).
+config(['$routeProvider','ACCESS_LEVELS',
+	function($routeProvider,ACCESS_LEVELS) {
 
 		$routeProvider.when('/register', {
 			templateUrl: 'partials/register.html',
@@ -35,6 +39,7 @@ config(['$routeProvider',
 		$routeProvider.when('/regsuccess', {
 			templateUrl: 'partials/regsuccess.html',
 			controller: registerController
+			
 		});
 		$routeProvider.when('/carlist/:clname/:clvalue', {
 			templateUrl: 'partials/carlist.html',
@@ -67,10 +72,7 @@ config(['$routeProvider',
 	$rootScope.allianceMembers = [];
 	$rootScope.regularMembers = [];
 	$rootScope.regularPartner = [];
-	$rootScope.user = {
-		name: "吴添祥",
-		contact: "18650320029"
-	}
+	$rootScope.user = {}
 	$rootScope.reg_phone = "18650320029";
 	$rootScope.countdown = 5
 		//全信息提示层
