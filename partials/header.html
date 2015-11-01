@@ -1,8 +1,8 @@
 <!--Header Layout Begin-->
 <div class="w navbar-bg">
 	<div class="wrapper navbar">
-		<div class="fl w450 tl" ng-hide="user">Hi,欢迎来到车同享! <a href="javascript:void(0);" ng-click="outsiteLogin()"><span>登录</span></a>|<a href="#/register"><span>注册</span></a></div>
-		<div class="fl w450 tl">Hi,欢迎来到车同享! <a href="javascript:void(0);" ng-click="outsiteLogin()"><span>登录</span></a>|<a href="#/register"><span>注册</span></a></div>
+		<div class="fl w450 tl" ng-hide="user.Account">Hi,欢迎来到车同享! <a href="javascript:void(0);" ng-click="outsiteLogin()"><span>登录</span></a>|<a href="#/register"><span>注册</span></a></div>
+		<div class="fl w450 tl" ng-show="user.Account">Hi,<span ng-bind="user.Account"></span>! <a href="javascript:void(0);" ng-click="loginOut()"><span>退出</span></a></div>
 		<div class="fr  tr">
 			<a href="javascript:void(0);">新车内购通道</a>|
 			<a href="javascript:void(0)" ng-click="allianceLogin()">经销商登录</a>|

@@ -68,11 +68,11 @@ config(['$routeProvider','ACCESS_LEVELS',
 			redirectTo: '/index'
 		});
 	}
-]).run(function($rootScope, ngDialog, $timeout) {
+]).run(function($rootScope, ngDialog, $timeout,SessionService) {
 	$rootScope.allianceMembers = [];
 	$rootScope.regularMembers = [];
 	$rootScope.regularPartner = [];
-	$rootScope.user = {}
+	$rootScope.user = JSON.parse(SessionService.getSeesion("_AUTH"));
 	$rootScope.reg_phone = "18650320029";
 	$rootScope.countdown = 5
 		//全信息提示层
@@ -115,7 +115,11 @@ config(['$routeProvider','ACCESS_LEVELS',
 			controller: loginController
 		});
 	}*/
-
+    //退出
+    $rootScope.loginOut=function(){
+    	SessionService.removeSession("_AUTH");
+    	$rootScope.user=null;
+    }
 	//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 					console.log(next)

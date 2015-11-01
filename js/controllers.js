@@ -387,8 +387,8 @@ function loginController($scope, LoginService, $rootScope, $location,SessionServ
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message);
 				} else {
-					SessionService.setSession("_AUTH",d.Message);
-					$rootScope.user=d.Message;
+					SessionService.setSession("_AUTH",JSON.stringify(d.Message));
+					$rootScope.user=JSON.parse(SessionService.getSeesion("_AUTH"));
 				}
 			}).error(function(e) {
 				$rootScope.Alert(e);
