@@ -1,19 +1,17 @@
 { "shoppingcart":[
 	{
-		"ID":"1512",
-		"src":"../img/1.jpg",
-	    "carstyle":"比亚迪 F0订金499元 2015款 1.0L 手动 铉酷型",
-	    "ctity":"厦门",
-	    "privilege":"惠嗨才购爽，底价购车嗨翻天，新车豪礼送不停！",
-	    "price":"10万"
+		"CarID":"b924afb5-4296-4597-b1e0-9653e8547cfc",
+		"HomePicID":"../demo/carimg.jpg",
+	    "Name":"比亚迪 F0订金499元 2015款 1.0L 手动 铉酷型",
+	    "City":"厦门",
+	    "Price":"10000000"
 	},
 	{
-		"ID":"1500",
-		"src":"../img/1.jpg",
-	    "carstyle":"比亚迪 F0订金499元 2015款 1.0L 手动 铉酷型",
-	    "ctity":"厦门",
-	    "privilege":"惠嗨才购爽，底价购车嗨翻天，新车豪礼送不停！",
-	    "price":"10万"
+		"CarID":"b924afb5-4296-4597-b1e0-9653e8547cfc",
+		"HomePicID":"../images/default.jpg",
+	    "Name":"比亚迪 F0订金499元 2015款 1.0L 手动 铉酷型",
+	    "City":"厦门",
+	    "Price":"100000"
 	}
 ]
 

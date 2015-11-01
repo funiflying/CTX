@@ -25,7 +25,6 @@ angular.module('chetongxiang.services-admin', []).service("ShoppcarService",func
 		         return $http.post("/order/UserGetOrderList",{
 		         	pageNo:_pageNo,
 		         	pageNum:_pageNum
-		         	
 		         })
 			}
 	}

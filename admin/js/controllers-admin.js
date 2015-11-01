@@ -32,7 +32,6 @@ function orderController($scope,OrderService){
 		if(d.Status){
 			orderList.d;
 		}
-		
 	})
 	
 	
