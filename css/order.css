@@ -1,0 +1,120 @@
+.tui-p0{
+	padding:0;
+}
+.tui-order-car h4{
+	color: #808080;
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	margin: 10px 0 ;
+	padding-left: 15px; 
+}
+.tui-order-carinfo{
+	height: 220px;
+	border: 1px solid #dedede;
+	padding: 20px;
+	color: #353535;
+	position: relative;
+}
+.tui-order-carinfo img{
+	width: 250px;
+	height: 170px;
+}
+.tui-order-carname{
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px;
+}
+.tui-order-describe{
+	height: 130px;
+}
+.tui-order-describe div{
+	height: 130px;
+	padding: 20px 15px;
+}
+.tui-order-describe div.col-md-4{
+	background-color: #f5f5f5;
+}
+.tui-order-refash{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	color: #307cb8;
+	outline: none;
+}
+.tui-order-refash:hover{
+	text-decoration: none;
+}
+.tui-order-describe div.col-md-2{
+	background: #f3fbfe;
+	line-height: 90px;
+	text-align: center;
+}
+.tui-order-price{
+	height: 45px;
+	line-height: 45px;
+	font-size: 36px;
+	font-weight: bold;
+	color: #fd5736;
+}
+.tui-order-costprice{
+	color: #999999;
+	height: 30px;
+}
+.tui-order-advance label{
+	font-size: 24px;
+	color: #fd5736;
+}
+.tui-order-collect{
+	color: #4c4c4c;
+	height: 30px;
+	line-height: 30px;
+    font-size: 14px;
+	
+}
+.tui-submit-order{
+	padding:0 20px;
+}
+.tui-order-help
+{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #005ea7;
+}
+.tui-order-help p{
+	cursor: pointer;
+}
+.tui-order-help p>i{
+	color: #005ea7;
+}
+/*
+ *汇款信息
+ * */
+.tui-order-remmit-info
+{
+	padding: 20px;
+	color: #353535;
+	height: 350px;
+	margin: 20px 0;
+	border: 1px solid #dedede;
+	line-height: 30px;
+	font-size: 14px;
+}
+.tui-order-remmit-info h4
+{
+	font-size: 16px;
+	line-height: 30px;
+}
+.font-orange{
+	color: #fd5736;
+}
+
+
+
+
+
+
+
+
+

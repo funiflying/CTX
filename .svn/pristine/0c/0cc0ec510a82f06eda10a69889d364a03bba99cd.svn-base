@@ -1,0 +1,97 @@
+<form action="" id="tui-reg-member-form" class=" form-horizontal" role="form" name="memberForm" style="padding-top: 20px;">
+	<!--信息-->
+	<div class="tui-reg-step1-content col-md-offset-2 ">
+		<div class="tui-reg-allianceInfo ">
+			<div class="form-group">
+				<label for="PersonName" class="col-md-2 control-label">姓名：</label>
+				<div class="col-md-6 ">
+					<input type="text" name="PersonName" id="PersonName" value="" class="form-control" placeholder="" ng-model="Name" required="required" />
+				</div>
+				<div class="col-md-3 " ng-show="memberForm.PersonName.$dirty&&memberForm.PersonName.$invalid">
+					<span class="tui-tip">请输入姓名</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Contact" class="col-md-2 control-label">手机号码：</label>
+				<div class="col-md-6 ">
+					<input type="text" name="Contact" id="Contact" value="18650320029" class="form-control" ng-pattern="/^(0|86)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/" ng-model="Contact" required="required" />
+				</div>
+				<div class="col-md-3" ng-show="memberForm.Contact.$dirty&&memberForm.Contact.$invalid">
+					<span class="tui-tip">请输入正确的手机号</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Account" class="col-md-2 control-label">用户名：</label>
+				<div class="col-md-6 ">
+					<input type="text" name="Account" id="Account" value="" class="form-control" ng-model="Account" required="required" ng-blur="checkAccout()" />
+				</div>
+				<div class="col-md-3">
+					<span class="tui-tip" ng-show="memberForm.Account.$dirty&&memberForm.Account.$invalid">请输入用户名</span>
+					<span class="tui-tip" ng-show="memberForm.Account.$valid&&check">该用户名已被注册</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Pwd" class="col-md-2 control-label">登录密码：</label>
+				<div class="col-md-6 ">
+					<input type="password" name="Pwd" id="Pwd" value="" class="form-control" ng-model="Pwd" required="required" ng-keyup="meter()" />
+					<p style="height: 25px; ">
+						<span class="tui-pwd-bar ">
+											<i class="tui-pwd-box ">弱</i>
+											<i class="tui-pwd-box ">中</i>
+											<i class="tui-pwd-box ">强</i>
+										</span>
+					</p>
+				</div>
+				<div class="col-md-2 " ng-show="memberForm.Pwd.$dirty&&memberForm.Pwd.$invalid">
+					<span class="tui-tip">请输入密码</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="ConfigPwd" class="col-md-2 control-label">确认密码：</label>
+				<div class="col-md-6 ">
+					<input type="password" id="ConfigPwd" value="" class="form-control" ng-model="ConfigPwd" required="required" ng-blur="configpwd()" />
+				</div>
+				<div class="col-md-3">
+					<span class="tui-tip">{{configpwdmsg}}</span>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="IdentityTag" class="col-md-2 control-label">成员身份：</label>
+				<div class="col-md-6 ">
+					<label class="checkbox-inline">
+						<input type="radio" id="" value="3" name="IdentityTag"  checked="">法人代表
+					</label>
+						<label class="checkbox-inline">
+						<input type="radio" id="" value="2" name="IdentityTag" > 评估师
+					</label>
+						<label class="checkbox-inline">
+						<input type="radio" id="" value="1" name="IdentityTag" > 普通员工
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Fax" class="col-md-2 control-label">验证码：</label>
+				<div class="col-md-3 ">
+					<input type="text" name="" class="form-control" placeholder="" ng-model="Code" required="required" />
+				</div>
+				<div class="col-md-3 ">
+					<img src="images/vercode.png" alt="" />
+				</div>
+				<div class="col-md-2 " ng-show="memberForm.Code.$dirty&&memberForm.Code.$invalid">
+					<span class="tui-tip">请输入验证码</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-6  col-md-offset-3">
+					<input type="button" name=" " id=" " value="保存 " class=" tui-btn-default tui-btn-saveMember " ng-click="saveAlliance()" />
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	</div>
+</form>
+
+

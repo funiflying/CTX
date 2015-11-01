@@ -1,0 +1,50 @@
+<style type="text/css">
+	.ngdialog.ngdialog-theme-default .ngdialog-content{
+		width: 800px;
+	}
+</style>
+<div class="tui-audit-container">
+	<table border="" cellspacing="" cellpadding="" class="tui-audit-tab">
+		<thead ng-show="alliance.length">
+			<tr>
+				<td>企业名称</td>
+				<td>负责人</td>
+				<td>用户名</td>
+				<td>身份证号码</td>
+				<td style="border-right: 1px solid #eeeeee; width: 15%;">操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr  ng-repeat="obj in alliance">
+				<td ng-bind="obj.CompanyName"></td>
+				<td ng-bind="obj.Charger"></td>
+				<td ng-bind="obj.Account"></td>
+				<td ng-bind="obj.PersonID"></td>
+				<td>
+					<button type="button" class="btn btn-info" ng-click="permit(obj.UserID,1)">通过</button>
+					<button type="button" class="btn btn-warning" ng-click="permit(obj.UserID,0)">禁止</button>
+					<button type="button" class="btn btn-link" ng-click="openDialog(obj)">查看详情</button>
+				</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+</div>
+<di class="tui-pager">
+    <ul class="tui-pager">
+        <li class="tui-firstpage">首页</li>
+        <li class="tui-previous">上一页</li>
+        <li class="tui-next">下一页</li>
+        <li class="tui-lastpage">末页</li>
+        <li class="tui-turnpage">转跳到
+            <select name="" id="">
+                <option>1/3</option>
+                <option>2/3</option>
+                <option>3/3</option>
+            </select>
+            页
+        </li>
+    </ul>
+    
+</di>

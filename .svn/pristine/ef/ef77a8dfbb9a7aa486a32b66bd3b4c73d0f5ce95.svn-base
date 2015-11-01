@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="css/shoppingCart.css">
+        <div class="tui-shopping-container">
+        	<h2 ng-hide="shoppingList.length" class="lead text-center mt100 ">
+        		购物车是空的，赶紧去购物吧！
+               <a href="../index.html" class="text-info">回到主页</a>
+        	</h2>
+        	
+        	
+			<div class="tui-shopping-body" ng-show="shoppingList.length">
+				<h3 class="tui-shopping-caption">商品清单</h3>
+				<div class="tui-shopping-separationline"></div>
+				<div class="tui-shopping-tabs">
+					<ul class="tui-shoppigcart">
+					    <li class="tui-shoppingcart-item" ng-repeat="obj in shoppingList">
+					        <div class="tui-shoppingcart-item-caption">
+					            <div class="col-md-3">车款图片</div>
+					            <div class="col-md-3">车款</div>
+					            <div class="col-md-2">地区</div>
+					            <div class="col-md-2">金额</div>
+                                <div class="col-md-2">操作</div>
+					        </div>
+					        <div class="tui-shoppingcart-item-body">
+					            <div class="col-md-3">
+                                    <img ng-src="{{obj.HomePicID}}" alt="">
+                                </div>
+					            <div class="col-md-3"  style="line-height: 30px;padding-top: 50px;">
+					            	<a href="" class="" ng-bind="obj.Name"></a>
+					            </div>
+					            <div class="col-md-2" ng-bind="obj.City"></div>
+					            <div class="col-md-2" ng-bind="obj.Price/10000+'万'">
+                                
+                                </div>
+                                <div class="col-md-32 tui-shoppingcart-operation">
+                                    <p><a href="javascript:void(0)" class="btn btn-default" ng-click="sendShooppcar(obj.CarID)">去结算</a></p>
+									<p><a href="javascript:void(0)" class="tui-shopping-del" ng-click="removeShoppcar($index)">删除</a></p>
+                                </div>
+					        </div>			        
+					    </li>		    		       
+					</ul>
+				</div>
+				<div class="tui-shopping-separationline"></div>
+				<!--<div class="tui-shopping-account">
+					<p style="color: #111;">商品总价：{{selecPrice}}</p>
+					<p>应付总计：{{selecPrice}}</p>
+					<p>
+						<input type="button" value="提交订单" class="tui-btn-default tui-btn-shopping"  ng-click="sendShoopcar()"/>
+
+					</p>
+
+				</div>-->
+			</div>
+				</div>
+		</div>

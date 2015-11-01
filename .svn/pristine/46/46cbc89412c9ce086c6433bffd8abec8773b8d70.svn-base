@@ -1,0 +1,51 @@
+<!--Header Layout Begin-->
+<div class="w navbar-bg">
+	<div class="wrapper navbar">
+		<div class="fl w450 tl" ng-hide="user">Hi,欢迎来到车同享! <a href="javascript:void(0);" ng-click="outsiteLogin()"><span>登录</span></a>|<a href="#/register"><span>注册</span></a></div>
+		<div class="fl w450 tl">Hi,欢迎来到车同享! <a href="javascript:void(0);" ng-click="outsiteLogin()"><span>登录</span></a>|<a href="#/register"><span>注册</span></a></div>
+		<div class="fr  tr">
+			<a href="javascript:void(0);">新车内购通道</a>|
+			<a href="javascript:void(0)" ng-click="allianceLogin()">经销商登录</a>|
+			<a href="#/alliancereg">经销商注册</a>|
+			<a href="OA/login.html" >直营商登录</a>|
+			<a href="#/directreg">直营商注册</a>|
+			<a href="javascript:void(0);">手机好车</a>|
+			<a href="javascript:void(0);">帮助中心</a>
+		</div>
+	</div>
+</div>
+<div class="w">
+	<header class="head-layout wrapper">
+		<div class="logo-wrap">
+			<div class="logo-a">
+				<a href="#/index" title="车同享二手车交易平台"></a>
+			</div>
+			<div class="city-wrap">
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						厦门
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li><a href="javascript:void(0);">福州</a></li>
+						<li><a href="javascript:void(0);">泉州</a></li>
+						<li><a href="javascript:void(0);">厦门</a></li>
+						<li><a href="javascript:void(0);">漳州</a></li>
+					</ul>
+				</div>
+			</div>
+			<span class="tel-txt"><span>买车卖车电话：</span><em>400-700-1111</em></span>
+		</div>
+	</header>
+	<!--Nav Menu Begin-->
+	<div class="w nav-wrap">
+		<ul class="nav-layout wrapper">
+			<li><a href="#/index" class="on">首页</a></li>
+			<li><a href="#/carlist">我要买车</a></li>
+			<li><a href="#/sellcar">我要卖车</a></li>
+			<li><a href="#">服务保障</a></li>
+			<li class="fr qrcode"><i class="icons icons-qrcode"></i>扫码加入车同享微信群</li>
+		</ul>
+	</div>
+	<!--Nav Menu End-->
+</div>

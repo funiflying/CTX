@@ -1,0 +1,440 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/carinfo.css" />
+<!--Index Main Begin-->
+<div class="w box-sell">
+
+	<div class="wrapper">
+		<div id="ddmessage" style="position: relative; float: left; text-align: center; height: 50px;" ng-click="ARSubmit()" >保存</div>
+		<!--检测报告开始-->
+		<div class="test-report-wrap">
+			<div class="report-title">
+				<img src="./images/test-resport.gif" alt="车同享检测报告">
+			</div>
+			<div class="report-timeinfo">
+				<span>检测时间：2015-09-18</span>
+				<span>评测师：彭海林</span>
+				<span>检测对象：日产-大众2009款 2.0L 手动全能型</span>
+			</div>
+			<div class="top-base-wrap">
+				<ul>
+					<li>
+						<div class="texttitle">车型</div><span>2019-11</span></li>
+					<li>
+						<div class="texttitle">变速箱</div><span>2019-11</span></li>
+					<li>
+						<div class="texttitle">排放</div><span>2019-11</span></li>
+					<li>
+						<div class="texttitle">急售降价</div><span>2019-11</span></li>
+					<li>
+						<div class="texttitle">行驶里程</div><span>2019-11</span></li>
+
+					<li>
+						<div class="texttitle">颜色</div><span>2019-11</span></li>
+					<li>
+						<div class="texttitle">国别</div><span>2019-11</span></li>
+					<li>
+						<div class="texttitle">标准排放</div><span>2019-11</span></li>
+					<li>
+						<div class="texttitle">购买年限</div><span>2019-11</span></li>
+					<li>
+						<div class="texttitle">发动机编号</div><span>2019-11</span></li>
+				</ul>
+			</div>
+			<div class="boxlist-wrap">
+				<div class="report-title-w">
+					<h4>事故排查</h4><span>车体骨架结构无变形、无扭曲、无更换、无烧焊、无褶皱；无火烧痕迹，无水泡痕迹。</span></div>
+				<div class="carbody-wrap">
+					<div class="carbody-left">
+						<div class="carbody-bg"></div>
+						<div class="outbox-list">
+							<div class="outbox-title">排除泡水</div>
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<th width="157">检查项</th>
+										<th width="105">结果</th>
+										<th width="157">检查项</th>
+										<th width="105">结果</th>
+									</tr>
+									<tr>
+										<td>发动机线束
+											<br>及橡胶制品</td>
+										<td><i id="tr-1-1-1" ng-click="ARSelect('tr-1-1-1')" data-value="1" class="report-check-yes"></i></td>
+										<td>后备箱边角
+											<br>及备胎槽</td>
+										<td><i id="tr-1-1-2" ng-click="ARSelect('tr-1-1-2')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+
+									<tr>
+										<td>座椅滑轨内</td>
+										<td><i id="tr-1-1-3" ng-click="ARSelect('tr-1-1-3')" data-value="1" class="report-check-yes"></i></td>
+										<td>后排座椅坐垫底部</td>
+										<td><i id="tr-1-1-4" ng-click="ARSelect('tr-1-1-4')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>安全带底部</td>
+										<td><i id="tr-1-1-5" ng-click="ARSelect('tr-1-1-5')" data-value="1" class="report-check-yes"></i></td>
+										<td>全车地胶地毯</td>
+										<td><i id="tr-1-1-6" ng-click="ARSelect('tr-1-1-6')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>音响喇叭底部</td>
+										<td><i id="tr-1-1-7" ng-click="ARSelect('tr-1-1-7')" data-value="1" class="report-check-yes"></i></td>
+										<td>烟灰缸底座</td>
+										<td><i id="tr-1-1-8" ng-click="ARSelect('tr-1-1-8')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>悬挂组件的固定
+											<br>螺丝及刹车挡板</td>
+										<td><i id="tr-1-1-9" ng-click="ARSelect('tr-1-1-9')" data-value="1" class="report-check-yes"></i></td>
+										<td>车底板有一层隔
+											<br>热和隔音的棉毡</td>
+										<td><i id="tr-1-1-10" ng-click="ARSelect('tr-1-1-10')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="carbody-right">
+						<div class="outbox-list">
+							<div class="outbox-title">排除重大碰撞</div>
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<th width="55">编号</th>
+										<th width="137">检查项</th>
+										<th width="70">结果</th>
+										<th width="55">检查项</th>
+										<th width="137">检查项</th>
+										<th width="70">结果</th>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>左A柱</td>
+										<td><i id="tr-1-2-1" ng-click="ARSelect('tr-1-2-1')" data-value="1" class="report-check-yes"></i></td>
+										<td>2</td>
+										<td>右A柱</td>
+										<td><i id="tr-1-2-2" ng-click="ARSelect('tr-1-2-2')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>左B柱</td>
+										<td><i id="tr-1-2-3" ng-click="ARSelect('tr-1-2-3')" data-value="1" class="report-check-yes"></i></td>
+										<td>4</td>
+										<td>右B柱</td>
+										<td><i id="tr-1-2-4" ng-click="ARSelect('tr-1-2-4')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>左C柱</td>
+										<td><i id="tr-1-2-5" ng-click="ARSelect('tr-1-2-5')" data-value="1" class="report-check-yes"></i></td>
+										<td>6</td>
+										<td>右C柱</td>
+										<td><i id="tr-1-2-6" ng-click="ARSelect('tr-1-2-6')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td>左前纵梁</td>
+										<td><i id="tr-1-2-7" ng-click="ARSelect('tr-1-2-7')" data-value="1" class="report-check-yes"></i></td>
+										<td>8</td>
+										<td>右前纵梁</td>
+										<td><i id="tr-1-2-8" ng-click="ARSelect('tr-1-2-8')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td>左后纵梁</td>
+										<td><i id="tr-1-2-9" ng-click="ARSelect('tr-1-2-9')" data-value="1" class="report-check-yes"></i></td>
+										<td>10</td>
+										<td>右后纵梁</td>
+										<td><i id="tr-1-2-10" ng-click="ARSelect('tr-1-2-10')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>11</td>
+										<td>左前减震器
+											<br/>悬挂部位</td>
+										<td><i id="tr-1-2-11" ng-click="ARSelect('tr-1-2-11')" data-value="1" class="report-check-yes"></i></td>
+										<td>12</td>
+										<td>右前减震器
+											<br/>悬挂部位</td>
+										<td><i id="tr-1-2-12" ng-click="ARSelect('tr-1-2-12')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>13</td>
+										<td>左后减震器
+											<br/>悬挂部位</td>
+										<td><i id="tr-1-2-13" ng-click="ARSelect('tr-1-2-13')" data-value="1" class="report-check-yes"></i></td>
+										<td>14</td>
+										<td>右后减震器
+											<br/>悬挂部位</td>
+										<td><i id="tr-1-2-14" ng-click="ARSelect('tr-1-2-14')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>15</td>
+										<td>车身底板</td>
+										<td><i id="tr-1-2-15" ng-click="ARSelect('tr-1-2-15')" data-value="1" class="report-check-yes"></i></td>
+										<td>16</td>
+										<td>后备箱底板</td>
+										<td><i id="tr-1-2-16" ng-click="ARSelect('tr-1-2-16')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>17</td>
+										<td>防火墙</td>
+										<td><i id="tr-1-2-17" ng-click="ARSelect('tr-1-2-17')" data-value="1" class="report-check-yes"></i></td>
+										<td>18</td>
+										<td>水箱支柱</td>
+										<td><i id="tr-1-2-18" ng-click="ARSelect('tr-1-2-18')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="outbox-list mt30">
+							<div class="outbox-title">排除火烧</div>
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<th width="157">检查项</th>
+										<th width="105">结果</th>
+										<th width="157">检查项</th>
+										<th width="105">结果</th>
+									</tr>
+									<tr>
+										<td>发动机线束及
+											<br>车身线束</td>
+										<td><i id="tr-1-3-1" ng-click="ARSelect('tr-1-3-1')" data-value="1" class="report-check-yes"></i></td>
+										<td>车身各夹层内</td>
+										<td><i id="tr-1-3-2" ng-click="ARSelect('tr-1-3-2')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>发动机舱</td>
+										<td><i id="tr-1-3-3" ng-click="ARSelect('tr-1-3-3')" data-value="1" class="report-check-yes"></i></td>
+										<td>车厢内或尾箱内</td>
+										<td><i id="tr-1-3-4" ng-click="ARSelect('tr-1-3-4')" data-value="1" class="report-check-yes"></i></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="boxlist-wrap">
+				<div class="report-title-w">
+					<h4>车辆安全</h4><span>经检测，胎纹深度、刹车片厚度、液位均正常。</span></div>
+				<div class="vehicle-safety-wrap">
+					<ul>
+						<li class="li32">
+							<div class="safety-title"><img src="./images/vehicle-safety-title1.gif"></div>
+							<div class="treelist-wrap">
+								<div class="safety-base-line1"></div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-1-1"></div>
+									<div class="dotline"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-1-2"></div>
+									<div class="dotline"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-1-3"></div>
+									<div class="dotline"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-1-4"></div>
+									<div class="dotline"></div>
+								</div>
+							</div>
+							<div class="vehicle-safety-tyre"></div>
+						</li>
+						<li class="li32">
+							<div class="safety-title"><img src="./images/vehicle-safety-title2.gif"></div>
+							<div class="treelist-wrap">
+								<div class="safety-base-line2"></div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-2-1" style="height: 23%;"></div>
+									<div class="dotline"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-2-2" style="height: 35%;"></div>
+									<div class="dotline"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-2-3" style="height: 10%;"></div>
+									<div class="dotline"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-2-4" style="height: 39%;"></div>
+									<div class="dotline"></div>
+								</div>
+							</div>
+							<div class="vehicle-safety-tyre"></div>
+						</li>
+						<li class="li36">
+							<div class="safety-title"><img src="./images/vehicle-safety-title3.gif"></div>
+							<div class="treelist-wrap">
+								<div class="safety-base-line3"></div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-3-1" style="height: 30%;"></div>
+									<div class="dotline"></div>
+									<div class="dotline1"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-3-2" style="height: 35%;"></div>
+									<div class="dotline"></div>
+									<div class="dotline1"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-3-3" style="height: 15%;"></div>
+									<div class="dotline"></div>
+									<div class="dotline1"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-3-3" style="height: 39%;"></div>
+									<div class="dotline"></div>
+									<div class="dotline1"></div>
+								</div>
+								<div class="treelist">
+									<div class="toptoline" id="tr-2-3-5" style="height: 65%;"></div>
+									<div class="dotline"></div>
+									<div class="dotline1"></div>
+								</div>
+							</div>
+							<div class="vehicle-safety-tyre3"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="boxlist-wrap">
+				<div class="report-title-w">
+					<h4>外观内饰</h4><span>经检测左后翼板子喷漆，右前翼板子更换，左前大灯更换，其他无更换。</span></div>
+				<div class="car-interior-wrap"></div>
+			</div>
+
+			<div class="boxlist-wrap">
+				<div class="report-title-w">
+					<h4>驾驶检测</h4><span>经试驾员专业测试，发动机、变速箱正常，无怠速抖动，变速时无闯档顿挫，转向无乏力感。</span></div>
+				<div class="drive-tab-wrap">
+					<ul>
+						<li><a href="javascript:;">启动</a></li>
+						<li><a href="javascript:;">起步</a></li>
+						<li><a href="javascript:;">加速</a></li>
+						<li><a href="javascript:;">匀速</a></li>
+						<li><a href="javascript:;">减速</a></li>
+					</ul>
+				</div>
+				<div class="drive-info-wrap">
+					<ul>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-1-1" ng-click="ARSelect('tr-4-1-1')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">制动系统<i id="tr-4-1-2" ng-click="ARSelect('tr-4-1-2')" data-value="1" class="report-check-yes"></i></div>
+							</div>
+						</li>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-2-1" ng-click="ARSelect('tr-4-2-1')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">变速箱<i id="tr-4-2-2" ng-click="ARSelect('tr-4-2-2')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">悬挂系统<i id="tr-4-2-3" ng-click="ARSelect('tr-4-2-3')" data-value="1" class="report-check-yes"></i></div>
+							</div>
+						</li>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-3-1" ng-click="ARSelect('tr-4-3-1')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">变速箱<i id="tr-4-3-2" ng-click="ARSelect('tr-4-3-2')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">传动系统<i id="tr-4-3-3" ng-click="ARSelect('tr-4-3-3')" data-value="1" class="report-check-yes"></i></div>
+							</div>
+						</li>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-4-1" ng-click="ARSelect('tr-4-4-1')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">变速箱<i id="tr-4-4-2" ng-click="ARSelect('tr-4-4-2')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">悬挂系统<i id="tr-4-4-3" ng-click="ARSelect('tr-4-4-3')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">转向系统<i id="tr-4-4-4" ng-click="ARSelect('tr-4-4-4')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">制动系统<i id="tr-4-4-5" ng-click="ARSelect('tr-4-4-5')" data-value="1" class="report-check-yes"></i></div>
+							</div>
+						</li>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-5-1" ng-click="ARSelect('tr-4-5-1')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">变速箱<i id="tr-4-5-2" ng-click="ARSelect('tr-4-5-2')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">传动系统<i id="tr-4-5-3" ng-click="ARSelect('tr-4-5-3')" data-value="1" class="report-check-yes"></i></div>
+								<div class="drive-info">悬挂系统<i id="tr-4-5-4" ng-click="ARSelect('tr-4-5-4')" data-value="1" class="report-check-yes"></i></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="boxlist-wrap">
+				<div class="report-title-w">
+					<h4>设备检测</h4><span>经检测员专业测试，安全系统的车身稳定系统已更换、电子设备检测全部合格、发动机舱全部合格。</span></div>
+				<div class="device-wrap">
+					<ul>
+						<li class="fl mr15">
+							<div class="item-list-title">
+								<div class="title-left"><em>7</em>项</div>
+								<div class="title-right">
+									<div class="title">安全系统检测</div>
+									<div class="total-info">
+										<span class="item-green">6项合格</span><i class="report-check-yes"></i>
+										<span class="item-red">1项</span><i class="report-check-yes"></i>
+									</div>
+								</div>
+							</div>
+							<div class="item-list-text mt5">安全带系统<i id="tr-5-1-1" ng-click="ARSelect('tr-5-1-1')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">安全气囊系统<i id="tr-5-1-2" ng-click="ARSelect('tr-5-1-2')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">防抱死系统（ABS）<i id="tr-5-1-3" ng-click="ARSelect('tr-5-1-3')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">车身稳定系统（ESP）<i id="tr-5-1-4" ng-click="ARSelect('tr-5-1-4')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">轮胎胎压<i id="tr-5-1-5" ng-click="ARSelect('tr-5-1-5')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">儿童座椅接口<i id="tr-5-1-6" ng-click="ARSelect('tr-5-1-6')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">手刹<i id="tr-5-1-7" ng-click="ARSelect('tr-5-1-7')" data-value="1" class="report-check-yes"></i></div>
+						</li>
+						<li class="fl">
+							<div class="item-list-title">
+								<div class="title-left"><em>17</em>项</div>
+								<div class="title-right">
+									<div class="title">电子设备检测</div>
+									<div class="total-info">
+										<span class="item-green">全部合格</span><i class="report-check-yes"></i>
+										<span class="item-red">0项</span><i class="report-check-yes"></i>
+									</div>
+								</div>
+							</div>
+							<div class="item-list-text mt5">车灯系统<i id="tr-5-2-1" ng-click="ARSelect('tr-5-2-1')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">仪表指示灯<i id="tr-5-2-2" ng-click="ARSelect('tr-5-2-2')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">雨刷器<i id="tr-5-2-3" ng-click="ARSelect('tr-5-2-3')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">空调系统<i id="tr-5-2-4" ng-click="ARSelect('tr-5-2-4')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">多媒体系统<i id="tr-5-2-5" ng-click="ARSelect('tr-5-2-5')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">电动车窗<i id="tr-5-2-6" ng-click="ARSelect('tr-5-2-6')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">中控锁<i id="tr-5-2-7" ng-click="ARSelect('tr-5-2-7')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">座椅电动功能<i id="tr-5-2-8" ng-click="ARSelect('tr-5-2-8')" data-value="1" class="report-check-yes"></i></div>
+						</li>
+						<li class="fr">
+							<div class="item-list-title">
+								<div class="title-left"><em>8</em>项</div>
+								<div class="title-right">
+									<div class="title">发动机舱</div>
+									<div class="total-info">
+										<span class="item-green">全部合格</span><i class="report-check-yes"></i>
+										<span class="item-red">1项</span><i class="report-check-yes"></i>
+									</div>
+								</div>
+							</div>
+							<div class="item-list-text mt5">缸盖外有无机油渗入<i id="tr-5-3-1" ng-click="ARSelect('tr-5-3-1')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">散热器栅格有无破损<i id="tr-5-3-2" ng-click="ARSelect('tr-5-3-2')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">蓄电池电极柱有无腐蚀<i id="tr-5-3-3" ng-click="ARSelect('tr-5-3-3')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">蓄电池电解液有无渗漏<i id="tr-5-3-4" ng-click="ARSelect('tr-5-3-4')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">发动机皮带有无老化<i id="tr-5-3-5" ng-click="ARSelect('tr-5-3-5')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">油管有无老化裂痕<i id="tr-5-3-6" ng-click="ARSelect('tr-5-3-6')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">水管有无老化裂痕<i id="tr-5-3-7" ng-click="ARSelect('tr-5-3-7')" data-value="1" class="report-check-yes"></i></div>
+							<div class="item-list-text">线束有无老化裂痕<i id="tr-5-3-8" ng-click="ARSelect('tr-5-3-8')" data-value="1" class="report-check-yes"></i></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--检测报告结束-->
+
+	</div>
+</div>

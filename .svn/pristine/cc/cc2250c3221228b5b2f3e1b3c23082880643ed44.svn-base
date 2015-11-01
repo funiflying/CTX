@@ -1,0 +1,46 @@
+
+<!doctype html >
+<html lang="en" ng-app="chetongxiang">
+<head>
+  <meta charset="utf-8">
+  <title>车同享</title>
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div class="row col-md-8 col-md-offset-2" ng-controller="loginController">
+	<form role="form" class="col-md-offset-3" name="loginForm">
+	<div class="form-group text-center">
+					<div class="col-md-8">
+						<div class="alert alert-warning alert-dismissable" ng-show="Message.status||false" ng-bind="Message.msg">
+   			  			
+						</div>
+		      		</div>
+				</div>
+		<div class=" form-group col-md-8">
+			<label for="name" >登录名：</label>
+			<input type="text" class="form-control col-md-6" name="Account" placeholder="请输入登录名" ng-model="logon.Account" required="required">
+		</div>
+		<div class=" form-group col-md-8">
+			<label for="name" >登录密码：</label><a href="">忘记登录密码?</a>
+			<input type="password" class="form-control" name="Pwd" placeholder="输入密码" ng-model="logon.Pwd" required="required">
+		</div>
+     <div class=" form-group col-md-8">
+			<input type="button" class=" tui-btn-default tui-btn-block tui-login-btn btn btn-primary btn-block" value="登 录"  ng-click="directSignin()"/>
+			<a href="">免费注册</a>
+		</div>
+		
+	</form>
+</div>
+<script src="../lib/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+   <script src="../lib/angular/angular.1.4.0.js" type="text/javascript"></script>
+  <script src="../lib/angular/angular-route.min.js" type="text/javascript"></script>
+  <script src="../lib/angular/angular-cookies.min.js" type="text/javascript"></script>
+  <script src="../lib/ngDialog/js/ngDialog.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="../js/util.js"></script>
+  <script src="js/app-oa.js"></script>
+  <script src="js/services-oa.js"></script>
+  <script src="js/controllers-oa.js"></script>
+  
+</body>
+</html>

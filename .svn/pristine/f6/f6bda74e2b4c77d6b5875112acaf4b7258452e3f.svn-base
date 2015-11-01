@@ -1,0 +1,572 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/carinfo.css" />
+<!--Index Main Begin-->
+<div class="w box-sell">
+
+	<div class="wrapper">
+		<div class="d-info-w mt15 mb10">
+			<div class="d-info-left">
+				<div class="d-info-img" id="data-info-img"><img src="images/default.jpg" width="634"></div>
+				<div class="d-img-list mt15">
+					<a href="javascript:void(0);" class="fl thumb-arrow-prew prev" id="thumb-prev"></a>
+					<div class="d-thumb-list">
+						<div class="d-thumb-in" id="data-info-thumb">
+							<ul class="d-thumb-img clearfix">
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+								<li>6</li>
+								<li>7</li>
+								<li>8</li>
+								<li>9</li>
+								<li>10</li>
+								<li>11</li>
+								<li>12</li>
+							</ul>
+						</div>
+					</div>
+					<a href="javascript:void(0);" class="fr thumb-arrow-next next" id="thumb-next"></a>
+				</div>
+			</div>
+			<div class="d-info-right">
+				<div class="d-info-title mt10 clearfix">
+					<h1 id="data-info-name"></h1>
+				</div>
+				<div class="w h30 d-info-from clearfix">
+					<div class="fl w340 h30">车源号：{{carinfodata.CarNo}}</div>
+					<div class="fr w160 h30 d-share-small">
+						<a href="javascript:void();">分享</a>
+						<a href="javascript:void();">收藏</a>
+						<a href="javascript:void();">对比</a>
+					</div>
+				</div>
+				<div class="w mt5 clearfix">
+					<div class="d-price-wrap">
+						<div class="price-w">
+							<p class="d-price">￥{{carinfodata.Price | FormatPrice }}万</p>
+							<p><span><strike>￥19.53</strike>万 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价格参考</span></p>
+						</div>
+						<div class="fr w270 f14 d-info-licheng">
+							<p>里程：{{carinfodata.Mileage}}万公里（<span>油耗平均7.7个</span>）</p>
+							<p>上牌：2011年10月（<span>至今4年</span>）</p>
+							<p>亮点：儿童锁 | 真皮座椅 | ESP</p>
+						</div>
+					</div>
+				</div>
+				<div class="w mt5 clearfix">
+					<div class="d-info-contact">
+						<div class="fl d-contact-w">
+							<p><span>4008152025-15467</span>（商家车源）
+								<br>宋剑秋</p>
+						</div>
+						<div class="fr">
+							<img src="images/scan-code-view.png">
+						</div>
+					</div>
+				</div>
+				<div class="w mt10 clearfix">
+					<div class="d-buy-w">
+						<a href="javascript:void();">立即购买</a>
+						<a href="javascript:void();">加入购物车</a>
+						<a href="javascript:void();" class="trust-evaluation"><i class="d-trust-e-icon"></i>委托评估</a>
+					</div>
+				</div>
+				<div class="w mt10 clearfix">
+					<div class="d-info-service">
+						<div class="fl d-provide">
+							<img src="images/info-logo.png">
+							<p>我们提供</p>
+						</div>
+						<div class="fr w400 d-info-s-main">
+							<div class="d-w33">
+								<div class="w"><i class="d-ser-icons d-ser-icon3"></i></div>
+								<p>一份可靠省心的买车卖车体验</p>
+							</div>
+							<div class="d-w33">
+								<div class="w"><i class="d-ser-icons d-ser-icon1"></i></div>
+								<p>经过259项检测的靠谱二手车</p>
+							</div>
+							<div class="d-w33">
+								<div class="w"><i class="d-ser-icons d-ser-icon2"></i></div>
+								<p>买家和车主都满意的成交价格</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="d-detection-result mb10">
+			<div class="fl d-dr-main">
+				<div class="d-dr-title">
+					检测结果
+					<span class="fr">查看完整检测报告>></span>
+				</div>
+				<div class="d-dr-content">
+					<div class="d-dr-txt">经过检测排除重大事故。排除水淹车和过火车，钣金喷漆部位比较多，内饰整洁干净，无异味。安全系统，刹车系统以及电子设备系统一切正常，发动机启动运行一切 正常，动力充沛，换挡平顺，一切正常。
+					</div>
+					<div class="d-dr-result">
+						<ul>
+							<li>
+								<p><strong>事故排查</strong></p>
+								<p>排除重大碰撞（共18项）</p>
+								<p>排除泡水（共8项）</p>
+								<p>排除火烧（共2项）</p>
+							</li>
+							<li>
+								<p><strong>事故排查</strong></p>
+								<p>排除重大碰撞（共18项）</p>
+								<p>排除泡水（共8项）</p>
+								<p>排除火烧（共2项）</p>
+							</li>
+							<li>
+								<p><strong>事故排查</strong></p>
+								<p>排除重大碰撞（共18项）</p>
+								<p>排除泡水（共8项）</p>
+								<p>排除火烧（共2项）</p>
+							</li>
+							<li>
+								<p><strong>事故排查</strong></p>
+								<p>排除重大碰撞（共18项）</p>
+								<p>排除泡水（共8项）</p>
+								<p>排除火烧（共2项）</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="fr d-jcs-photo">
+				<img src="images/detection-photo-default.gif">
+				<p><strong>彭大大</strong></p>
+				<p>资深二手车检测师</p>
+			</div>
+		</div>
+
+		<!--详细信息tab导航开始-->
+		<div class="d-tab-nav">
+			<div class="fl d-tab-list">
+				<a href="javascript:;">车辆描述</a>
+				<a href="javascript:;">车辆图片</a>
+				<a href="javascript:;">检测报告</a>
+				<a href="javascript:;">配置参数</a>
+			</div>
+			<div class="fr d-tab-buy">
+				<span>￥{{carinfodata.Price | FormatPrice }}万</span>
+				<button>立即购买</button>
+			</div>
+		</div>
+		<!--详细信息tab导航结束-->
+		<!--车辆描述开始-->
+		<div class="d-car-desc">
+			<div class="fl d-cd-title">
+				<img src="images/desc-title-img.png">
+			</div>
+			<div class="fr d-cd-baseinfo">
+				<div class="d-cdb-title">车源基本信息</div>
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">上牌时间：</div>{{carinfodata.InitialDate}}(车龄{{carinfodata.Caryear}}年)</div>
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">行驶里程：</div>{{carinfodata.Mileage}}万公里</div>
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">牌照地点：</div>{{carinfodata.RegisterPlace}}</div>
+
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">发动机：</div>{{carinfodata.EngineNo}}</div>
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">变速箱：</div>{{carinfodata.GearBox}}</div>
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">驱动方式：</div>前轮驱动</div>
+
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">车辆品牌：</div>{{carinfodata.Brand}}</div>
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">车辆型号：</div>{{carinfodata.Series}}</div>
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">车辆级别：</div>{{carinfodata.Style}}</div>
+
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">车辆类型：</div>非运营</div>
+				<div class="d-cd-ul">
+					<div class="d-cd-txt">年检到期：</div>{{carinfodata.Annual_Inspect_Time}}</div>
+
+				<div class="d-cd-reminder">
+					<p>温馨小贴士：</p>
+					<p>1. 此车辆款型、配置信息来自系统自动读取数据，具体情况以店内实车为准；</p>
+					<p>2. 车辆销售快，到店看车，请提前电话联系该车辆是否在售。</p>
+					<br/>
+					<p>联系我们：</p>
+					<p>电话：131-6487-4395</p>
+					<p>微信：chetongxiang QQ:824321635</p>
+					<p>公共号：chetongxiang或搜索“车同享”关注微信公众号购车享优惠！</p>
+				</div>
+			</div>
+		</div>
+		<!--车辆描述结束-->
+		
+		<!--检测报告开始-->
+		<div class="test-report-wrap">
+			<div class="report-title">
+				<img src="./images/test-resport.gif" alt="车同享检测报告">
+			</div>
+			<div class="report-timeinfo">
+				<span>检测时间：2015-09-18</span>
+				<span>评测师：彭海林</span>
+				<span>检测对象：日产-大众2009款 2.0L 手动全能型</span>
+			</div>
+			<div class="top-base-wrap">
+				<ul>
+					<li><div class="texttitle">车型</div><span>2019-11</span></li>
+					<li><div class="texttitle">变速箱</div><span>2019-11</span></li>
+					<li><div class="texttitle">排放</div><span>2019-11</span></li>
+					<li><div class="texttitle">急售降价</div><span>2019-11</span></li>
+					<li><div class="texttitle">行驶里程</div><span>2019-11</span></li>
+					
+					<li><div class="texttitle">颜色</div><span>2019-11</span></li>
+					<li><div class="texttitle">国别</div><span>2019-11</span></li>
+					<li><div class="texttitle">标准排放</div><span>2019-11</span></li>
+					<li><div class="texttitle">购买年限</div><span>2019-11</span></li>
+					<li><div class="texttitle">发动机编号</div><span>2019-11</span></li>
+				</ul>
+			</div>
+			<div class="boxlist-wrap">
+				<div class="report-title-w"><h4>事故排查</h4><span>车体骨架结构无变形、无扭曲、无更换、无烧焊、无褶皱；无火烧痕迹，无水泡痕迹。</span></div>
+				<div class="carbody-wrap">
+					<div class="carbody-left">
+						<div class="carbody-bg"></div>
+						<div class="outbox-list">
+							<div class="outbox-title">排除泡水</div>
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<th width="157">检查项</th>
+										<th width="105">结果</th>
+										<th width="157">检查项</th>
+										<th width="105">结果</th>
+									</tr>
+									<tr>
+										<td>发动机线束<br>及橡胶制品</td>
+										<td><i id="tr-1-1-1" class="report-check-yes"></i></td>
+										<td>后备箱边角<br>及备胎槽</td>
+										<td><i id="tr-1-1-2" class="report-check-yes"></i></td>
+									</tr>
+									
+									<tr>
+										<td>座椅滑轨内</td>
+										<td><i id="tr-1-1-3" class="report-check-yes"></i></td>
+										<td>后排座椅坐垫底部</td>
+										<td><i id="tr-1-1-4" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>安全带底部</td>
+										<td><i id="tr-1-1-5" class="report-check-yes"></i></td>
+										<td>全车地胶地毯</td>
+										<td><i id="tr-1-1-6" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>音响喇叭底部</td>
+										<td><i id="tr-1-1-7" class="report-check-yes"></i></td>
+										<td>烟灰缸底座</td>
+										<td><i id="tr-1-1-8" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>悬挂组件的固定<br>螺丝及刹车挡板</td>
+										<td><i id="tr-1-1-9" class="report-check-yes"></i></td>
+										<td>车底板有一层隔<br>热和隔音的棉毡</td>
+										<td><i id="tr-1-1-10" class="report-check-yes"></i></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="carbody-right">
+						<div class="outbox-list">
+							<div class="outbox-title">排除重大碰撞</div>
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<th width="55">编号</th>
+										<th width="137">检查项</th>
+										<th width="70">结果</th>
+										<th width="55">检查项</th>
+										<th width="137">检查项</th>
+										<th width="70">结果</th>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>左A柱</td>
+										<td><i id="tr-1-2-1" class="report-check-yes"></i></td>
+										<td>2</td>
+										<td>右A柱</td>
+										<td><i id="tr-1-2-2" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>左B柱</td>
+										<td><i id="tr-1-2-3" class="report-check-yes"></i></td>
+										<td>4</td>
+										<td>右B柱</td>
+										<td><i id="tr-1-2-4" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>左C柱</td>
+										<td><i id="tr-1-2-5" class="report-check-yes"></i></td>
+										<td>6</td>
+										<td>右C柱</td>
+										<td><i id="tr-1-2-6" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td>左前纵梁</td>
+										<td><i id="tr-1-2-7" class="report-check-yes"></i></td>
+										<td>8</td>
+										<td>右前纵梁</td>
+										<td><i id="tr-1-2-8" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td>左后纵梁</td>
+										<td><i id="tr-1-2-9" class="report-check-yes"></i></td>
+										<td>10</td>
+										<td>右后纵梁</td>
+										<td><i id="tr-1-2-10" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>11</td>
+										<td>左前减震器<br/>悬挂部位</td>
+										<td><i id="tr-1-2-11" class="report-check-yes"></i></td>
+										<td>12</td>
+										<td>右前减震器<br/>悬挂部位</td>
+										<td><i id="tr-1-2-12" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>13</td>
+										<td>左后减震器<br/>悬挂部位</td>
+										<td><i id="tr-1-2-13" class="report-check-yes"></i></td>
+										<td>14</td>
+										<td>右后减震器<br/>悬挂部位</td>
+										<td><i id="tr-1-2-14" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>15</td>
+										<td>车身底板</td>
+										<td><i id="tr-1-2-15" class="report-check-yes"></i></td>
+										<td>16</td>
+										<td>后备箱底板</td>
+										<td><i id="tr-1-2-16" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>17</td>
+										<td>防火墙</td>
+										<td><i id="tr-1-2-17" class="report-check-yes"></i></td>
+										<td>18</td>
+										<td>水箱支柱</td>
+										<td><i id="tr-1-2-18" class="report-check-yes"></i></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="outbox-list mt30">
+							<div class="outbox-title">排除火烧</div>
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<th width="157">检查项</th>
+										<th width="105">结果</th>
+										<th width="157">检查项</th>
+										<th width="105">结果</th>
+									</tr>
+									<tr>
+										<td>发动机线束及<br>车身线束</td>
+										<td><i id="tr-1-3-1" class="report-check-yes"></i></td>
+										<td>车身各夹层内</td>
+										<td><i id="tr-1-3-2" class="report-check-yes"></i></td>
+									</tr>
+									<tr>
+										<td>发动机舱</td>
+										<td><i id="tr-1-3-3" class="report-check-yes"></i></td>
+										<td>车厢内或尾箱内</td>
+										<td><i id="tr-1-3-4" class="report-check-yes"></i></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="boxlist-wrap">
+				<div class="report-title-w"><h4>车辆安全</h4><span>经检测，胎纹深度、刹车片厚度、液位均正常。</span></div>
+				<div class="vehicle-safety-wrap">
+					<ul>
+						<li class="li32">
+							<div class="safety-title"><img src="./images/vehicle-safety-title1.gif"></div>
+							<div class="treelist-wrap">
+								<div class="safety-base-line1"></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-1-1" ></div><div class="dotline"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-1-2" ></div><div class="dotline"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-1-3" ></div><div class="dotline"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-1-4" ></div><div class="dotline"></div></div>
+							</div>
+							<div class="vehicle-safety-tyre"></div>
+						</li>
+						<li class="li32">
+							<div class="safety-title"><img src="./images/vehicle-safety-title2.gif"></div>
+							<div class="treelist-wrap">
+								<div class="safety-base-line2"></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-2-1"></div><div class="dotline"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-2-2"></div><div class="dotline"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-2-3"></div><div class="dotline"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-2-4"></div><div class="dotline"></div></div>
+							</div>
+							<div class="vehicle-safety-tyre"></div>
+						</li>
+						<li class="li36">
+							<div class="safety-title"><img src="./images/vehicle-safety-title3.gif"></div>
+							<div class="treelist-wrap">
+								<div class="safety-base-line3"></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-3-1"></div><div class="dotline"></div><div class="dotline1"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-3-2"></div><div class="dotline"></div><div class="dotline1"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-3-3"></div><div class="dotline"></div><div class="dotline1"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-3-4"></div><div class="dotline"></div><div class="dotline1"></div></div>
+								<div class="treelist"><div class="toptoline" id="tr-2-3-5"></div><div class="dotline"></div><div class="dotline1"></div></div>
+							</div>
+							<div class="vehicle-safety-tyre3"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="boxlist-wrap">
+				<div class="report-title-w"><h4>外观内饰</h4><span>经检测左后翼板子喷漆，右前翼板子更换，左前大灯更换，其他无更换。</span></div>
+				<div class="car-interior-wrap"></div>
+			</div>
+			
+			<div class="boxlist-wrap">
+				<div class="report-title-w"><h4>驾驶检测</h4><span>经试驾员专业测试，发动机、变速箱正常，无怠速抖动，变速时无闯档顿挫，转向无乏力感。</span></div>
+				<div class="drive-tab-wrap">
+					<ul>
+						<li><a href="javascript:;">启动</a></li>
+						<li><a href="javascript:;">起步</a></li>
+						<li><a href="javascript:;">加速</a></li>
+						<li><a href="javascript:;">匀速</a></li>
+						<li><a href="javascript:;">减速</a></li>
+					</ul>
+				</div>
+				<div class="drive-info-wrap">
+					<ul>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-1-1" class="report-check-yes"></i></div>
+								<div class="drive-info">制动系统<i id="tr-4-1-2" class="report-check-yes"></i></div>
+							</div>
+						</li>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-2-1" class="report-check-yes"></i></div>
+								<div class="drive-info">变速箱<i id="tr-4-2-2" class="report-check-yes"></i></div>
+								<div class="drive-info">悬挂系统<i id="tr-4-2-3" class="report-check-yes"></i></div>
+							</div>
+						</li>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-3-1" class="report-check-yes"></i></div>
+								<div class="drive-info">变速箱<i id="tr-4-3-2" class="report-check-yes"></i></div>
+								<div class="drive-info">传动系统<i id="tr-4-3-3" class="report-check-yes"></i></div>
+							</div>
+						</li>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-4-1" class="report-check-yes"></i></div>
+								<div class="drive-info">变速箱<i id="tr-4-4-2" class="report-check-yes"></i></div>
+								<div class="drive-info">悬挂系统<i id="tr-4-4-3" class="report-check-yes"></i></div>
+								<div class="drive-info">转向系统<i id="tr-4-4-4" class="report-check-yes"></i></div>
+								<div class="drive-info">制动系统<i id="tr-4-4-5" class="report-check-yes"></i></div>
+							</div>
+						</li>
+						<li>
+							<div class="drive-list-w">
+								<div class="drive-info">发动机<i id="tr-4-5-1" class="report-check-yes"></i></div>
+								<div class="drive-info">变速箱<i id="tr-4-5-2" class="report-check-yes"></i></div>
+								<div class="drive-info">传动系统<i id="tr-4-5-3" class="report-check-yes"></i></div>
+								<div class="drive-info">悬挂系统<i id="tr-4-5-4" class="report-check-yes"></i></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="boxlist-wrap">
+				<div class="report-title-w"><h4>设备检测</h4><span>经检测员专业测试，安全系统的车身稳定系统已更换、电子设备检测全部合格、发动机舱全部合格。</span></div>
+				<div class="device-wrap">
+					<ul>
+						<li class="fl mr15">
+							<div class="item-list-title">
+								<div class="title-left"><em>7</em>项</div>
+								<div class="title-right">
+									<div class="title">安全系统检测</div>
+									<div class="total-info">
+										<span class="item-green">6项合格</span><i class="report-check-yes"></i>
+										<span class="item-red">1项</span><i class="report-check-yes"></i>
+									</div>
+								</div>
+							</div>
+							<div class="item-list-text mt5">安全带系统<i id="tr-5-1-1" class="report-check-yes"></i></div>
+							<div class="item-list-text">安全气囊系统<i id="tr-5-1-2" class="report-check-yes"></i></div>
+							<div class="item-list-text">防抱死系统（ABS）<i id="tr-5-1-3" class="report-check-yes"></i></div>
+							<div class="item-list-text">车身稳定系统（ESP）<i id="tr-5-1-4" class="report-check-yes"></i></div>
+							<div class="item-list-text">轮胎胎压<i id="tr-5-1-5" class="report-check-yes"></i></div>
+							<div class="item-list-text">儿童座椅接口<i id="tr-5-1-6" class="report-check-yes"></i></div>
+							<div class="item-list-text">手刹<i id="tr-5-1-7" class="report-check-yes"></i></div>
+						</li>
+						<li class="fl">
+							<div class="item-list-title">
+								<div class="title-left"><em>17</em>项</div>
+								<div class="title-right">
+									<div class="title">电子设备检测</div>
+									<div class="total-info">
+										<span class="item-green">全部合格</span><i class="report-check-yes"></i>
+										<span class="item-red">0项</span><i class="report-check-yes"></i>
+									</div>
+								</div>
+							</div>
+							<div class="item-list-text mt5">车灯系统<i id="tr-5-2-1" class="report-check-yes"></i></div>
+							<div class="item-list-text">仪表指示灯<i id="tr-5-2-2" class="report-check-yes"></i></div>
+							<div class="item-list-text">雨刷器<i id="tr-5-2-3" class="report-check-yes"></i></div>
+							<div class="item-list-text">空调系统<i id="tr-5-2-4" class="report-check-yes"></i></div>
+							<div class="item-list-text">多媒体系统<i id="tr-5-2-5" class="report-check-yes"></i></div>
+							<div class="item-list-text">电动车窗<i id="tr-5-2-6" class="report-check-yes"></i></div>
+							<div class="item-list-text">中控锁<i id="tr-5-2-7" class="report-check-yes"></i></div>
+							<div class="item-list-text">座椅电动功能<i id="tr-5-2-8" class="report-check-yes"></i></div>
+						</li>
+						<li class="fr">
+							<div class="item-list-title">
+								<div class="title-left"><em>8</em>项</div>
+								<div class="title-right">
+									<div class="title">发动机舱</div>
+									<div class="total-info">
+										<span class="item-green">全部合格</span><i class="report-check-yes"></i>
+										<span class="item-red">1项</span><i class="report-check-yes"></i>
+									</div>
+								</div>
+							</div>
+							<!--<div class="item-list-text mt5">机油有无冷却液混入<i id="tr-5-3-1" class="report-check-yes"></i></div>-->
+							<div class="item-list-text mt5">缸盖外有无机油渗入<i id="tr-5-3-1" class="report-check-yes"></i></div>
+							<div class="item-list-text">散热器栅格有无破损<i id="tr-5-3-2" class="report-check-yes"></i></div>
+							<div class="item-list-text">蓄电池电极柱有无腐蚀<i id="tr-5-3-3" class="report-check-yes"></i></div>
+							<div class="item-list-text">蓄电池电解液有无渗漏<i id="tr-5-3-4" class="report-check-yes"></i></div>
+							<div class="item-list-text">发动机皮带有无老化<i id="tr-5-3-5" class="report-check-yes"></i></div>
+							<div class="item-list-text">油管有无老化裂痕<i id="tr-5-3-6" class="report-check-yes"></i></div>
+							<div class="item-list-text">水管有无老化裂痕<i id="tr-5-3-7" class="report-check-yes"></i></div>
+							<div class="item-list-text">线束有无老化裂痕<i id="tr-5-3-8" class="report-check-yes"></i></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--检测报告结束-->
+	</div>
+</div>
+<!--Index Main End-->

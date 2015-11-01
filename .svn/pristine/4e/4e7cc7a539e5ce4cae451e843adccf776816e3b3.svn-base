@@ -1,0 +1,171 @@
+<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-treeview.css" />
+<script src="js/bootstrap-treeview.js" type="text/javascript" charset="utf-8"></script>
+<style>
+    .dropdown-menu {
+    background-clip: padding-box;
+    background-color: transparent;
+    border: none;
+    border-radius:0;
+    box-shadow: 0 0 0 ;
+    display: none;
+    float: left;
+    font-size: 14px;
+    left: 0;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+}
+
+</style>
+<!--for register-->
+<div class="container  tui-reg-container tc">
+	<!--<div class="tui-reg-step">
+		<ul class="tui-reg-items clearfix">
+			<li class="tui-reg-item tui-reg-step-1" data-step=1>
+				设置登录名
+			</li>
+			<li class="tui-reg-item tui-reg-step-2 tui-reg-active" data-step=2>
+				填写用户信息
+			</li>
+			<li class=" tui-reg-item tui-reg-step-3 " data-step="√">
+				注册成功
+			</li>
+		</ul>
+	</div>-->
+	<!--step2-->
+	<div class="tui-reg-info-container">
+		<div class="tui-reg-step-content ">
+			<form action="" id="tui-reg-alliance-form" name="allianceForm" class=" form-horizontal" role="form" novalidate>
+				<!--信息-->
+				<div class="tui-reg-step1-content col-md-offset-3">
+					<div class="tui-reg-allianceInfo ">
+						<div class="form-group">
+							<label for="CompanyName" class="col-md-2 control-label">企业全称：</label>
+							<div class="col-md-4 ">
+								<input type="text" name="CompanyName" id="CompanyName" value="" class="form-control"  required="required" ng-model="CompanyName" />
+							</div>
+							<div class="col-md-2 " ng-show="allianceForm.CompanyName.$dirty&&allianceForm.CompanyName.$invalid">
+							   <span class="tui-tip">请输入企业名称</span>	
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="Charger" class="col-md-2 control-label">企业负责人姓名：</label>
+							<div class="col-md-4 ">
+								<input type="text" name="Charger" id="Charger" value="" class="form-control" required="required" ng-model="Charger" />
+							</div>
+							<div class="col-md-2 " ng-show="allianceForm.Charger.$dirty&&allianceForm.Charger.$invalid">
+							   <span class="tui-tip">请输入企业负责人姓名</span>	
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="OrganizationCode" class="col-md-2 control-label">组织机构代码：</label>
+							<div class="col-md-4 ">
+								<input type="text" name="OrganizationCode" id="OrganizationCode" value="" class="form-control" placeholder="评估师/爱车人士可不填写" ng-model="OrganizationCode" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-md-2 control-label">组织机构代码图：</label>
+							<div class="col-md-4 ">
+								<p class="tui-upload-group">
+									<a href="javascript:void(0)" class="tui-upload-btn">上传</a>
+									<i class="glyphicon glyphicon-picture file-upload" id="file_upload_1"><span>图片</span></i>
+								</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="BusinessLicenseNo" class="col-md-2 control-label">工商执注册号：</label>
+							<div class="col-md-4 ">
+								<input type="text" name="BusinessLicenseNo" id="BusinessLicenseNo" value="" class="form-control" placeholder="评估师/爱车人士可不填写" ng-model="BusinessLicenseNo" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-md-2 control-label">工商执照注册图：</label>
+							<div class="col-md-4 ">
+								<p class="tui-upload-group">
+									<i class="glyphicon glyphicon-picture file-upload" id="file_upload_2"><span>图片</span></i>
+									<a href="javascript:void(0)" class="tui-upload-btn">上传</a>
+								</p>
+							</div>
+
+						</div>
+						<div class="form-group">
+							<label for="City" class="col-md-2 control-label">城市：</label>
+							<div class="col-md-4 ">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle"  onclick="showCity()">
+										选择城市
+										<span class="caret"></span>
+									</button>
+									<div class="dropdown-menu"  style="border: none;" id="city-tree">
+									   	 <div id="treeview-city" class="treeview"  style="width: 300px;;"></div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="Fax" class="col-md-2 control-label">传真：</label>
+							<div class="col-md-4 ">
+								<input type="text" name="Fax"  value="" class="form-control"   ng-model="Fax" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="tui-member-content">
+			<hr>
+			<div class="tui-reg-member-tool">
+				<input type="button" name="" id="" value="新增申请人 +" class="tui-btn-default tui-member-btn" data-toggle="modal" data-target="tui-modal-dialog" ng-click="clickToOpen()" />
+				<span id="">
+							 您已建立<i class=' tui-member-count'>{{allianceMembers.length}}</i>
+							个申请人资料表，可建立多个
+						</span>
+			</div>
+			<div class="tui-reg-member-content">
+				<ul class="tui-reg-member-items">
+					<li class="tui-reg-member-item" ng-repeat="obj in allianceMembers">
+						<h3 ng-bind='obj.IdentityTag==2?"评估师":"其他员工"'> </h3>
+						<div class="tui-form-group">
+							<label>姓名：</label>
+							<div class="tui-control-group" ng-bind="obj.PersonName">
+							</div>
+						</div>
+						<div class="tui-form-group">
+							<label>手机号码：</label>
+							<div class="tui-control-group" ng-bind="obj.Contact">
+							
+							</div>
+						</div>
+						<div class="tui-form-group">
+							<label>联系地址：</label>
+							<div class="tui-control-group" ng-bind="obj.Address">
+							
+							</div>
+						</div>
+						<i class="glyphicon glyphicon-remove  tui-icon-remove" ng-click="remove($index)"></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<input type="button" name="" id="" value="同意协议并注册" class="tui-reg-btn tui-reg-submit" ng-click="register()"/>
+		<p class="tui-service-agreement"><a href="">《车同享服务协议》</a></p>
+	</div>
+</div>
+<script type="text/javascript">
+	function showDirect(){
+		$('#direct-tree').toggle();
+	}
+	function showCity(){
+		$('#city-tree').toggle();
+	}
+</script>
+
+<!--modal-->
+<!--end of register-->
