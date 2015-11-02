@@ -7,21 +7,20 @@
         	<div id="" class="tui-order-carinfo">
         	  	<div class="col-md-4">
         	  		<img src="demo/carimg.jpg"/>
-
         	  	</div>
         	  	<div class="col-md-8">
-        	  		<h3 class="tui-order-carname">车辆信息：奥迪A4L 2011款 A4L 2.0TFSI 无级 132kw舒适型</h3>
+        	  		<h3 class="tui-order-carname">车辆信息：<span  ng-bind="carInfo.SpecName"></span></h3>
         	  		<a href="javascript:void(0)" class="tui-order-refash">刷新车辆价格</a>
         	  		<div class="tui-order-describe">
         	  			<div class="col-md-4">
-        	  				<p class="tui-order-price">￥11.00 <span class="small">万</span></p>
+        	  				<p class="tui-order-price" ng-bind="carInfo.Price">￥11.00 <span class="small">万</span></p>
         	  				<p class="tui-order-costprice"><strike>15.00万</strike>  &nbsp; &nbsp; &nbsp;参考价格</p>
         	  				<p class="tui-order-advance"><label>￥2.00<span class="small">万</span></label>   &nbsp; &nbsp; &nbsp;预付金额</p>
         	  			</div>
         	  			<div class="col-md-4" style="line-height: 35px;">
-        	  				<p>行驶里程：100公里</p>
-        	  				<p>购买年限：2年</p>
-        	  				<p>过户次数：1</p>
+        	  				<p>行驶里程：<span ng-bind="carInfo.Mileage"></span>公里</p>
+        	  				<p>购买年限：<span ng-bind="carInfo.Buyyear"></span>年</p>
+        	  				<p>过户次数：<span ng-bind="carInfo.TransferNo"></span></p>
 
         	  			</div>
         	  			<div class="col-md-2">

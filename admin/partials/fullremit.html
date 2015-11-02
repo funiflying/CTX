@@ -54,32 +54,32 @@
 						<div class=" form-group col-md-10 font-orange ">
 							<label for="name" class="col-md-2 control-label">汇款单号：</label>
 							<div class="col-md-6 ">
-							<input type="text" class="form-control "  placeholder="请输入汇款单号"  required="required" ng-model="PrepayOrder">
+							<input type="text" class="form-control "  placeholder="请输入汇款单号"  required="required" ng-model="AllMoneyOrder">
 							</div>
 						</div>
 						<div class=" form-group col-md-10 font-orange ">
 							<label for="name" class="col-md-2 control-label">汇款银行：</label>
 							<div class="col-md-6 ">
-							<input type="text" class="form-control "  placeholder="请输入汇款银行"  required="required" ng-model="PrePayBank">
+							<input type="text" class="form-control "  placeholder="请输入汇款银行"  required="required" ng-model="AllMoneyBank">
 							</div>
 						</div>
 						<div class=" form-group col-md-10 font-orange " > 
 							<label for="name" class="col-md-2 control-label">汇款时间：</label>
 							<div class="input-group date form_datetime col-md-6 " data-link-field="dtp_input1" style="padding: 0 15px;">
-								<input class="form-control" size="16" type="text" value="" ng-model="PrePayTime">
+								<input class="form-control" size="16" type="text" value="" ng-model="AllMoneyTime">
 								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 						</div>
 						</div>
-						<div class=" form-group col-md-10 font-orange ">
+						<!--<div class=" form-group col-md-10 font-orange ">
 							<label for="name" class="col-md-2 control-label">汇款金额：</label>
 							<div class="col-md-6 ">
-							<input type="number" class="form-control "  placeholder="请输入汇款金额"  required="required" ng-model="PrePayMoney">
+							<input type="number" class="form-control "  placeholder="请输入汇款金额"  required="required" ng-model="">
 							</div>
-						</div>
+						</div>-->
 					</form>
 				</div>
                <p style="text-align: center;padding: 30px 0;">
-						<button class="tui-btn-default tui-btn-big tui-submit-order" ng-click="sendPrePayCode()">提交汇款单号</button>
+						<button class="tui-btn-default tui-btn-big tui-submit-order" ng-click="sendFullPayCode()">提交汇款单号</button>
 					</p>
 			</div>
 

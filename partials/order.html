@@ -7,22 +7,20 @@
         	<div id="" class="tui-order-carinfo">
         	  	<div class="col-md-4">
         	  		<img src="demo/carimg.jpg"/>
-
         	  	</div>
         	  	<div class="col-md-8">
-        	  		<h3 class="tui-order-carname">车辆信息：奥迪A4L 2011款 A4L 2.0TFSI 无级 132kw舒适型</h3>
+        	  		<h3 class="tui-order-carname">车辆信息：<span  ng-bind="carInfo.SpecName"></span></h3>
         	  		<a href="javascript:void(0)" class="tui-order-refash">刷新车辆价格</a>
         	  		<div class="tui-order-describe">
         	  			<div class="col-md-4">
-        	  				<p class="tui-order-price">￥11.00 <span class="small">万</span></p>
+        	  				<p class="tui-order-price" ><span ng-bind="carInfo.Price/10000|currency:'￥'"></span> <span class="small">万</span></p>
         	  				<p class="tui-order-costprice"><strike>15.00万</strike>  &nbsp; &nbsp; &nbsp;参考价格</p>
         	  				<p class="tui-order-advance"><label>￥2.00<span class="small">万</span></label>   &nbsp; &nbsp; &nbsp;预付金额</p>
         	  			</div>
         	  			<div class="col-md-4" style="line-height: 35px;">
-        	  				<p>行驶里程：100公里</p>
-        	  				<p>购买年限：2年</p>
-        	  				<p>过户次数：1</p>
-
+        	  				<p>行驶里程：<span ng-bind="carInfo.Mileage"></span>公里</p>
+        	  				<p>购买年限：<span ng-bind="carInfo.Buyyear"></span>年</p>
+        	  				<p>过户次数：<span ng-bind="carInfo.TransferNo"></span></p>
         	  			</div>
         	  			<div class="col-md-2">
         	  				1
@@ -53,24 +51,24 @@
 	        </div>
 	        <div class="col-md-4 text-right tui-order-collect clearfix ">
 	        	<div>
-	        		<p class="col-md-8 text-right "><span>1</span>件商品，商品总金额：</p>
-	        		<p class="col-md-4 text-left tui-p0">￥2000000.00</p>
+	        		<p class="col-md-8 text-right "><span class="font-orange">1</span>件商品，商品总金额：</p>
+	        		<p class="col-md-4 text-left tui-p0" ng-bind="carInfo.DealPrice|currency:'￥'"></p>
 	        	</div>
 	        	<div>
 	        		<p class="col-md-8  text-right ">预付金额：</p>
-	        		<p class="col-md-4 text-left tui-p0" style="color: #ff6a00;">￥20000.00</p>
+	        		<p class="col-md-4 text-left tui-p0 font-orange" ng-bind="carInfo.PrePayMoney|currency:'￥'"></p>
 	        	</div>
 	        	<div>
 	        		
 	        		<p class="col-md-8 text-right ">应付款总金额：</p>
-	        		<p class="col-md-4 text-left tui-p0">￥2000000.00</p>
+	        		<p class="col-md-4 text-left tui-p0" ng-bind="carInfo.DealPrice|currency:'￥'"></p>
 	        	</div>
 	        </div>
         </div>
         <div style="border-top: 1px solid #dedede;" class="col-md-10 col-md-offset-1">
-        	<p style="text-align: right;height: 50px;line-height: 50px;padding-right: 35px;font-size: 16px;">应付预约金：<span style="color: #ff6a00;">￥200000</span></p>
+        	<p style="text-align: right;height: 50px;line-height: 50px;padding-right: 35px;font-size: 16px;">应付预约金：<span class="font-orange" ng-bind="carInfo.PrePayMoney|currency:'￥'"></span></p>
         	<p style="text-align: center;padding: 30px 0;">
-        		<a href="#/orderremit" class="tui-btn-default tui-btn-big tui-submit-order">提交订单</a>
+        		<button  class="tui-btn-default tui-btn-big tui-submit-order" ng-click="submitOrder()">提交订单</button>
         	</p>
         	
         	

@@ -1,33 +1,113 @@
-
 <style type="text/css">
 	.ngdialog.ngdialog-theme-default .ngdialog-content{
 		padding: 30px 0;
 		width: 500px;
 	}
 </style>
+<script type="text/javascript">
+	$(function(){
+		$("#myTab li").on("click",function(){
+		var _index=$(this).index();
+		switch (_index){
+			case 0:
+				$("#outsite").addClass("in active").show();
+			    $("#alliance").removeClass("in active").hide();
+				break;
+			case 1:
+				$("#outsite").removeClass("in active").hide();
+			    $("#alliance").addClass("in active").show();
+				break;
+			default:
+				$("#outsite").addClass("in active").show();
+			    $("#alliance").removeClass("in active").hide();
+				break;
+		}
+			
+			
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+	})
+</script>
 
+<ul id="myTab" class="nav nav-tabs">
+	<li class="active">
+		<a href="" data-toggle="tab">
+         用户登录
+      </a>
+	</li>
+	<li><a href="" data-toggle="tab">
+		联盟商登录
+    </a></li>
 
-<div class="row">
-	<form role="form" class="col-md-offset-3" name="loginForm">
-	<div class="form-group">
+</ul>
+<div id="myTabContent" class="tab-content">
+	<div class="tab-pane fade in active" id="outsite">
+		<div class="row">
+			<form role="form" class="col-md-offset-3" name="loginForm">
+				<div class="form-group">
 					<div class="col-md-8">
 						<div class="alert alert-warning alert-dismissable" ng-show="Message.status">
-   			  			 {{Message.msg}}
+							{{Message.msg}}
 						</div>
-		      		</div>
+					</div>
 				</div>
+				<div class=" form-group col-md-8">
+					<label for="name">登录名：</label>
+					<input type="text" class="form-control col-md-6" name="Account" placeholder="请输入登录名" ng-model="logon.Account" required="required">
+				</div>
+				<div class=" form-group col-md-8">
+					<label for="name">登录密码：</label><a href="">忘记登录密码?</a>
+					<input type="password" class="form-control" name="Pwd" placeholder="输入密码" ng-model="logon.Pwd" required="required" tabindex="0">
+				</div>
+				<div class=" form-group col-md-8">
+					<input type="button" class=" tui-btn-default tui-btn-block tui-login-btn" value="登 录" ng-click="signin()" />
+					<a href="">免费注册</a>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<div class="tab-pane fade" id="alliance">
+		<div class="row">
+
+	<div class="col-md-6 col-md-offset-3">
+			<div class="alert alert-warning alert-dismissable text-center" ng-show="Message.status">
+   			   {{Message.msg}}
+			</div>
+			
+		</div>
+	<form role="form" class="col-md-offset-3" name="loginForm">
+		
 		<div class=" form-group col-md-8">
 			<label for="name" >登录名：</label>
 			<input type="text" class="form-control col-md-6" name="Account" placeholder="请输入登录名" ng-model="logon.Account" required="required">
 		</div>
 		<div class=" form-group col-md-8">
-			<label for="name" >登录密码：</label><a href="">忘记登录密码?</a>
+			<label for="name" >登录密码：</label><a href="">忘记密码?</a>
 			<input type="password" class="form-control" name="Pwd" placeholder="输入密码" ng-model="logon.Pwd" required="required">
 		</div>
      <div class=" form-group col-md-8">
-			<input type="button" class=" tui-btn-default tui-btn-block tui-login-btn" value="登 录"  ng-click="signin()"/>
+			<input type="button" class=" tui-btn-default tui-btn-block tui-login-btn" value="登 录"  ng-click="allianceSignin()"/>
 			<a href="">免费注册</a>
 		</div>
 		
 	</form>
+</div>
+
+
+
+
+
+
+
+	</div>
+
 </div>

@@ -1,0 +1,38 @@
+<ul class="tui-oa-orders">
+	<li class="tui-oa-order-item" ng-repeat="obj in fullPayList">
+		<div class="tui-oa-order-caption">
+			<div class="col-md-3" ng-bind="obj.OrderTime">
+				2015-10-23 12:00
+			</div>
+			<div class="col-md-3">
+				订单号：<span ng-bind="obj.OrderCode"></span>
+			</div>
+			<div class="col-md-2">
+				车编号
+			</div>
+			<div class="col-md-2">
+				状态
+			</div>
+			<div class="col-md-2">
+				操作
+			</div>
+		</div>
+		<div class="tui-oa-order-body">
+			<div class="col-md-3">
+				<img ng-src="{{obj.HomePicID}}" alt="">
+			</div>
+			<div class="col-md-3 tui-order-car">
+				<h2 ng-bind="obj.SpecName">马自达8 2011款 2.3 自动 双驱至尊版</h2>
+			</div>
+			<div class="col-md-2" ng-bind="obj.CarNo">
+				
+			</div>
+			<div class="col-md-2">
+				全款审核
+			</div>
+			<div class="col-md-2">
+				<a href="#/fullpay/{{obj.OrderCode}}">审核</a>
+			</div>
+		</div>
+	</li>
+</ul>

@@ -12,7 +12,7 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
 	 * ***********/
     $routeProvider.when('/order', {
         templateUrl: 'partials/order.html',
-        controller: orderController,
+        controller: orderListController,
        access_levels: ACCESS_LEVELS.user
     });
     $routeProvider.when('/orderremit', {
@@ -22,6 +22,11 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
 		});
 	 $routeProvider.when('/payfull', {
 			templateUrl: 'partials/payfull.html',
+			controller: orderController,
+			access_levels: ACCESS_LEVELS.user
+		});
+	$routeProvider.when('/fullremit', {
+			templateUrl: 'partials/fullremit.html',
 			controller: orderController,
 			access_levels: ACCESS_LEVELS.user
 		});
@@ -35,21 +40,37 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
         redirectTo: '/index',
         access_levels: ACCESS_LEVELS.user
     });
-  }]).run(function($rootScope,AuthService,SessionService){
+  }]).run(function($rootScope,AuthService,SessionService,ngDialog){
+  	//退出
   		$rootScope.loginOut=function(){
     	SessionService.removeSession("_AUTH");
-    	$rootScope.user=null;
-    	//window.location.href="/CTXWeb/index.html"
-    }
+	    	$rootScope.user=null;
+	    	window.location.href="../index.html"
+    		}
+  	//设置用户
+  		$rootScope.user = JSON.parse(SessionService.getSeesion("_AUTH"));
+  	//信息提示
+  	
+  	
+  	$rootScope.openModal = function (msg,closeback) {
+                var dialog = ngDialog.open({
+                    template: '<p style="padding:60px 0; text-align:center">'+msg+'</p>',
+                    plain: true,
+                    closeByDocument: true,
+                    closeByEscape: true
+                });
+                setTimeout(function () {
+                    dialog.close();
+                }, 2000);
+                dialog.closePromise.then(closeback);
+            };
+
   		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if(next.access_levels&&!AuthService.Authenticated()){
-			window.location.href="/CTXWeb/index.html"
+			window.location.href="../index.html"
 		}
 	});
 	
-	
-	
-  	
   })
   

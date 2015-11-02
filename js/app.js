@@ -2,12 +2,12 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('chetongxiang', ['chetongxiang.filters', 'chetongxiang.services-dk', 'chetongxiang.services', 'chetongxiang.directives', 'ngRoute', 'ngDialog']).constant('ACCESS_LEVELS', {
-    pub: 0,
-    user: 1,
-    admin: 2
+	pub: 0,
+	user: 1,
+	admin: 2
 }).
-config(['$routeProvider','ACCESS_LEVELS',
-	function($routeProvider,ACCESS_LEVELS) {
+config(['$routeProvider', 'ACCESS_LEVELS',
+	function($routeProvider, ACCESS_LEVELS) {
 
 		$routeProvider.when('/register', {
 			templateUrl: 'partials/register.html',
@@ -39,7 +39,7 @@ config(['$routeProvider','ACCESS_LEVELS',
 		$routeProvider.when('/regsuccess', {
 			templateUrl: 'partials/regsuccess.html',
 			controller: registerController
-			
+
 		});
 		$routeProvider.when('/carlist/:clname/:clvalue', {
 			templateUrl: 'partials/carlist.html',
@@ -71,7 +71,7 @@ config(['$routeProvider','ACCESS_LEVELS',
 		/*
 		 * 订单
 		 */
-		$routeProvider.when('/order', {
+		$routeProvider.when('/order/:CarNo/', {
 			templateUrl: 'partials/order.html',
 			controller: orderController
 		});
@@ -83,7 +83,7 @@ config(['$routeProvider','ACCESS_LEVELS',
 			redirectTo: '/index'
 		});
 	}
-]).run(function($rootScope, ngDialog, $timeout,SessionService) {
+]).run(function($rootScope, ngDialog, $timeout, SessionService) {
 	$rootScope.allianceMembers = [];
 	$rootScope.regularMembers = [];
 	$rootScope.regularPartner = [];
@@ -91,10 +91,32 @@ config(['$routeProvider','ACCESS_LEVELS',
 	$rootScope.reg_phone = "18650320029";
 	$rootScope.countdown = 5
 		//全信息提示层
+
+
+	//弹出层	
+	$rootScope.openModal = function(msg, closeback) {
+		var dialog = ngDialog.open({
+			template: '<p style="padding:60px 0; text-align:center">' + msg + '</p>',
+			plain: true,
+			closeByDocument: true,
+			closeByEscape: true
+		});
+		setTimeout(function() {
+			dialog.close();
+		}, 2000);
+		dialog.closePromise.then(closeback);
+	};
 	$rootScope.Message = {
 		status: 0,
 		msg: ""
 	}
+	$rootScope.Modal = function() {
+		ngDialog.open({
+			template: 'partials/DialogMessage.html',
+			showClose: true,
+		});
+	}
+
 	$rootScope.Alert = function(_message) {
 			$rootScope.Message.status = 1;
 			$rootScope.Message.msg = _message;
@@ -122,22 +144,22 @@ config(['$routeProvider','ACCESS_LEVELS',
 			});
 		}
 		//直营商登录
-	/*$rootScope.directLogin = function() {
-		ngDialog.open({
-			template: 'partials/directlogin.html',
-			appendTo: true,
-			showClose: true,
-			controller: loginController
-		});
-	}*/
-    //退出
-    $rootScope.loginOut=function(){
-    	SessionService.removeSession("_AUTH");
-    	$rootScope.user=null;
-    }
-	//路由控制
+		/*$rootScope.directLogin = function() {
+			ngDialog.open({
+				template: 'partials/directlogin.html',
+				appendTo: true,
+				showClose: true,
+				controller: loginController
+			});
+		}*/
+		//退出
+	$rootScope.loginOut = function() {
+			SessionService.removeSession("_AUTH");
+			$rootScope.user = null;
+		}
+		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
-					console.log(next)
+		console.log(next)
 	});
 
 

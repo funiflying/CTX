@@ -22,10 +22,17 @@ angular.module('chetongxiang.services-admin', []).service("ShoppcarService",func
 }).service("OrderService",function($http){
 	return { 
 			getOrderList:function(_pageNo,_pageNum){
-		         return $http.post("/order/UserGetOrderList",{
+				///order/UserGetOrderList
+		         return $http.get("../test/orderlist.json",{
 		         	pageNo:_pageNo,
 		         	pageNum:_pageNum
 		         })
+			},
+			getUserOrder:function(){
+				return $http.get("../test/userorder.json")
+			},
+			UserPrePay:function(data){
+				return $http.post("",data)
 			}
 	}
 	

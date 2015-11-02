@@ -412,12 +412,47 @@ function loginController($scope, LoginService, $rootScope, $location,SessionServ
 loginController.$inject = ['$scope', 'LoginService', '$rootScope', '$location','SessionService','ngDialog'];
 
 /********************************
- *登购车
+ *订单		
  * ******************************/
 
-function orderController(){
-	
+function orderController($scope,OrderService,$rootScope,$routeParams,$location){
+	 
+	$scope.carNo=$routeParams.CarNo
+    $scope.carInfo={};
+    var data={
+    	CarNo:$scope.carNo
+    }
+	OrderService.getCarInfo(data).success(function(d){
+			$scope.carInfo=d.data
+
+	})
+
+	$scope.submitOrder=function(_carNo){
+		if(!$rootScope.user)
+		{
+			$rootScope.Alert("您还没有登录，请先登录")
+			$rootScope.outsiteLogin();
+		}
+		else{
+			var data={
+				CarNo:$scope.carNo
+			}
+			OrderService.submitOrder(data).success(function(d){
+				if(d.status){
+					$rootScope.openModal("恭喜，您已成功提交订单",function(){
+						$location.path("/orderremit");
+					});
+				}
+				else{
+					$rootScope.openModal(d.message);
+				}
+			}).error(function(){
+				$rootScope.openModal("系统打盹中。。。。。，请联系客服");
+			})
+			$location.path("/orderremit")
+		}
+	}
 	
 	
 }
-orderController.$inject=[]
+orderController.$inject=["$scope","OrderService","$rootScope","$routeParams","$location"]

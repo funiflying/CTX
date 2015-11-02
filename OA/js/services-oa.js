@@ -60,4 +60,36 @@ angular.module('chetongxiang.services-admin', []).service('AllianceAuditService'
 		}
 	}
 	
+}).service("PayAuditService",function($http){
+	return{
+		getPrePayAuditList:function(){
+			return $http.get("../test/orderlist.json")
+		},
+		getPrePayOrder:function(data){
+			return $http.get("../test/advance.json",data)
+		},
+		submitPrePayAudit:function(data){
+		return $http.post("",data);
+			
+		},
+		submitFullPayAudit:function(data){
+		return $http.post("",data);
+			
+		},
+		getFullPayAuditList:function(){
+			return $http.get("../test/orderlist.json")
+		},
+		getFullPayOrder:function(data){
+			return $http.get("../test/advance.json",data)
+		},
+		submitFullPay:function(data){
+		return $http.post("",data);
+			
+		}
+		
+		
+		
+	}
+	
+	
 })

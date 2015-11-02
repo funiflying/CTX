@@ -1,0 +1,29 @@
+
+    {
+    "status": 1,
+    "message": "OK",
+    "data":{
+        "SpecName": "比亚迪S6 2013款 2.0 手动 豪华型",
+        "CarID": "b924afb5-4296-4597-b1e0-9653e8547cfc",
+        "City": "厦门",
+        "UserID": "1",
+        "Mileage":"500",
+        "CarNo": "CT1X2-151015CTC7",
+        "Price": "110000",
+        "CostPrice": "241000",
+        "GearBox": "0",
+        "Buyyear":"5",
+        "TransferNo":"0",
+        "InitialDate": "2013/1/1",
+        "HomePicID": "../images/default.jpg",
+        "OrderID":"b924afb5-4296-4597-b1e0-9653e8547cfc",
+        "OrderCode":"2015010101001",
+        "DealPrice":"1200000",
+        "PrePayMoney":"20000",
+        "OrderTime":"2015-10-10",
+        "ServiceFee":"1000",
+        "WarrantyCost":"300",
+        "ShippingFee":"250",
+        "PayTotal":"250250225"
+        }
+    }

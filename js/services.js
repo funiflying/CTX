@@ -88,4 +88,20 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
             return sessionStorage.removeItem(key)
         }
     }
+}).service("OrderService",function($http){
+	return {
+		getCarInfo:function(data){
+			
+			return $http.get("test/userorder.json",data)
+			
+		},
+		submitOrder:function(data){
+			//post("/Order/userbuy",data)
+			return $http.post("/Order/userbuy",data)
+			
+		}
+	}
+	
+	
+	
 })

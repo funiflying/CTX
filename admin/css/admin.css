@@ -23,7 +23,7 @@ a:hover{
 }
 
 .tui-admin-bar {
-    background: url(/admin/images/logo.png) left center no-repeat;
+    background: url(../images/logo.png) left center no-repeat;
     height: 100%;
     text-align: right;
 }
@@ -127,7 +127,7 @@ color: #4c4c4c;
 .tui-admin-icon-count {
     height: 90px;
     background-color: #fff;
-    background-image: url(/admin/images/coin-count.png);
+    background-image: url(../images/coin-count.png);
     background-position: 20px center;
     background-repeat: no-repeat;
     position: relative;
@@ -321,7 +321,7 @@ color: #4c4c4c;
 }
 .tui-order-advanceNo
 {
-	height: 150px;
+	height: 200px;
 }
 
 

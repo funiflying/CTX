@@ -1,0 +1,18 @@
+
+    {
+    "status": 1,
+    "message": "OK",
+    "data":{
+        "SpecName": "比亚迪S6 2013款 2.0 手动 豪华型",
+        "CarID": "b924afb5-4296-4597-b1e0-9653e8547cfc",
+        "CarNo": "CT1X2-151015CTC7",
+        "HomePicID": "../images/default.jpg",
+        "OrderID":"b924afb5-4296-4597-b1e0-9653e8547cfc",
+        "OrderCode":"2015010101001",
+        "PrepayOrder":"152522252285",
+        "OrderTime":"2015-10-10",
+        "PrePayBank":"中国建设银行厦门分行湖里支行观音山营业部",
+        "PrePayMoney":"30000000",
+        "PrePayTime":"2015-10-10"
+        }
+    }
