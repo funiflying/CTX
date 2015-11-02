@@ -20,7 +20,7 @@ config(['$routeProvider', 'ACCESS_LEVELS', '$httpProvider',
 		});
 		$routeProvider.when('/advancelist', {
 			templateUrl: 'partials/advancelist.html',
-			controller: prePayAuditController,
+			controller: prePayListController,
 			access_levels: ACCESS_LEVELS.user
 		});
 		$routeProvider.when('/advance/:OrderCode/', {
@@ -107,9 +107,8 @@ config(['$routeProvider', 'ACCESS_LEVELS', '$httpProvider',
 		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if (next.access_levels && !AuthService.Authenticated()) {
-
 			$rootScope.openModal("对不起，您还未登录。", function() {
-				//window.location.href="/CTXWeb/OA/login.html"
+			window.location.href="/CTXWeb/OA/login.html"
 
 			})
 		}
@@ -124,7 +123,7 @@ config(['$routeProvider', 'ACCESS_LEVELS', '$httpProvider',
 						$rootScope.Alert(d.message);
 					} else {
 						$rootScope.setUser(d.data)
-						SessionService.setSession("AUTH", d.data)
+						SessionService.setSession("AUTH", JSON.stringify(d.data))
 						window.location.href = "../OA/#/index"
 					}
 				}).error(function(e) {

@@ -16,9 +16,7 @@ angular.module('chetongxiang.services-admin', []).service("ShoppcarService",func
 			})
 		}
 	}
-	/*
- *session 操作
- * */
+
 }).service("OrderService",function($http){
 	return { 
 			getOrderList:function(_pageNo,_pageNum){

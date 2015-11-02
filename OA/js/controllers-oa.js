@@ -133,7 +133,7 @@ function prePayAuditController($scope, PayAuditService, $rootScope, $routeParams
 		  
 		  var data={
 		  	  OrderCode:_order,
-		  	  PrePayCheckMemo:$scope.PrePayCheckMemo
+		  	  PrePayCheckMemo:$scope.PrePayCheckMemo,
 		  	  passorno:_status
 		  }
 		PayAuditService.submitPrePayAudit(data).success(function(d){
@@ -180,7 +180,7 @@ function fullPayAuditController($scope, PayAuditService, $rootScope, $routeParam
 		  
 		  var data={
 		  	  OrderCode:_order,
-		  	  AllMoneyCheckMemo:$scope.AllMoneyCheckMemo
+		  	  AllMoneyCheckMemo:$scope.AllMoneyCheckMemo,
 		  	  passorno:_status
 		  }
 		PayAuditService.submitFullPayAudit(data).success(function(d){

@@ -399,7 +399,7 @@ function loginController($scope, LoginService, $rootScope, $location,SessionServ
 				if (d.status == 0) {
 					$rootScope.Alert(d.message);
 				} else {
-					SessionService.setSession("_AUTH",d.data);
+					SessionService.setSession("_AUTH",JSON.stringify(d.data));
 					$rootScope.user=JSON.parse(SessionService.getSeesion("_AUTH"));
 					ngDialog.close();
 				}
