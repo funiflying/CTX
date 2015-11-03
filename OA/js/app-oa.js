@@ -98,7 +98,7 @@ config(['$routeProvider', 'ACCESS_LEVELS', '$httpProvider',
 	pub: 0,
 	user: 1,
 	admin: 2
-}).run(function($rootScope, $timeout, AuthService, ngDialog) {
+}).run(function($rootScope, $timeout, AuthService, ngDialog,SessionService) {
 	$rootScope.setUser = function(_user) {
 			return $rootScope.user = _user
 		}
@@ -136,12 +136,17 @@ config(['$routeProvider', 'ACCESS_LEVELS', '$httpProvider',
 		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if (next.access_levels && !AuthService.Authenticated()) {
-			/*$rootScope.openModal("对不起，您还未登录。", function() {
-			window.location.href="/CTXWeb/OA/login.html"
-
-			})*/
+			$rootScope.openModal("对不起，您还未登录。", function() {
+			window.location.href="login.html"
+			})
 		}
 	});
+	//退出
+  		$rootScope.loginOut=function(){
+    	SessionService.removeSession("AUTH");
+	    	$rootScope.user=null;
+	    	window.location.href="login.html"
+    		}
 }).controller("loginController", ['$scope', "$rootScope", "LoginService", "$location", 'SessionService',
 	function($scope, $rootScope, LoginService, $location, SessionService) {
 		$scope.logon = {};
@@ -153,7 +158,7 @@ config(['$routeProvider', 'ACCESS_LEVELS', '$httpProvider',
 					} else {
 						$rootScope.setUser(d.data)
 						SessionService.setSession("AUTH", JSON.stringify(d.data))
-						window.location.href = "../OA/#/index"
+						window.location.href = "../OA/"
 					}
 				}).error(function(e) {
 					$rootScope.Alert("登录失败");

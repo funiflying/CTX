@@ -16,7 +16,7 @@ function loginController($scope, $rootScope, LoginService, $location) {
 				if (d.status == 0) {
 					$rootScope.Alert(d.message);
 				} else {
-					window.location.href = "../OA/#/index"
+					window.location.href = "../OA/
 				}
 			}).error(function(e) {
 				$rootScope.Alert(e);
@@ -38,7 +38,7 @@ function allianceAuditController($scope, ngDialog, AllianceAuditService, $rootSc
 			scope: $scope
 		});
 	}
-	AllianceAuditService.getMembers(1, 5).success(function(d) {
+	AllianceAuditService.getMembers(1, 3).success(function(d) {
 		$scope.alliance = d.data;
 	});
 
@@ -69,17 +69,17 @@ function carAuditControllerfunction($scope, ngDialog, CarAuditService, $rootScop
 	//获取车源
 	$scope.carList = "";
 	CarAuditService.getCarList(1, 5).success(function(d) {
-		if (d) {
+		
 			$scope.carList = d;
-		}
+		
 	})
 
 	//审核
 	//_status=1 通过
 	//_status=0 不通过
-	$scope.permit = function(_ID, _status) {
+	$scope.permit = function(_CarNo, _status) {
 		var data = {
-			UserID: _ID,
+			CarNo: _CarNo,
 			AuditStatus: _status
 		}
 		CarAuditService.auditStatus(data).success(function(d) {
@@ -114,7 +114,7 @@ function prePayListController($scope, PayAuditService, $rootScope, $routeParams,
 	PayAuditService.getPrePayAuditList(data).success(function(d) {
 		
 		if (d.status) {
-			$scope.prePayList = d.data;
+			$scope.prePayList = d.data.rows;
 		}
 	}).error(function() {
 		$rootScope.openModal("系统错误")
@@ -123,14 +123,14 @@ function prePayListController($scope, PayAuditService, $rootScope, $routeParams,
 
 }
 
-function prePayAuditController($scope, PayAuditService, $rootScope, $routeParams) {
+function prePayAuditController($scope, PayAuditService, $rootScope, $routeParams,$location) {
 		$scope.prePayOrder = {};
 		var data = {
 			OrderCode: $routeParams.OrderCode
 		}
 		PayAuditService.getPrePayOrder(data).success(function(d) {
 			if (d.status) {
-				$scope.prePayList = d.data;
+				$scope.prePayList = d.data[0];
 			}
 		}).error(function() {
 			$rootScope.openModal("系统错误")
@@ -157,7 +157,7 @@ function prePayAuditController($scope, PayAuditService, $rootScope, $routeParams
 	}
 	//全款
 
-function fullPayListController($scope, PayAuditService, $rootScope, $routeParams) {
+function fullPayListController($scope, PayAuditService, $rootScope, $routeParams,$location) {
 	$scope.fullPayList = {};
 
 	var data={

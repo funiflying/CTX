@@ -40,7 +40,7 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
         redirectTo: '/index',
         access_levels: ACCESS_LEVELS.user
     });
-  }]).run(function($rootScope,AuthService,SessionService,ngDialog){
+  }]).run(function($rootScope,AuthService,SessionService,ngDialog,$location){
   	//退出
   		$rootScope.loginOut=function(){
     	SessionService.removeSession("_AUTH");
@@ -68,7 +68,10 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
   		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if(next.access_levels&&!AuthService.Authenticated()){
-			//window.location.href="../index.html"
+			$rootScope.openModal("您还未登录！",function(){
+				window.location.href="../index.html"
+			})
+			
 		}
 	});
 	

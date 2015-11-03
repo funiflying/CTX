@@ -10,7 +10,7 @@ function ngDialogController($scope, ngDialog, $rootScope, AllianceRegService) {
 	$scope.checkAccout = function() {
 			if ($scope.memberForm.Account.$valid) {
 				var  data={
-					Account:$scope.Account
+					Account:$scope.Contact
 				}
 				$scope.check = false;
 				AllianceRegService.checkAccout(data).success(function(d) {

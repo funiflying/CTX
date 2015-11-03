@@ -26,11 +26,11 @@
                 <p><strong ng-bind="obj.DealPrice/10000|currency:'￥'"></strong><label>万</label><!--(新车价24.1万，比新车<label>省16.3万</label>)--></p>
                 <ul class="tui-admin-order-carinfo">
                     <li>
-                        <p ng-bind="obj.InitialDate">2015-9</p>
+                        <p ng-bind="obj.InitialDate|date:'yyyy-mm'">2015-9</p>
                            上牌时间
                     </li>
                     <li>
-                        <p ng-bind="obj.Mileage">1万公里</p>
+                        <p ng-bind="obj.Mileage"></p>
                         里程
                     </li>
                     <li>
@@ -46,7 +46,7 @@
             <div class="col-md-2" ng-bind="obj.CarNo">
                
             </div>
-            <div class="col-md-1" ng-bind="obj.OrderFla">
+            <div class="col-md-1" ng-bind="obj.OrderFlag==0?'支付预付款':'支付车款'">
             </div>
             <div class="col-md-2" style=" line-height: 24px; padding-top: 40px;">
             	
