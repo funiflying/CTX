@@ -214,7 +214,7 @@ function allianceRegController($scope, AllianceRegService, $timeout, $filter, $l
 
 	//城市
 	AllianceRegService.getCity().success(function(d) {
-		var tree = d;
+		var tree = d.data;
 		var citytree = $('#treeview-city').treeview({
 			data: tree,
 			onNodeSelected: function(event, node) {
@@ -308,7 +308,7 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 	});
 	//城市
 	RegularRegService.getCity().success(function(d) {
-		var tree = d;
+		var tree = d.data;
 		var citytree = $('#treeview-city').treeview({
 			data: tree,
 			onNodeSelected: function(event, node) {
@@ -423,8 +423,12 @@ function orderController($scope,OrderService,$rootScope,$routeParams,$location){
     	CarNo:$scope.carNo
     }
 	OrderService.getCarInfo(data).success(function(d){
-			$scope.carInfo=d.data
-
+		  if(d.status){
+				$scope.carInfo=d.data[0];
+			}
+		  else{
+		  	  $rootScope.openModal(d.message);
+		  }
 	})
 
 	$scope.submitOrder=function(_carNo){
@@ -449,7 +453,6 @@ function orderController($scope,OrderService,$rootScope,$routeParams,$location){
 			}).error(function(){
 				$rootScope.openModal("系统打盹中。。。。。，请联系客服");
 			})
-			$location.path("/orderremit")
 		}
 	}
 	

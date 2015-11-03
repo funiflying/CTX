@@ -1,5 +1,5 @@
 <ul class="tui-oa-orders">
-	<li class="tui-oa-order-item" ng-repeat="obj in logistics">
+	<li class="tui-oa-order-item" ng-repeat="obj in takecarlist">
 		<div class="tui-oa-order-caption">
 			<div class="col-md-3" ng-bind="obj.OrderTime">
 				2015-10-23 12:00
@@ -28,14 +28,10 @@
 				
 			</div>
 			<div class="col-md-2">
-				
+				提车确认
 			</div>
-			<div class="col-md-2" style="line-height: 24px; padding-top: 50px;">
-				<a href="#/logisticfees/{{obj.OrderCode}}" ng-if="obj.OrderFla">物流费用</a>
-				<br />
-				<a href="#/deliver/{{obj.OrderCode}}" ng-if="obj.OrderFla">物流发货</a>
-				<br />
-				<a href="#/receipt/{{obj.OrderCode}}" ng-if="obj.OrderFla">物流到货</a>
+			<div class="col-md-2">
+				<a href="#/takecar/{{obj.OrderCode}}">确认提车</a>
 			</div>
 		</div>
 	</li>

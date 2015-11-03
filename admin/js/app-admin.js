@@ -15,7 +15,7 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
         controller: orderListController,
        access_levels: ACCESS_LEVELS.user
     });
-    $routeProvider.when('/orderremit', {
+    $routeProvider.when('/orderremit/:OrderCode/', {
 			templateUrl: 'partials/orderremit.html',
 			controller: orderController,
 			access_levels: ACCESS_LEVELS.user
@@ -25,7 +25,7 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
 			controller: orderController,
 			access_levels: ACCESS_LEVELS.user
 		});
-	$routeProvider.when('/fullremit', {
+	$routeProvider.when('/fullremit/:OrderCode/', {
 			templateUrl: 'partials/fullremit.html',
 			controller: orderController,
 			access_levels: ACCESS_LEVELS.user
@@ -68,7 +68,7 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
   		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if(next.access_levels&&!AuthService.Authenticated()){
-			window.location.href="../index.html"
+			//window.location.href="../index.html"
 		}
 	});
 	

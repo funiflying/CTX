@@ -9,7 +9,7 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
             })
         },
         getCity:function(){
-            return $http.get("common/City/getcity")
+            return $http.get("/common/City/getcity")
         },
         checkAccout:function(_account){
             return $http.post("/user/CheckAccount",_account);
@@ -92,11 +92,10 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
 	return {
 		getCarInfo:function(data){
 			
-			return $http.get("test/userorder.json",data)
+			return $http.post("/order/GetCarInfo",data)
 			
 		},
 		submitOrder:function(data){
-			//post("/Order/userbuy",data)
 			return $http.post("/Order/userbuy",data)
 			
 		}

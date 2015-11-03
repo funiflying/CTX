@@ -5,7 +5,7 @@
 				2015-10-23 12:00
 			</div>
 			<div class="col-md-3">
-				订单号：<span ng-bind="logisticOrder.OrderCode"></span>
+				订单号：<span ng-bind="fullPayList.OrderCode"></span>
 			</div>
 			<div class="col-md-2">
 				车编号
@@ -28,7 +28,7 @@
 
 			</div>
 			<div class="col-md-2">
-				物流发车
+				提交物流费用
 			</div>
 			<div class="col-md-2">
 				<a href="">查看订单详情</a>
@@ -37,24 +37,27 @@
 	</li>
 </ul>
 <div class="col-md-10 col-md-offset-2 mt20">
-	<form action="" class=" form-horizontal " role="form" name="deliverForm" novalidate="novalidate">
+	<form action="" class=" form-horizontal " role="form" name="logisticsForm" novalidate="novalidate">
 		<div class=" form-group font-orange ">
-			<label for="name" class="col-md-2 control-label">物流单号：</label>
+			<label for="name" class="col-md-2 control-label">物流费用：</label>
 			<div class="col-md-6 ">
-				<input type="text" class="form-control " placeholder="请输入物流单号" required="required" ng-model="ShippingCode">
+				<input type="text" class="form-control " placeholder="请输入物流费" required="required" ng-model="ShippingFee">
 			</div>
 		</div>
 		
 		<div class=" form-group  font-orange ">
-			<label for="name" class="col-md-2 control-label">物流说明：</label>
+			<label for="name" class="col-md-2 control-label">备注：</label>
 			<div class="col-md-6 ">
-				<textarea class="form-control" rows="3" ng-model="ShippingMemo"></textarea>
+				<textarea class="form-control" rows="3" ng-model="SellerFeedback"></textarea>
 			</div>
 		</div>
 		<div class=" form-group">
 			<div class="col-md-6 col-md-offset-2">
-				<button class="btn btn-primary" ng-click="submitLogisticDeliver()">提交</button>
+				<button class="btn btn-primary" ng-click="submitLogisticFees()">提交</button>
 			</div>
 		</div>
 	</form>
+	 
+	<!---->
+
 </div>

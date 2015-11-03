@@ -21,16 +21,20 @@ angular.module('chetongxiang.services-admin', []).service("ShoppcarService",func
 	return { 
 			getOrderList:function(_pageNo,_pageNum){
 				///order/UserGetOrderList
-		         return $http.get("../test/orderlist.json",{
+		         return $http.post("/order/UserGetOrderList",{
 		         	pageNo:_pageNo,
 		         	pageNum:_pageNum
 		         })
 			},
-			getUserOrder:function(){
-				return $http.get("../test/userorder.json")
+			getUserOrder:function(data){
+				//.post("/Order/GetOrderInfoWithCode",data)
+				return $http.post("/Order/GetOrderInfoWithCode",data)
 			},
 			UserPrePay:function(data){
-				return $http.post("",data)
+				return $http.post("/Order/UserPrePay ",data)
+			},
+			UserAllPay:function(data){
+				return $http.post("/Order/UserPayAll ",data)
 			}
 	}
 	

@@ -49,9 +49,10 @@
             <div class="col-md-1" ng-bind="obj.OrderFla">
             </div>
             <div class="col-md-2" style=" line-height: 24px; padding-top: 40px;">
-            	<p><button  class="btn btn-primary" ng-click="orderOper('/orderremit')" ng-if="obj.OrderFla==0">支付预付款</button></p>
-            	<p><button  class="btn btn-primary" ng-click="orderOper('/payfull')" ng-if="obj.OrderFla==5">支付车款</button></p>
-            	<p><a href="#/orderremit">撤单申请</a></p>
+            	
+            	<p><a href="#/orderremit/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==1">支付预付款</a></p>
+            	<p><a  href="#/payfull/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==5">支付车款</a></p>
+            	<p><a href="">撤单申请</a></p>
             	<p class="small"><a href="../index.html#/carinfo/{{obj.CarNo}}/"  target="_blank">查看订单详情</a></p>
             </div>
         </div>

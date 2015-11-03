@@ -66,30 +66,67 @@ angular.module('chetongxiang.services-admin', []).service('AllianceAuditService'
 			return $http.get("../test/orderlist.json")
 		},
 		getPrePayOrder:function(data){
-			return $http.get("../test/advance.json",data)
+			return $http.post("/Order/GetOrderInfoWithCode",data)
 		},
 		submitPrePayAudit:function(data){
-		return $http.post("",data);
+		return $http.post("/order/PrePayCheck",data);
 			
 		},
 		submitFullPayAudit:function(data){
-		return $http.post("",data);
+		return $http.post("/Order/GetOrderInfoWithCode",data);
 			
 		},
-		getFullPayAuditList:function(){
+		getFullPayAuditList:function(data){
 			return $http.get("../test/orderlist.json")
 		},
 		getFullPayOrder:function(data){
-			return $http.get("../test/advance.json",data)
+			return $http.get("/Order/GetOrderInfoWithCode",data)
+		}
+		
+	}
+	
+}).service("LogisticService",function($http){
+	 return {
+	 	getLogistics:function(data){
+	 		return $http.get("../test/orderlist.json");
+	 	},
+	 	getLogisticOrder:function(data){
+	 		return $http.get("../test/advance.json",data);
+	 	},
+	 	submitLogisticFees:function(data){
+	 		return $http.post("",data)
+	 	},
+	 	submitLogisticDeliver:function(data){
+	 		return $http.post("",data)
+	 	},
+	 	submitLogisticReceipt:function(data){
+	 		return $http.post("",data)
+	 	}
+	 	
+	 }
+	
+}).service("TakeCarService",function($http){
+	return {
+		getTakeCarList:function(){
+			return $http.get("../test/orderlist.json")
 		},
-		submitFullPay:function(data){
-		return $http.post("",data);
+		getTakeCarOrder:function(data){
+			return $http.get("../test/advance.json",data);
+		},
+		submitTakeCar:function(data){
+	 		return $http.post("",data)
+	 	}
+	}
+	
+}).service("AssessService",function($http){
+	return{
+		getAssessList:function(data){
+			return $http.post("",data)
 			
 		}
 		
-		
-		
 	}
+	
 	
 	
 })

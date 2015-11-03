@@ -103,7 +103,7 @@ carAuditControllerfunction.$inject = ["$scope", "ngDialog", "CarAuditService", "
  */
 
 //预付款
-function prePayListController($scope, PayAuditService, $rootScope, $routeParams,$location) {
+function prePayListController($scope, PayAuditService, $rootScope, $routeParams, $location) {
 	$scope.prePayList = {};
 	PayAuditService.getPrePayAuditList().success(function(d) {
 		if (d.status) {
@@ -113,7 +113,7 @@ function prePayListController($scope, PayAuditService, $rootScope, $routeParams,
 		$rootScope.openModal("系统错误")
 
 	});
-	
+
 }
 
 function prePayAuditController($scope, PayAuditService, $rootScope, $routeParams) {
@@ -129,34 +129,42 @@ function prePayAuditController($scope, PayAuditService, $rootScope, $routeParams
 			$rootScope.openModal("系统错误")
 		});
 		//提交审核
-		$scope.submitPrePayAudit=function(_order,_status){
-		  
-		  var data={
-		  	  OrderCode:_order,
-		  	  PrePayCheckMemo:$scope.PrePayCheckMemo,
-		  	  passorno:_status
-		  }
-		PayAuditService.submitPrePayAudit(data).success(function(d){
-			if(d.status){
-				$location.path("/advancelist")
+		$scope.submitPrePayAudit = function(_order, _status) {
+
+			var data = {
+				OrderCode: _order,
+				PrePayCheckMemo: $scope.PrePayCheckMemo,
+				passorno: _status
 			}
-			else{
-				$rootScope.openModal(d.message)
-			}
-		}).error(function() {
-			$rootScope.openModal("系统错误")
-		})
-		
+			PayAuditService.submitPrePayAudit(data).success(function(d) {
+				if (d.status) {
+					$location.path("/advancelist")
+				} else {
+					$rootScope.openModal(d.message)
+				}
+			}).error(function() {
+				$rootScope.openModal("系统错误")
+			})
+
+		}
 	}
-}
 	//全款
 
 function fullPayListController($scope, PayAuditService, $rootScope, $routeParams) {
 	$scope.fullPayList = {};
-	PayAuditService.getFullPayAuditList().success(function(d) {
+
+	var data={
+		 pageNo:1,
+		 pageNum:3
+	}
+	
+	PayAuditService.getFullPayAuditList(data).success(function(d) {
 		if (d.status) {
 			$scope.fullPayList = d.data;
 		}
+		else{
+					$rootScope.openModal(d.message);
+				}
 	}).error(function() {
 		$rootScope.openModal("系统错误")
 
@@ -164,38 +172,226 @@ function fullPayListController($scope, PayAuditService, $rootScope, $routeParams
 }
 
 function fullPayAuditController($scope, PayAuditService, $rootScope, $routeParams) {
-	$scope.fullPayOrder = {};
-	var data = {
-		OrderCode: $routeParams.OrderCode
-	}
-	PayAuditService.getFullPayOrder(data).success(function(d) {
-		if (d.status) {
-			$scope.fullPayList = d.data;
+		$scope.fullPayOrder = {};
+		var data = {
+			OrderCode: $routeParams.OrderCode
 		}
-	}).error(function() {
-		$rootScope.openModal("系统错误")
-	});
-	//提交审核
-		$scope.submitFullPayAudit=function(_order,_status){
-		  
-		  var data={
-		  	  OrderCode:_order,
-		  	  AllMoneyCheckMemo:$scope.AllMoneyCheckMemo,
-		  	  passorno:_status
-		  }
-		PayAuditService.submitFullPayAudit(data).success(function(d){
-			if(d.status){
-				$location.path("/advancelist")
+		PayAuditService.getFullPayOrder(data).success(function(d) {
+			if (d.status) {
+				$scope.fullPayList = d.data;
 			}
 			else{
-				$rootScope.openModal(d.message)
-			}
+					$rootScope.openModal(d.message);
+				}
 		}).error(function() {
 			$rootScope.openModal("系统错误")
-		})
-		
+		});
+		//提交审核
+		$scope.submitFullPayAudit = function( _status) {
+
+			var data = {
+				OrderCode: $routeParams.OrderCode,
+				AllMoneyCheckMemo: $scope.AllMoneyCheckMemo,
+				passorno: _status
+			}
+			PayAuditService.submitFullPayAudit(data).success(function(d) {
+				if (d.status) {
+					$location.path("/advancelist")
+				} else {
+					$rootScope.openModal(d.message)
+				}
+			}).error(function() {
+				$rootScope.openModal("系统错误")
+			})
+
+		}
+
 	}
+/*************
+ * 检测报告
+ *
+ ************/
+function assessListController($scope,$rootScope,AssessService){
+	$scope.assesslist={};
+	
+	AssessService.getAssessList(1,3).success(function(d){
+		if(d.status){
+			$scope.assesslist=d.data;
+			
+		}
+		else{
+			$rootScope.openModal(d.message)
+		}
+		
+	})
 	
 	
 	
+	
+	
+}
+
+
+
+
+
+
+
+	/******************
+	 * 物流
+	 *
+	 *******************/
+
+function logisticsController($scope, $rootScope, LogisticService) {
+		$scope.logistics = {};
+		LogisticService.getLogistics().success(function(d) {
+			if (d.status) {
+				$scope.logistics = d.data
+			}
+			else{
+					$rootScope.openModal(d.message);
+				}
+		})
+
+	}
+	//提交物流费
+
+function logisticsFeesController($scope, $rootScope, LogisticService, $routeParams, $location) {
+		$scope.logisticOrder = {};
+		LogisticService.getLogisticOrder().success(function(d) {
+			if (d.status) {
+				$scope.logisticOrder = d.data
+			}
+			else{
+					$rootScope.openModal(d.message);
+				}
+		});
+		//提交费用
+		$scope.submitLogisticFees = function() {
+			if ($scope.logisticsForm.$valid) {
+				var data = {
+
+					OrderCode: $routeParams.OrderCode,
+					ShippingFee: $scope.ShippingFee,
+					SellerFeedback: $scope.SellerFeedback
+				}
+				LogisticService.submitLogisticFees(data).success(function(d) {
+					if (d.status) {
+						$rootScope.openModal(d.message, function() {
+							$location.path("/logistics")
+						})
+					} else {
+						$rootScope.openModal(d.message)
+					}
+				})
+			}
+		};
+	}
+	//提交物流发车
+function logisticsDeliverController($scope, $rootScope, LogisticService, $routeParams, $location) {
+	$scope.logisticOrder = {};
+	LogisticService.getLogisticOrder().success(function(d) {
+		if (d.status) {
+			$scope.logisticOrder = d.data
+		}
+		else{
+					$rootScope.openModal(d.message);
+				}
+	});
+	//提交
+	$scope.submitLogisticDeliver = function() {
+		if ($scope.deliverForm.$valid) {
+			var data = {
+
+				OrderCode: $routeParams.OrderCode,
+				ShippingCode: $scope.ShippingCode,
+				ShippingMemo: $scope.ShippingMemo
+			}
+			LogisticService.submitLogisticDeliver(data).success(function(d) {
+				if (d.status) {
+					$rootScope.openModal(d.message, function() {
+						$location.path("/logistics")
+					})
+				} else {
+					$rootScope.openModal(d.message)
+				}
+			})
+		}
+	};
+}
+//物流到货
+function logisticsReceiptController($scope, $rootScope, LogisticService, $routeParams, $location) {
+	$scope.logisticOrder = {};
+	LogisticService.getLogisticOrder().success(function(d) {
+		if (d.status) {
+			$scope.logisticOrder = d.data
+		}
+		else{
+					$rootScope.openModal(d.message);
+				}
+	});
+	//提交
+	$scope.submitLogisticReceipt = function() {
+		if ($scope.receiptForm.$valid) {
+			var data = {
+
+				OrderCode: $routeParams.OrderCode,
+				ShippingTime: $scope.ShippingTime,
+				ShippingGetMemo: $scope.ShippingGetMemo
+			}
+			LogisticService.submitLogisticReceipt(data).success(function(d) {
+				if (d.status) {
+					$rootScope.openModal(d.message, function() {
+						$location.path("/logistics")
+					})
+				} else {
+					$rootScope.openModal(d.message)
+				}
+			})
+		}
+	};
+}
+//提车确认
+function takeCarListController($scope,$rootScope, TakeCarService, $routeParams, $location){
+	$scope.takecarlist = {};
+	TakeCarService.getTakeCarList().success(function(d) {
+		if (d.status) {
+			$scope.takecarlist = d.data
+		}
+		else{
+					$rootScope.openModal(d.message);
+				}
+	});
+
+}
+function takeCarController($scope, $rootScope, TakeCarService, $routeParams, $location) {
+	$scope.takecarOrder = {};
+	TakeCarService.getTakeCarOrder().success(function(d) {
+		if (d.status) {
+			$scope.takecarOrder = d.data
+		}
+		else{
+					$rootScope.openModal(d.message);
+				}
+	});
+	//提交
+	$scope.submitTakeCar = function() {
+		if ($scope.takecarForm.$valid) {
+			var data = {
+
+				OrderCode: $routeParams.OrderCode,
+				TakeCarTime: $scope.TakeCarTime,
+				TakeMemo: $scope.TakeMemo
+			}
+			TakeCarService.submitTakeCar(data).success(function(d) {
+				if (d.status) {
+					$rootScope.openModal(d.message, function() {
+						$location.path("/takecarlist")
+					})
+				} else {
+					$rootScope.openModal(d.message)
+				}
+			})
+		}
+	};
 }
