@@ -105,7 +105,14 @@ carAuditControllerfunction.$inject = ["$scope", "ngDialog", "CarAuditService", "
 //预付款
 function prePayListController($scope, PayAuditService, $rootScope, $routeParams, $location) {
 	$scope.prePayList = {};
-	PayAuditService.getPrePayAuditList().success(function(d) {
+	var data={
+		pageNo:1,
+		pageNum:3
+	}
+	
+	
+	PayAuditService.getPrePayAuditList(data).success(function(d) {
+		
 		if (d.status) {
 			$scope.prePayList = d.data;
 		}
@@ -230,12 +237,6 @@ function assessListController($scope,$rootScope,AssessService){
 	
 	
 }
-
-
-
-
-
-
 
 	/******************
 	 * 物流

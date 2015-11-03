@@ -62,8 +62,8 @@ angular.module('chetongxiang.services-admin', []).service('AllianceAuditService'
 	
 }).service("PayAuditService",function($http){
 	return{
-		getPrePayAuditList:function(){
-			return $http.get("../test/orderlist.json")
+		getPrePayAuditList:function(data){
+			return $http.post("/order/DirectTargetGetOrderList",data)
 		},
 		getPrePayOrder:function(data){
 			return $http.post("/Order/GetOrderInfoWithCode",data)

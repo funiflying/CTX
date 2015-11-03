@@ -19,7 +19,7 @@
         </div>
          <div class="tui-admin-order-body">
             <div class="col-md-3">
-                <img ng-src="{{obj.HomePicID}}" alt="">
+                <img ng-src="../{{obj.HomePicID}}" alt="">
             </div>
             <div class="col-md-4 tui-admin-order-car">
                 <h2 ng-bind="obj.SpecName"></h2>
@@ -50,8 +50,8 @@
             </div>
             <div class="col-md-2" style=" line-height: 24px; padding-top: 40px;">
             	
-            	<p><a href="#/orderremit/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==1">支付预付款</a></p>
-            	<p><a  href="#/payfull/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==5">支付车款</a></p>
+            	<p><a href="#/orderremit/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==0">支付预付款</a></p>
+            	<p><a  href="#/payfull/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==4">支付车款</a></p>
             	<p><a href="">撤单申请</a></p>
             	<p class="small"><a href="../index.html#/carinfo/{{obj.CarNo}}/"  target="_blank">查看订单详情</a></p>
             </div>

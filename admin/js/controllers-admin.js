@@ -43,7 +43,7 @@ function orderController($scope, OrderService, $location, $rootScope,$routeParam
 	//获取订单
 	OrderService.getUserOrder({OrderCode:$routeParams.OrderCode}).success(function(d) {
 			if (d.status) {
-				$scope.carInfo=d.data
+				$scope.carInfo=d.data[0]
 			}
 			else{
 					$rootScope.openModal(d.message);
