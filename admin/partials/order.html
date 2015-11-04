@@ -1,60 +1,52 @@
 <ul class="tui-admin-orders">
     <li class="tui-admin-order-item" ng-repeat="obj in orderList">
-        <div class="tui-admin-order-caption">
-            <div class="col-md-3" ng-bind="obj.OrderTime">
-              
-            </div>
-            <div class="col-md-4" >
-                     订单号：<span ng-bind="obj.OrderCode"></span>
-            </div>
-            <div class="col-md-2" >
-                车编号
-            </div>
-            <div class="col-md-1" >
-                状态
-            </div>
-            <div class="col-md-2" >
-                操作
-            </div>
-        </div>
-         <div class="tui-admin-order-body">
-            <div class="col-md-3">
-                <img ng-src="../{{obj.HomePicID}}" alt="">
-            </div>
-            <div class="col-md-4 tui-admin-order-car">
-                <h2 ng-bind="obj.SpecName"></h2>
-                <p><strong ng-bind="obj.DealPrice/10000|currency:'￥'"></strong><label>万</label><!--(新车价24.1万，比新车<label>省16.3万</label>)--></p>
-                <ul class="tui-admin-order-carinfo">
-                    <li>
-                        <p ng-bind="obj.InitialDate|date:'yyyy-mm'">2015-9</p>
-                           上牌时间
-                    </li>
-                    <li>
-                        <p ng-bind="obj.Mileage"></p>
-                        里程
-                    </li>
-                    <li>
-                        <p ng-bind="obj.GearBox==0?'手动':'自动'">自动</p>
-                        变速箱
-                    </li>
-                    <li style="border:none;" >
-                        <p ng-bind="obj.City">厦门</p>
-                        归属地
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-2" ng-bind="obj.CarNo">
-               
-            </div>
-            <div class="col-md-1" ng-bind="obj.OrderFlag==0?'支付预付款':'支付车款'">
-            </div>
-            <div class="col-md-2" style=" line-height: 24px; padding-top: 40px;">
-            	
-            	<p><a href="#/orderremit/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==0">支付预付款</a></p>
-            	<p><a  href="#/payfull/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==4">支付车款</a></p>
-            	<p><a href="">撤单申请</a></p>
-            	<p class="small"><a href="../index.html#/carinfo/{{obj.CarNo}}/"  target="_blank">查看订单详情</a></p>
-            </div>
-        </div>
+    	<table>
+			<tr class="tui-admin-order-caption">
+				<td class="col-md-3 text-left" ng-bind="obj.OrderTime"></td>
+				<td class="col-md-4 text-left">订单号：<span ng-bind="obj.OrderCode"></span></td>
+				<td class="col-md-2">车标号</td>
+				<td class="col-md-1">状态</td>
+				<td class="col-md-2">操作</td>
+			</tr>
+			<tr class="tui-admin-order-body">
+				<td class="col-md-3">
+					<img alt="" src="../demo/carimg.jpg" ng-src="../{{obj.HomePicID}}">
+				</td>
+				<td class="col-md-4">
+					<h2 ng-bind="obj.SpecName"> jklsdjkfsdjklfsdjkf jklsdfj </h2>
+					<p><strong ng-bind="obj.DealPrice/10000|currency:'￥'"></strong>
+						<label>万</label>
+						<!--(新车价24.1万，比新车<label>省16.3万</label>)-->
+					</p>
+					<ul class="tui-admin-order-carinfo">
+						<li>
+							<p ng-bind="obj.InitialDate|date:'yyyy-mm'">2015-9</p>
+							上牌时间
+						</li>
+						<li>
+							<p ng-bind="obj.Mileage">200</p>
+							里程
+						</li>
+						<li>
+							<p ng-bind="obj.GearBox==0?'手动':'自动'">自动</p>
+							变速箱
+						</li>
+						<li style="border:none;">
+							<p ng-bind="obj.City">厦门</p>
+							归属地
+						</li>
+					</ul>
+				</td>
+				<td class="col-md-2" ng-bind="obj.CarNo"></td>
+				<td class="col-md-1" ng-bind="obj.OrderFlag"></td>
+				<td class="col-md-2">
+					<p><a href="#/orderremit/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==0">支付预付款</a></p>
+					<p><a href="#/payfull/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==4">支付车款</a></p>
+					<p><a href="">撤单申请</a></p>
+					<p class="small"><a href="../index.html#/carinfo/{{obj.CarNo}}/" target="_blank">查看订单详情</a></p>
+
+				</td>
+			</tr>
+		</table>
     </li>
 </ul>

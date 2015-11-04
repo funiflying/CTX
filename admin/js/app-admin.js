@@ -15,6 +15,11 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
         controller: orderListController,
        access_levels: ACCESS_LEVELS.user
     });
+    $routeProvider.when('/orderevaluate', {
+        templateUrl: 'partials/orderevaluate.html',
+        controller: orderListController,
+       access_levels: ACCESS_LEVELS.user
+    });
     $routeProvider.when('/orderremit/:OrderCode/', {
 			templateUrl: 'partials/orderremit.html',
 			controller: orderController,
@@ -45,7 +50,7 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
   		$rootScope.loginOut=function(){
     	SessionService.removeSession("_AUTH");
 	    	$rootScope.user=null;
-	    	window.location.href="../index.html"
+	    	window.location.href="../index.html";
     		}
   	//设置用户
   		$rootScope.user = JSON.parse(SessionService.getSeesion("_AUTH"));
@@ -68,9 +73,9 @@ angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDia
   		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if(next.access_levels&&!AuthService.Authenticated()){
-			$rootScope.openModal("您还未登录！",function(){
+			/*$rootScope.openModal("您还未登录！",function(){
 				window.location.href="../index.html"
-			})
+			})*/
 			
 		}
 	});

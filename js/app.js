@@ -159,7 +159,7 @@ config(['$routeProvider', 'ACCESS_LEVELS',
 		}
 		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
-		console.log(next)
+	
 	});
 
 

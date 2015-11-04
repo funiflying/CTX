@@ -1,40 +1,30 @@
 <link href="../lib/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 <ul class="tui-oa-orders">
 	<li class="tui-oa-order-item">
-		<div class="tui-oa-order-caption">
-			<div class="col-md-3" ng-bind="logisticOrder.OrderTime">
-				2015-10-23 12:00
-			</div>
-			<div class="col-md-3">
-				订单号：<span ng-bind="logisticOrder.OrderCode"></span>
-			</div>
-			<div class="col-md-2">
-				车编号
-			</div>
-			<div class="col-md-2">
-				状态
-			</div>
-			<div class="col-md-2">
-				操作
-			</div>
-		</div>
-		<div class="tui-oa-order-body">
-			<div class="col-md-3">
-				<img ng-src="{{logisticOrder.HomePicID}}" alt="">
-			</div>
-			<div class="col-md-3 tui-order-car">
-				<h2 ng-bind="logisticOrder.SpecName">马自达8 2011款 2.3 自动 双驱至尊版</h2>
-			</div>
-			<div class="col-md-2" ng-bind="logisticOrder.CarNo">
-
-			</div>
-			<div class="col-md-2">
-				物流到货
-			</div>
-			<div class="col-md-2">
-				<a href="">查看订单详情</a>
-			</div>
-		</div>
+		<table>
+			<tr class="tui-oa-order-caption">
+				<td class="col-md-3 text-left" ng-bind="logisticOrder.OrderTime"></td>
+				<td class="col-md-4 text-left">订单号：<span ng-bind="logisticOrder.OrderCode"></span></td>
+				<td class="col-md-2">车编号</td>
+				<td class="col-md-1">状态</td>
+				<td class="col-md-2">操作</td>
+			</tr>
+			<tr class="tui-oa-order-body">
+				<td class="col-md-3">
+					<img alt="" src="../demo/carimg.jpg" ng-src="../{{logisticOrder.HomePicID}}">
+				</td>
+				<td class="col-md-4">
+					<h2 ng-bind="logisticOrder.SpecName">马自达8 2011款 2.3 自动 双驱至尊版</h2>
+				</td>
+				<td class="col-md-2" ng-bind="logisticOrder.CarNo"></td>
+				<td class="col-md-1" ng-bind="logisticOrder.OrderFlag">
+					物流到货
+				</td>
+				<td class="col-md-2">
+					<a href="">查看订单详情</a>
+				</td>
+			</tr>
+		</table>
 	</li>
 </ul>
 <div class="col-md-10 col-md-offset-2 mt20">

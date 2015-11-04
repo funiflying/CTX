@@ -152,15 +152,17 @@ a:hover{
     border: 1px solid #e2e2e2;
     margin-bottom: 10px;
 }
-.tui-oa-order-caption>div{
+.tui-oa-order-item table{
+	width: 100%;
+}
+.tui-oa-order-caption>td{
     height: 40px;
     line-height: 40px;
     background: #f0f0f0;
     text-align: center;
 }
-.tui-oa-order-body>div{
+.tui-oa-order-body>td{
     height: 170px;
-    line-height: 170px;
     text-align: center;
     color: #333333;
 }
@@ -176,51 +178,30 @@ a:hover{
 .tui-oa-order-body>div p label{
     color: #ff6a00;
 }
-.tui-oa-order-body>div img{
+.tui-oa-order-body img{
    width: 190px;
-   height: 150px;
+   height: 130px;
 }
 .tui-oa-order-body>div a{
    color: #3250be;
     vertical-align:middle;
 }
-.tui-oa-order-body>div.tui-order-car{
-    padding-top: 70px;
-    line-height: 40px;
-}
-.tui-order-carinfo{
+
+.tui-oa-order-carinfo{
  
  border: 1px solid #e2e2e2;
     height: 40px;
-    line-height: 20px;
 }
-.tui-order-carinfo li{
+.tui-oa-order-carinfo li{
     display: inline-block;
     width: 23%;
     font-size: 12px;
     color: #aaaaaa;
     border-right: 1px solid #e2e2e2;
 }
-.tui-order-carinfo li>p{
+.tui-oa-order-carinfo li>p{
     font-size: 12px;
     color: #333333;
-}
-.tui-oa-down{
-	font-size: 12px;
-	color: #aaaaaa;	
-	text-align: right;
-}
-.tui-oa-order-table
-{
-	color: #000000;
-	font-size:16px ;
-	line-height: 50px;
-	border: none;
-	margin: 20px 0;
-}
-.tui-oa-order-table td
-{
-	border: none;
 }
 /***************
  *

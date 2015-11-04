@@ -65,9 +65,14 @@ config(['$routeProvider', 'ACCESS_LEVELS', '$httpProvider',
 			access_levels: ACCESS_LEVELS.user
 		});
 		//检测报告
-		$routeProvider.when('/assesslist', {
-			templateUrl: 'partials/assesslist.html',
-			controller: assessListController,
+		$routeProvider.when('/assessBuy', {
+			templateUrl: 'partials/assessBuy.html',
+			controller: assessBuyController,
+			access_levels: ACCESS_LEVELS.user
+		});
+		$routeProvider.when('/assessSell', {
+			templateUrl: 'partials/assessSell.html',
+			controller: "assessSellController",
 			access_levels: ACCESS_LEVELS.user
 		});
 		//提车确认
@@ -136,9 +141,9 @@ config(['$routeProvider', 'ACCESS_LEVELS', '$httpProvider',
 		//路由控制
 	$rootScope.$on("$routeChangeStart", function(event, next, current) {
 		if (next.access_levels && !AuthService.Authenticated()) {
-			$rootScope.openModal("对不起，您还未登录。", function() {
+			/*$rootScope.openModal("对不起，您还未登录。", function() {
 			window.location.href="login.html"
-			})
+			})*/
 		}
 	});
 	//退出

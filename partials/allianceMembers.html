@@ -19,10 +19,11 @@
 			<div class="form-group">
 				<label for="Contact" class="col-md-2 control-label">手机号码：</label>
 				<div class="col-md-6 ">
-					<input type="text" name="Contact" id="Contact" value="18650320029" class="form-control" ng-pattern="/^(0|86)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/" ng-model="Contact" required="required" />
+					<input type="text" name="Contact" id="Contact" value="18650320029" class="form-control" ng-pattern="/^(0|86)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/" ng-model="Contact" required="required"  ng-blur="validPhone()"/>
 				</div>
-				<div class="col-md-3" ng-show="memberForm.Contact.$dirty&&memberForm.Contact.$invalid">
-					<span class="tui-tip">请输入正确的手机号</span>
+				<div class="col-md-3" >
+					<span class="tui-tip" ng-show="memberForm.Account.$dirty&&memberForm.Contact.$invalid">请输入用户名</span>
+					<span class="tui-tip" ng-show="memberForm.Account.$valid&&check">该用户名已被注册</span>
 				</div>
 			</div>
 			<div class="form-group">

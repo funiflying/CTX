@@ -20,6 +20,20 @@ function ngDialogController($scope, ngDialog, $rootScope, AllianceRegService) {
 				})
 			}
 		}
+	$scope.validPhone=function(){
+		if ($scope.memberForm.Contact.$valid) {
+				var  data={
+					Contact:$scope.Contact
+				}
+				$scope.check = false;
+				AllianceRegService.validPhone(data).success(function(d) {
+					if (d.status == 0) {
+						$scope.check = true;
+					}
+				})
+			}
+		
+	}
 		//验证密码强度
 	$scope.meter = function() {
 			var pwd = $scope.members.Pwd || $scope.partners.Pwd || $scope.Pwd;
@@ -257,10 +271,6 @@ function allianceRegController($scope, AllianceRegService, $timeout, $filter, $l
 			AllianceRegService.register(data).success(function(d) {
 				if (d.Status == 0) {
 					$rootScope.Alert(d.Message);
-					$rootScope.user = {
-						name: d.Name,
-						contact: d.Contact
-					}
 				} else {
 					$location.path('/regsuccess')
 				}
@@ -286,7 +296,7 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 	$scope.OrganizationCode = "";
 	$scope.BusinessLicenseNo = "";
 	$scope.Registeroney = "";
-	$scope.Telephone = "";
+	$scope.Contact = "";
 	$scope.Address = "";
 	$scope.Fax = "";
 	$scope.DirectBusinessID = "";
@@ -294,7 +304,7 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 
 	//组织目录树
 	RegularRegService.getDirect().success(function(d) {
-		var tree = d;
+		var tree = d.data;
 		var dirtree = $('#treeview-direct').treeview({
 			data: tree,
 			onNodeSelected: function(event, node) {
@@ -336,6 +346,7 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 	$scope.removePartner = function(index) {
 			$rootScope.regularPartner.remove(index);
 		}
+
 		//提交注册资料
 	$scope.register = function() {
 		$scope.regular = {
@@ -345,6 +356,7 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 			OrganizationCode: $scope.OrganizationCode,
 			BusinessLicenseNo: $scope.BusinessLicenseNo,
 			Fax: $scope.Fax,
+			Telephone:$scope.Telephone,
 			Address: $scope.Address,
 			DirectFlag:$scope.DirectFlag,
 			Cityid: $scope.CityID,
@@ -362,8 +374,6 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 				if (d.status == 0) {
 					$rootScope.Alert(d.message)
 				} else {
-					SessionService.setSession("_AUTH",d.data);
-					$rootScope.user=JSON.parse(SessionService.getSeesion("_AUTH"));
 					$location.path('/regsuccess');
 				}
 			}).error(function(e) {
@@ -394,6 +404,7 @@ function loginController($scope, LoginService, $rootScope, $location,SessionServ
 		}
 	}
     $scope.signin = function() {
+    	console.log($scope.logon)
 		if ($scope.loginForm.$valid) {
 			LoginService.outsiteLogin($scope.logon).success(function(d) {
 				if (d.status == 0) {

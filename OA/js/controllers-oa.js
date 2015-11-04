@@ -16,7 +16,7 @@ function loginController($scope, $rootScope, LoginService, $location) {
 				if (d.status == 0) {
 					$rootScope.Alert(d.message);
 				} else {
-					window.location.href = "../OA/
+					window.location.href = "../OA/";
 				}
 			}).error(function(e) {
 				$rootScope.Alert(e);
@@ -109,8 +109,6 @@ function prePayListController($scope, PayAuditService, $rootScope, $routeParams,
 		pageNo:1,
 		pageNum:3
 	}
-	
-	
 	PayAuditService.getPrePayAuditList(data).success(function(d) {
 		
 		if (d.status) {
@@ -162,7 +160,8 @@ function fullPayListController($scope, PayAuditService, $rootScope, $routeParams
 
 	var data={
 		 pageNo:1,
-		 pageNum:3
+		 pageNum:3,
+		 orderStatus:4
 	}
 	
 	PayAuditService.getFullPayAuditList(data).success(function(d) {
@@ -218,24 +217,41 @@ function fullPayAuditController($scope, PayAuditService, $rootScope, $routeParam
  * 检测报告
  *
  ************/
-function assessListController($scope,$rootScope,AssessService){
+function assessBuyController($scope,$rootScope,AssessService){
 	$scope.assesslist={};
 	
-	AssessService.getAssessList(1,3).success(function(d){
+	var data={
+		pageNo:1,
+		pageNum:3,
+		orderStatus:2
+	}
+	AssessService.getBuyAssessList(data).success(function(d){
 		if(d.status){
 			$scope.assesslist=d.data;
-			
 		}
 		else{
 			$rootScope.openModal(d.message)
 		}
 		
 	})
+}
+function assessSellController($scope,$rootScope,AssessService){
+	$scope.assesslist={};
 	
-	
-	
-	
-	
+	var data={
+		pageNo:1,
+		pageNum:3,
+		orderStatus:2
+	}
+	AssessService.getSellAssessList(data).success(function(d){
+		if(d.status){
+			$scope.assesslist=d.data;
+		}
+		else{
+			$rootScope.openModal(d.message)
+		}
+		
+	})
 }
 
 	/******************
@@ -245,6 +261,11 @@ function assessListController($scope,$rootScope,AssessService){
 
 function logisticsController($scope, $rootScope, LogisticService) {
 		$scope.logistics = {};
+		var data={
+			pageNo:1,
+			pageNum:3,
+			orderStatus:2
+		}
 		LogisticService.getLogistics().success(function(d) {
 			if (d.status) {
 				$scope.logistics = d.data
@@ -335,7 +356,6 @@ function logisticsReceiptController($scope, $rootScope, LogisticService, $routeP
 	$scope.submitLogisticReceipt = function() {
 		if ($scope.receiptForm.$valid) {
 			var data = {
-
 				OrderCode: $routeParams.OrderCode,
 				ShippingTime: $scope.ShippingTime,
 				ShippingGetMemo: $scope.ShippingGetMemo
@@ -355,7 +375,12 @@ function logisticsReceiptController($scope, $rootScope, LogisticService, $routeP
 //提车确认
 function takeCarListController($scope,$rootScope, TakeCarService, $routeParams, $location){
 	$scope.takecarlist = {};
-	TakeCarService.getTakeCarList().success(function(d) {
+	var data={
+		 pageNo:1,
+		 pageNum:3,
+		 orderStatus:9
+	}
+	TakeCarService.getTakeCarList(data).success(function(d) {
 		if (d.status) {
 			$scope.takecarlist = d.data
 		}
@@ -367,7 +392,10 @@ function takeCarListController($scope,$rootScope, TakeCarService, $routeParams, 
 }
 function takeCarController($scope, $rootScope, TakeCarService, $routeParams, $location) {
 	$scope.takecarOrder = {};
-	TakeCarService.getTakeCarOrder().success(function(d) {
+	var data={
+		OrderCode:$routeParams.OrderCode
+	}
+	TakeCarService.getTakeCarOrder(data).success(function(d) {
 		if (d.status) {
 			$scope.takecarOrder = d.data
 		}

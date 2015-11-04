@@ -69,7 +69,7 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
         
         },
         checkAccout: function (_account) {
-            return $http.post("/user/CheckAccount", _account);
+            return $http.post("/account/CheckIsExists", _account);
         },
          register:function(data){
             return $http.post("/account/OutsiteRegister",data)

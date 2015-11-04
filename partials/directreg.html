@@ -77,6 +77,12 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="Contact" class="col-md-2 control-label">联系电话：</label>
+							<div class="col-md-4 ">
+								<input type="text" name="Contact" value="" class="form-control" ng-model="Telephone"  required="required"/>
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="Fax" class="col-md-2 control-label">传真：</label>
 							<div class="col-md-4 ">
 								<input type="text" name="Fax" value="" class="form-control" ng-model="Fax" />
@@ -148,18 +154,21 @@
 			<div class="tui-reg-member-content">
 				<ul class="tui-reg-member-items">
 					<li class="tui-reg-member-item" ng-repeat="obj in regularMembers">
-						<h3 ng-bind="obj.IdentityTag==">
-							
-						</h3>
+						<!--<h3 ng-bind="obj.IdentityTag">
+							{{
+								
+								
+							}}
+						</h3>-->
 						<div class="tui-form-group">
 							<label>姓名：</label>
-							<div class="tui-control-group" ng-bind="obj.Account">
+							<div class="tui-control-group" ng-bind="obj.Name">
 
 							</div>
 						</div>
 						<div class="tui-form-group">
 							<label>手机号码：</label>
-							<div class="tui-control-group" ng-bind="obj.Telephone">
+							<div class="tui-control-group" ng-bind="obj.Contact">
 
 							</div>
 						</div>

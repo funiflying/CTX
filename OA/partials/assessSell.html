@@ -1,5 +1,6 @@
 <ul class="tui-oa-orders">
-	<li class="tui-oa-order-item" ng-repeat="obj in logistics">
+	<li class="tui-oa-order-item" ng-repeat="obj in assesslist">
+		<li class="tui-oa-order-item" ng-repeat="obj in assesslist">
 		<table>
 			<tr class="tui-oa-order-caption">
 				<td class="col-md-3 text-left" ng-bind="obj.OrderTime"></td>
@@ -17,16 +18,13 @@
 				</td>
 				<td class="col-md-2" ng-bind="obj.CarNo"></td>
 				<td class="col-md-1" ng-bind="obj.OrderFlag">
-					
+					填写检测报告
 				</td>
 				<td class="col-md-2">
-					<a href="#/logisticfees/{{obj.OrderCode}}" ng-if="obj.OrderFla">物流费用</a>
-				<br />
-				<a href="#/deliver/{{obj.OrderCode}}" ng-if="obj.OrderFla">物流发货</a>
-				<br />
-				<a href="#/receipt/{{obj.OrderCode}}" ng-if="obj.OrderFla">物流到货</a>
+					<a href="#/assess/{{obj.OrderCode}}">填写检测报告</a>
 				</td>
 			</tr>
 		</table>
+	</li>
 	</li>
 </ul>

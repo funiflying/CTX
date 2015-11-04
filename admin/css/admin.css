@@ -146,47 +146,45 @@ color: #4c4c4c;
     border: 1px solid #e2e2e2;
     margin-bottom: 10px;
 }
-.tui-admin-order-caption>div{
+.tui-admin-order-item table{
+	width: 100%;
+}
+.tui-admin-order-caption>td{
     height: 40px;
     line-height: 40px;
     background: #f0f0f0;
     text-align: center;
 }
-.tui-admin-order-body>div{
+.tui-admin-order-body>td{
     height: 170px;
-    line-height: 170px;
     text-align: center;
     color: #333333;
 }
-.tui-admin-order-body>div h2{
+.tui-admin-order-body div h2{
     font-size: 18px;
     color: #333333;
 }
-.tui-admin-order-body>div p strong{
+.tui-admin-order-body p strong{
     font-size: 18px;
     font-weight: bold;
     color: #ff6a00;
 }
-.tui-admin-order-body>div p label{
+.tui-admin-order-body p label{
     color: #ff6a00;
 }
-.tui-admin-order-body>div img{
+.tui-admin-order-body img{
    width: 190px;
    height: 130px;
 }
-.tui-admin-order-body>div a{
+.tui-admin-order-body a{
    color: #3250be;
     vertical-align:middle;
 }
-.tui-admin-order-body>div.tui-admin-order-car{
-    padding-top: 30px;
-    line-height: 40px;
-}
+
 .tui-admin-order-carinfo{
  
  border: 1px solid #e2e2e2;
     height: 40px;
-    line-height: 20px;
 }
 .tui-admin-order-carinfo li{
     display: inline-block;

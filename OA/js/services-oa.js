@@ -77,7 +77,7 @@ angular.module('chetongxiang.services-admin', []).service('AllianceAuditService'
 			
 		},
 		getFullPayAuditList:function(data){
-			return $http.get("../test/orderlist.json")
+			return $http.post("/order/SellDirectGetOrderList",data)
 		},
 		getFullPayOrder:function(data){
 			return $http.get("/Order/GetOrderInfoWithCode",data)
@@ -88,45 +88,43 @@ angular.module('chetongxiang.services-admin', []).service('AllianceAuditService'
 }).service("LogisticService",function($http){
 	 return {
 	 	getLogistics:function(data){
-	 		return $http.get("../test/orderlist.json");
+	 		return $http.post("/order/SellDirectGetThreeStatusOrderList",data);
 	 	},
 	 	getLogisticOrder:function(data){
-	 		return $http.get("../test/advance.json",data);
+	 		return $http.post("/Order/GetOrderInfoWithCode",data);
 	 	},
 	 	submitLogisticFees:function(data){
-	 		return $http.post("",data)
+	 		return $http.post("/order/FillinShippingFee",data)
 	 	},
 	 	submitLogisticDeliver:function(data){
-	 		return $http.post("",data)
+	 		return $http.post("/order/ShippingPost ",data)
 	 	},
 	 	submitLogisticReceipt:function(data){
-	 		return $http.post("",data)
+	 		return $http.post("/order/ShippingGet",data)
 	 	}
 	 	
 	 }
 	
 }).service("TakeCarService",function($http){
 	return {
-		getTakeCarList:function(){
-			return $http.get("../test/orderlist.json")
+		getTakeCarList:function(data){
+			return $http.post("/order/SellDirectGetOrderList",data)
 		},
 		getTakeCarOrder:function(data){
-			return $http.get("../test/advance.json",data);
+			return $http.post("/Order/GetOrderInfoWithCode",data);
 		},
 		submitTakeCar:function(data){
-	 		return $http.post("",data)
+	 		return $http.post("/order/UserTakeCar",data)
 	 	}
 	}
 	
 }).service("AssessService",function($http){
 	return{
-		getAssessList:function(data){
-			return $http.post("",data)
-			
+		getSellAssessList:function(data){
+			return $http.post("/order/SellDirectGetOrderLis",data);
+		},
+		getBuyAssessList:function(data){
+			return $http.post("/order/BuyDirectGetOrderList",data);
 		}
-		
 	}
-	
-	
-	
 })
