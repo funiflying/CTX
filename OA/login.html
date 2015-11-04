@@ -5,48 +5,63 @@
   <meta charset="utf-8">
   <title>车同享</title>
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="css/oa.css">
+  	<style type="text/css">
+  		body{
+  			background: #f5f5f5;
+  		}
+  		.tui-oa-login-body{
+  			padding: 60px 0;
+  			background: #fff;
+  				background-image: url(images/login-caption.jpg);
+  			background-position: left top;
+  			background-repeat: no-repeat; 
+  		}
+  		/*.tui-oa-login-caption{
+  			height:40px;
+  			background-color: #333333;
+  			background-image: url(../admin/images/logo.png);
+  			background-position: left center;
+  			background-repeat: no-repeat; 
+  			background-size:100% 40px ;
+  		}*/
+  	</style>
 </head>
 <body>
 	<div class="tui-oa-navbar">
-      <div class="wrapper tui-oa-bar">
-          <i class="glyphicon glyphicon-envelope">
-              <span class="badge">13</span>
-          </i>
-          <i class="glyphicon glyphicon-bookmark">
-               <span class="badge">1</span>
-          </i>
-          <i class="glyphicon glyphicon-cog"></i>
-          <i class="glyphicon glyphicon-search"></i>
-         <span ng-click="loginOut()" style="cursor: pointer;">
-          	<i class="glyphicon glyphicon-off" ></i>
-          </span>
-          
+      <div class="wrapper tui-oa-bar col-md-8 col-md-offset-2">
+
       </div>
-  
+
   </div>
-<div class="row col-md-6 col-md-offset-3" ng-controller="loginController" style="margin-top:200px;">
-	<form role="form" class="col-md-offset-3" name="loginForm">
-	<div class="form-group text-center">
-					<div class="col-md-8">
-						<div class="alert alert-warning alert-dismissable" ng-show="Message.status||false" ng-bind="Message.msg">
-   			  			
-						</div>
-		      		</div>
-				</div>
-		<div class=" form-group col-md-8">
-			<label for="name" >登录名：</label>
-			<input type="text" class="form-control col-md-6" name="Account" placeholder="请输入登录名" ng-model="logon.Account" required="required">
-		</div>
-		<div class=" form-group col-md-8">
-			<label for="name" >登录密码：</label><a href="">忘记登录密码?</a>
-			<input type="password" class="form-control" name="Pwd" placeholder="输入密码" ng-model="logon.Pwd" required="required">
-		</div>
-     <div class=" form-group col-md-8">
-			<input type="button" class=" tui-btn-default tui-btn-block tui-login-btn btn btn-primary btn-block" value="登 录"  ng-click="directSignin()"/>
-			<a href="">免费注册</a>
-		</div>
-		
-	</form>
+  <div class="col-md-7 col-md-offset-3"  style="margin-top:50px;margin-bottom: 30px;height: 80px; line-height: 80px;border-bottom: 1px solid #ccc;">
+  	<strong style="font-size: 18px;">登录</strong>
+  </div>
+<div class="row col-md-8 col-md-offset-2" ng-controller="loginController">
+	<div class="col-md-4 pull-right tui-oa-login-body" >
+		<div class="tui-oa-login-caption"></div>
+		<form role="form" name="loginForm">
+				  <div class="form-group text-center col-md-offset-2">
+						<div class="col-md-10">
+							<div class="alert alert-warning alert-dismissable" ng-show="Message.status||false" ng-bind="Message.msg">
+	   			  			
+							</div>
+			     </div>
+					</div>
+					<div class=" form-group col-md-8 col-md-offset-2">
+						<label for="name" >登录名：</label>
+						<input type="text" class="form-control col-md-6" name="Account" placeholder="请输入登录名" ng-model="logon.Account" required="required">
+					</div>
+					<div class=" form-group col-md-8 col-md-offset-2">
+						<label for="name" >登录密码：</label><a href="" class="pull-right">忘记密码?</a>
+						<input type="password" class="form-control" name="Pwd" placeholder="输入密码" ng-model="logon.Pwd" required="required">
+					</div>
+			     <div class=" form-group col-md-8 col-md-offset-2">
+						<input type="button" class=" tui-btn-default tui-btn-block tui-login-btn btn btn-primary btn-block" value="登 录"  style="background: #333;border-color:#333 ;" ng-click="directSignin()"/>
+						<a href="" class="pull-right">免费注册</a>
+					</div>
+		</form>
+	</div>
 </div>
 <script src="../lib/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
   <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
