@@ -54,7 +54,7 @@ AppController.$inject = ["$scope", "$route", "$routeParams"];
 function IndexController($scope, CTXService, $timeout, $filter, $location, ngDialog) {
 	//关键词搜索
 	$scope.submit = function() {
-		console.log($scope.carfilter);
+		//console.log($scope.carfilter);
 		$location.path('/carlist/SearchWord/' + $scope.carfilter.SearchWord);
 	}
 
@@ -132,14 +132,25 @@ function IndexController($scope, CTXService, $timeout, $filter, $location, ngDia
 
 	$scope.GetIndexHot = function() {
 		var obj = {
-			"City": "1"
+			"City": ""
 		}
 		CTXService.GetIndexHot(obj).success(function(carlist) {
-			//console.log(carlist);
+			console.log(carlist);
 			var listhtml = "";
 			var titlehtml = "";
-			for (var i = 0, ln = carlist.data.length; i < ln; i++) {
-				var tabname = carlist.data[i].name;
+			var dd;
+			if (angular.isString(carlist.data)) {
+				dd = JSON.parse(carlist.data);
+			} else {
+				dd = carlist.data;
+			}
+			//var dd = carlist.data;//JSON.parse(carlist.data);
+			//console.log(carlist);
+			console.log(dd);
+			//return true;
+			for (var i = 0, ln = dd.length; i < ln; i++) {
+				//console.log(i);
+				var tabname = dd[i].name;
 				var tabname1 = {
 					'Carsource0': '最新上架',
 					'Carsource1': '降价急售',
@@ -150,29 +161,29 @@ function IndexController($scope, CTXService, $timeout, $filter, $location, ngDia
 				}[tabname] || '';
 				titlehtml += "<a href=\"javascript:;\" data-name=\"" + tabname + "\">" + tabname1 + "</a>";
 				//titlehtml += "<li data-name=\"" + tabname + "\">" + tabname1 + "</li>";
-				if (carlist.data[i].name == "Carsource0") {
-					listhtml += "<ul class=\"list-ul\" data-name=\"" + carlist.data[i].name + "\">";
+				if (dd[i].name == "Carsource0") {
+					listhtml += "<ul class=\"list-ul\" data-name=\"" + dd[i].name + "\">";
 				} else {
-					listhtml += "<ul class=\"list-ul\" style=\"display:none;\" data-name=\"" + carlist.data[i].name + "\">";
+					listhtml += "<ul class=\"list-ul\" style=\"display:none;\" data-name=\"" + dd[i].name + "\">";
 				}
-				for (var j = 0, jln = carlist.data[i].value.length; j < jln; j++) {
-					if (carlist.data[i].value[j].HomePicID == "") {
-						//listhtml += "<li><a href=\"#\"><img src=\""+carlist.data[i].value[0].HomePicID+"\"></a>";
-						listhtml += "<li><a href=\"#/carinfo/" + carlist.data[i].value[j].CarNo + "/\"><img src=\"images/default.jpg\"></a>";
+				//console.log(dd[i].value);
+				for (var j = 0, jln = dd[i].value.length; j < jln; j++) {
+					if (dd[i].value[j].HomePicID == "") {
+						listhtml += "<li><a href=\"#/carinfo/" + dd[i].value[j].CarNo + "/\"><img src=\"images/default.jpg\"></a>";
 					} else {
-						listhtml += "<li><a href=\"#/carinfo/" + carlist.data[i].value[j].CarNo + "/\"><img src=\"images/default.jpg\"></a>";
+						listhtml += "<li><a href=\"#/carinfo/" + dd[i].value[j].CarNo + "/\"><img src=\"images/default.jpg\"></a>";
 					}
-					listhtml += "<p class=\"title\"><a href=\"#/carinfo/" + carlist.data[i].value[j].CarNo + "/\">" + carlist.data[i].value[j].SpecName + "</a></p>";
-					listhtml += "<p><span>" + carlist.data[i].value[j].InitialDate + "上牌</span><span>|</span>行驶" + carlist.data[i].value[j].Mileage + "万公里</p>";
-					listhtml += "<p class=\"price\"><span>￥" + carlist.data[i].value[j].Price + "万</span></p>";
+					listhtml += "<p class=\"title\"><a href=\"#/carinfo/" + dd[i].value[j].CarNo + "/\">" + dd[i].value[j].SpecName + "</a></p>";
+					listhtml += "<p><span>" + dd[i].value[j].InitialDate + "上牌</span><span>|</span>行驶" + dd[i].value[j].Mileage + "万公里</p>";
+					listhtml += "<p class=\"price\"><span>￥" + dd[i].value[j].Price + "万</span></p>";
 					listhtml += "</li>";
 					//console.log(listhtml);
 				}
 				listhtml += "</ul>";
 			}
-			//console.log(titlehtml);
+			//console.log(listhtml);
 			$("#tabcarlist a").remove();
-			$("#carlist ul").remove();
+			$("#carlistdata ul").remove();
 			$("#tabcarlist").html(titlehtml);
 			$("#carlist").html(listhtml);
 
@@ -206,23 +217,87 @@ IndexController.$inject = ["$scope", "CTXService", "$timeout", "$filter", "$loca
 //车源信息发布
 function SellCarController($scope, CTXService, $timeout, $filter, $location, ngDialog) {
 
+
+	//$scope.selectedBrand.brandID = 
+	//$scope.selectedChexi.SeriesID
+	$scope.sellformdata = {};
+	$scope.sellformdata.SpecName = 'MG3 2011款 3 1.3 手动 舒适版';
+	$scope.sellformdata.Series = '1';
+	$scope.sellformdata.Color = '5';
+	$scope.sellformdata.RegisterPlace = '福州';
+	$scope.sellformdata.Mileage = '1.3';
+	$scope.sellformdata.Price = '15';
+	$scope.sellformdata.WholesalePrice = '10';
+	$scope.sellformdata.Buyyear = '2015-11-1';
+	$scope.sellformdata.TransferNo = 1;
+	$scope.sellformdata.CarDemo = '';
+	$scope.sellformdata.EngineNo = 'egn5678';
+	$scope.sellformdata.FrameNumber = '56478';
+	$scope.sellformdata.DrivingLicense = '112233';
+	$scope.sellformdata.Registration = '258456';
+	$scope.sellformdata.InitialDate = '2015-11-1';
+	$scope.sellformdata.BodyBrand = '567894';
+	$scope.sellformdata.PurchaseInvoices = '123456789';
+	$scope.sellformdata.ViolationRecord = '0';
+	$scope.sellformdata.ContactName = '车某某';
+	$scope.sellformdata.MobilePhone = '18859463572';
+	$scope.sellformdata.WeiXinNo = '123456';
+	$scope.sellformdata.Annual_Inspect_Time = '2015-11-12';
+	$scope.sellformdata.Compulsory_insurance_Time = '2015-11-12';
+	$scope.sellformdata.Commercial_Insurance_Time = '2015-11-12';
+	$scope.sellformdata.WomenCar = '1';
+
 	//获取汽车所有品牌
 	$scope.BrandList = function() {
 		if (true) {
 			CTXService.Getbrandlist().success(
 				function(d) {
 					$scope.brandslist = d.data;
-					$("#ChangeBrand").show();
-					//					ngDialog.open({
-					//					    		template: 'partials/publish-car-brandlist.html',
-					//					    		scope:$scope
-					//					    	})
+					//$("#ChangeBrand").show();
+					console.log(d.data);
 				}).error(
 				function(e) {
-					alert("品牌数据读取错误");
+					//alert("品牌数据读取错误");
+					console.log("品牌数据读取错误");
 				});
 		}
 	}
+
+	//获取汽车所有品牌
+	$scope.CarNameLists = function() {
+		var bcid = {
+			"brandid": $scope.selectedChexi.brandID,
+			"seriesid": $scope.selectedChexi.SeriesID
+		};
+
+		if ((bcid.brandid == "") && (bcid.seriesid == "")) {
+			$scope.errorMessage = "请先选择<strong>品牌</strong>和<strong>车系</strong>...";
+
+			ngDialog.open({
+				template: 'partials/DialogMessage.html',
+				appendTo: true,
+				showClose: true,
+				scope: $scope
+			});
+
+			return false;
+		}
+
+		//if (true) {
+			CTXService.GetCarNameLists(bcid).success(
+				function(d) {
+					console.log(d);
+					$scope.CNameList = d.data;
+					console.log(d);
+				}).error(
+				function(e) {
+					console.log("数据读取错误");
+					//alert("品牌数据读取错误");
+				});
+		//}
+	}
+
+	//console.log($scope.selectedBrand);
 
 	//选择汽车颜色
 	$scope.ChangeCarColor = function() {
@@ -247,48 +322,63 @@ function SellCarController($scope, CTXService, $timeout, $filter, $location, ngD
 
 	//$scope.SellCarSubmit = function(){
 	$('#sellcarform').submit(function() {
-		console.log($(this).serialize());
 
-		$.ajax({
-			type: "POST",
-			url: "http://192.168.0.105/common/car/Publish",
-			async: false,
-			data: $(this).serialize(),
-			dataType: "json",
-			beforeSend: function() {
+		//$(this).serialize().Series
+		var postdata = {
+			"Brand": $scope.selectedBrand.brandID,
+			"Series": $scope.selectedChexi.chexi,
+			"SpecName": $scope.sellformdata.SpecName,
+			"Style": $scope.sellformdata.Style,
+			"Color": $scope.sellformdata.Color,
+			"RegisterPlace": $scope.sellformdata.RegisterPlace,
+			"Mileage": $scope.sellformdata.Mileage,
+			"Price": $scope.sellformdata.Price,
+			"WholesalePrice": $scope.sellformdata.WholesalePrice,
+			"Buyyear": $scope.sellformdata.Buyyear,
+			"TransferNo": $scope.sellformdata.TransferNo,
+			//"CarDemo": $scope.sellformdata.CarDemo,
+			"EngineNo": $scope.sellformdata.EngineNo,
+			"FrameNumber": $scope.sellformdata.FrameNumber,
+			"DrivingLicense": $scope.sellformdata.DrivingLicense,
+			"Registration": $scope.sellformdata.Registration,
+			"InitialDate": $scope.sellformdata.InitialDate,
+			"BodyBrand": $scope.sellformdata.BodyBrand,
+			"PurchaseInvoices": $scope.sellformdata.PurchaseInvoices,
+			"ViolationRecord": $scope.sellformdata.ViolationRecord,
+			//			"ContactName": $scope.sellformdata.ContactName,
+			//			"MobilePhone": $scope.sellformdata.MobilePhone,
+			//			"WeiXinNo": $scope.sellformdata.WeiXinNo,
+			"Annual_Inspect_Time": $scope.sellformdata.Annual_Inspect_Time,
+			"Compulsory_insurance_Time": $scope.sellformdata.Compulsory_insurance_Time,
+			//			"TeDian": $scope.sellformdata.TeDian,
+			"WomenCar": 1,
+			"SevenSeat": 1,
+			"IsUrgent": 1,
+			"QuasiNewCar": 1,
+			"LearnerCar": 1,
+			"CatalogID": 14,
+			"HomePicID": "images/default.jpg"
+		};
 
-				//					$scope.errorMessage = "请稍后，您的车辆信息提交中...";
-				//					
-				//					ngDialog.open({
-				//						template: 'partials/DialogMessage.html',
-				//						appendTo: true,
-				//						showClose: true,
-				//						scope:$scope
-				//					});
-			},
-			success: function(ret) {
-				//ngDialog.closeAll();
-				console.log(ret);
+		CTXService.PostCarInfo(postdata).success(
+			function(d) {
 
-				$scope.errorMessage = "您的车辆信息发布成功，稍后我们的人员会与您联系！";
+				console.log(d);
+				$scope.errorMessage = "您的车辆信息发布成功...";
 
 				ngDialog.open({
 					template: 'partials/DialogMessage.html',
 					appendTo: true,
-					showClose: false,
+					showClose: true,
 					scope: $scope
 				});
-				$location.path('/carlist');
-			}
-		});
-		return false;
+			}).error(
+			function(e) {
+				console.log("车源数据发布错误");
+				//alert("车源数据发布错误");
+			});
+
 	});
-
-	//}
-
-	//	$('#sellcarform').submit(function(){
-	//		
-	//	});
 
 }
 SellCarController.$inject = ["$scope", "CTXService", "$timeout", "$filter", "$location", "ngDialog"];
@@ -304,18 +394,18 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 	//	console.log($scope.carfilter);
 
 	$scope.carfilter = {
-		"City": {
+		"CityID": {
 			"City": $routeParams.clvalue
-		}[$routeParams.clname] || "xm",
-		"brandID": {
-			"brandID": $routeParams.clvalue
-		}[$routeParams.clname] || "6",
+		}[$routeParams.clname] || "",
+		"Brand": {
+			"Brand": $routeParams.clvalue
+		}[$routeParams.clname] || "4",
 		"Series": {
 			"Series": $routeParams.clvalue
 		}[$routeParams.clname] || "0",
 		"PriceID": {
 			"PriceID": $routeParams.clvalue
-		}[$routeParams.clname] || "1",
+		}[$routeParams.clname] || "0",
 		"PriceStart": {
 			"PriceStart": $routeParams.clvalue
 		}[$routeParams.clname] || "",
@@ -349,9 +439,6 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 		"IsUrgent": {
 			"IsUrgent": $routeParams.clvalue
 		}[$routeParams.clname] || "0",
-		"IsUrgent": {
-			"IsUrgent": $routeParams.clvalue
-		}[$routeParams.clname] || "0",
 		"QuasiNewCar": {
 			"QuasiNewCar": $routeParams.clvalue
 		}[$routeParams.clname] || "0",
@@ -364,7 +451,6 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 		"Sort": {
 			"Sort": $routeParams.clvalue
 		}[$routeParams.clname] || "0",
-
 		"SearchWord": {
 			"SearchWord": $routeParams.clvalue
 		}[$routeParams.clname] || "",
@@ -374,6 +460,7 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 	};
 
 	//console.log($scope.carfilter);
+	//return true;
 	//console.log($routeParams);
 
 
@@ -389,8 +476,8 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 			//关键词搜索
 			$scope.submit = function() {
 				$scope.carfilter = {
-					"City": "",
-					"brandID": "0",
+					"CityID": "",
+					"Brand": "0",
 					"Series": "0",
 					"PriceID": "0",
 					"CarYear": "0",
@@ -415,6 +502,7 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 				$scope.carfilter.PageNum = num;
 				//console.log(num);
 				$scope.loadbrand();
+				$scope.loadcarlist();
 				//$location.path('/carlist');
 				return true;
 			}
@@ -428,7 +516,7 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 				chexihtml = $("#data-chexilist").html();
 				for (var j = 0, jln = $scope.brandslist.length; j < jln; j++) {
 					if (j == 0) {
-						if ($scope.carfilter.brandID == null || $scope.carfilter.brandID == "0") {
+						if ($scope.carfilter.Brand == null || $scope.carfilter.brandID == "0") {
 							if (j < 14) {
 								brandhtml = " <a href=\"javascript:;\" data-value=\"0\" class=\"on\">不限</a> ";
 							}
@@ -440,7 +528,7 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 							allbrandhtml = " <a href=\"javascript:;\" data-value=\"0\">不限</a> ";
 						}
 					}
-					if ($scope.carfilter.brandID == $scope.brandslist[j].brandID) {
+					if ($scope.carfilter.Brand == $scope.brandslist[j].brandID) {
 						chexihtml = "";
 						if (j < 14) {
 							brandhtml += "<a class=\"on\" href=\"javascript:;\" data-value=\"" + $scope.brandslist[j].brandID + "\">" + $scope.brandslist[j].brandName + "</a>";
@@ -497,9 +585,9 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 
 			$(document).on("click", "#data-brandID > a", function() {
 				$(this).addClass('on').siblings().removeClass('on');
-				$scope.carfilter.brandID = $(this).attr("data-value");
+				$scope.carfilter.Brand = $(this).attr("data-value");
 				$scope.carfilter.Series = "0";
-				console.log($scope.carfilter);
+				//console.log($scope.carfilter);
 				$scope.loadbrand();
 				$scope.loadcarlist();
 			});
@@ -510,7 +598,7 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 				$scope.loadbrand();
 				//loadcarlist(Sdata);
 				$scope.loadcarlist();
-				console.log($scope.carfilter);
+				//console.log($scope.carfilter);
 			});
 			$(document).on("click", "#data-pricelist > a", function() {
 				$(this).addClass('on').siblings().removeClass('on');
@@ -596,8 +684,8 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 				}[datavalue] || "0";
 				$(this).attr("data-value", dv);
 				$(this).addClass('Sort_on').siblings().removeClass('Sort_on');
-				console.log(datavalue);
-				console.log(dv);
+				//console.log(datavalue);
+				//console.log(dv);
 				$scope.carfilter.Sort = datavalue;
 				$scope.loadcarlist();
 			});
@@ -614,21 +702,25 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 				listhtml = "";
 				$("#carlist ul").remove();
 				//$("#carlist").fadeOut();
-				$.ajax({
-					type: "POST",
-					//url: "http://192.168.0.198/CarSource/RequestHomeData",
-					url: "http://192.168.0.180/SearchCar.php",
-					async: false,
-					data: $scope.carfilter,
-					dataType: "jsonp",
-					beforeSend: function() {
-						$("#carlist").html("请稍后，数据加载中...");
-					},
-					success: function(carlist) {
+				var obj={"CityID":"2"};
+				//var obj={"City":2};
+				console.log($scope.carfilter);
+				console.log(obj);
+				CTXService.GetCarlist(obj).success(
+					function(carlist) {
+						//console.log(carlist);
+						//return;
+						$("#carcount").html(carlist.count);
+						$("#carcount1").html(carlist.count);
+
 						listhtml += "<ul class=\"list-ul\">";
 						for (var j = 0, jln = carlist.data[0].value.length; j < jln; j++) {
 							//console.log(carlist.data[0].value.length);
-							listhtml += "<li><a href=\"#/carinfo/" + carlist.data[0].value[j].CarNo + "\" data-value=\"" + carlist.data[0].value[j].CarNo + "\"><img src=\"" + carlist.data[0].value[j].HomePicID + "\"></a>";
+							var homeimg = carlist.data[0].value[j].HomePicID;
+							if (homeimg == "" || homeimg == null) {
+								homeimg = "images/default.jpg";
+							}
+							listhtml += "<li><a href=\"#/carinfo/" + carlist.data[0].value[j].CarNo + "\" data-value=\"" + carlist.data[0].value[j].CarNo + "\"><img src=\"" + homeimg + "\"></a>";
 							listhtml += "<p class=\"title\"><a href=\"#/carinfo/" + carlist.data[0].value[j].CarNo + "\" data-value=\"" + carlist.data[0].value[j].CarNo + "\">" + carlist.data[0].value[j].SpecName + "</a></p>";
 							listhtml += "<p><span>" + carlist.data[0].value[j].InitialDate + "上牌</span><span>|</span>行驶" + carlist.data[0].value[j].Mileage + "万公里</p>";
 							listhtml += "<p class=\"price\"><span>￥" + carlist.data[0].value[j].Price + "万</span></p>";
@@ -637,8 +729,31 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 						listhtml += "</ul>";
 						//$("#carlist").fadeIn(1000);
 						$("#carlist").html(listhtml);
-					}
-				});
+					});
+				//				$.ajax({
+				//					type: "POST",
+				//					url: "http://192.168.0.218/common/car/SearchCar",
+				//					async: false,
+				//					data: $scope.carfilter,
+				//					dataType: "json",
+				//					beforeSend: function() {
+				//						$("#carlist").html("请稍后，数据加载中...");
+				//					},
+				//					success: function(carlist) {
+				//						listhtml += "<ul class=\"list-ul\">";
+				//						for (var j = 0, jln = carlist.data[0].value.length; j < jln; j++) {
+				//							//console.log(carlist.data[0].value.length);
+				//							listhtml += "<li><a href=\"#/carinfo/" + carlist.data[0].value[j].CarNo + "\" data-value=\"" + carlist.data[0].value[j].CarNo + "\"><img src=\"" + carlist.data[0].value[j].HomePicID + "\"></a>";
+				//							listhtml += "<p class=\"title\"><a href=\"#/carinfo/" + carlist.data[0].value[j].CarNo + "\" data-value=\"" + carlist.data[0].value[j].CarNo + "\">" + carlist.data[0].value[j].SpecName + "</a></p>";
+				//							listhtml += "<p><span>" + carlist.data[0].value[j].InitialDate + "上牌</span><span>|</span>行驶" + carlist.data[0].value[j].Mileage + "万公里</p>";
+				//							listhtml += "<p class=\"price\"><span>￥" + carlist.data[0].value[j].Price + "万</span></p>";
+				//							listhtml += "</li>";
+				//						}
+				//						listhtml += "</ul>";
+				//						//$("#carlist").fadeIn(1000);
+				//						$("#carlist").html(listhtml);
+				//					}
+				//				});
 			}
 
 			//初始化加载默认车源及品牌信息
@@ -646,7 +761,8 @@ function CarListController($scope, CTXService, $timeout, $filter, $routeParams, 
 			$scope.loadcarlist();
 		}).error(
 		function(e) {
-			alert("品牌数据读取错误");
+			console.log("品牌数据读取错误");
+			//alert("品牌数据读取错误");
 		});
 
 	//	//关键词搜索
@@ -668,80 +784,35 @@ CarListController.$inject = ["$scope", "CTXService", "$timeout", "$filter", "$ro
 //汽车列表
 function CarInfoController($scope, CTXService, $timeout, $filter, $routeParams, $location, ngDialog) {
 
-	//console.log($routeParams);
-	//console.log(CTXService.GetCarInfo($routeParams));
-
-	//	$.ajax({
-	//		type: "POST",
-	//		//url: "http://192.168.0.198/CarSource/RequestHomeData",
-	//		url: "http://ctx/GetCardata.php?callback=jsonpReturn",
-	//		async: true,
-	//		data: $routeParams,
-	//		dataType: "jsonp",
-	//		success: function(jsonpReturn) {
-	//			
-	//
-	//			$scope.carinfotitle = jsonpReturn.data[0].name;
-	//			$scope.carinfodata = jsonpReturn.data[0].value[0];
-	//			$scope.carinfoimg = jsonpReturn.data[1];
-	//			
-	//			console.log($scope.carinfodata);
-	//
-	//			var thumbhtml = "";
-	//			var tstatus = 0;
-	//			$("#data-info-name").html($scope.carinfotitle);
-	//			$("#data-info-img").html("<img src='" + $scope.carinfodata.HomePicID + "' width='634'>");
-	//			thumbhtml += "<ul class=\"d-thumb-img clearfix\">";
-	//			for (var i = 0, ln = $scope.carinfoimg.value.length; i < ln; i++) {
-	//				thumbhtml += "<li><img data-img=\"demo/carimg.jpg\" src='" + $scope.carinfoimg.value[i].PicAddr + "'></li>";
-	//				if (i == 11) {
-	//					thumbhtml += "</ul><ul class=\"display-ul d-thumb-img clearfix\">";
-	//					tstatus = 1;
-	//				} else {
-	//					tstatus = 0;
-	//				}
-	//			}
-	//			if (tstatus != 1) {
-	//				thumbhtml += "</ul>";
-	//			}
-	//			$("#data-info-thumb").html(thumbhtml);
-	//			//console.log($scope.carinfodata);
-	//			//console.log($scope.carinfoimg);
-	//			//console.log($scope.carinfoimg.value);
-	//			//console.log($scope);
-	//			$(document).on("click", "#data-info-thumb > ul >li", function() {
-	//				$("#data-info-img").find("img").attr('src', $(this).find("img").attr('data-img'));
-	//				console.log($(this).find("img").attr('data-img'));
-	//			});
-	//		}
-	//	});
-
 	CTXService.GetCarInfo($routeParams).success(
 			function(d) {
-				$scope.carinfotitle = d.data[0].name;
-				$scope.carinfodata = d.data[0].value[0];
-				$scope.carinfoimg = d.data[1];
+//								$scope.carinfotitle = d.data[0].SpecName;
+//								$scope.carinfodata = d.data[0].value[0];
+//								$scope.carinfoimg = d.data[1];
 
-				console.log($scope.carinfodata);
+				console.log(d);
+
+				//return false;
+				$scope.carinfodata = d.data;
 
 				var thumbhtml = "";
 				var tstatus = 0;
-				$("#data-info-name").html($scope.carinfotitle);
-				$("#data-info-img").html("<img src='" + $scope.carinfodata.HomePicID + "' width='634'>");
-				thumbhtml += "<ul class=\"d-thumb-img clearfix\">";
-				for (var i = 0, ln = $scope.carinfoimg.value.length; i < ln; i++) {
-					thumbhtml += "<li><img data-img=\"demo/carimg.jpg\" src='" + $scope.carinfoimg.value[i].PicAddr + "'></li>";
-					if (i == 11) {
-						thumbhtml += "</ul><ul class=\"display-ul d-thumb-img\">";
-						tstatus = 1;
-					} else {
-						tstatus = 0;
-					}
-				}
-				if (tstatus != 1) {
-					thumbhtml += "</ul>";
-				}
-				$("#data-info-thumb").html(thumbhtml);
+				//$("#data-info-name").html($scope.data.SpecName);
+				//$("#data-info-img").html("<img src='" + $scope.data.HomePicID + "' width='634'>");
+//				thumbhtml += "<ul class=\"d-thumb-img clearfix\">";
+//				for (var i = 0, ln = $scope.carinfoimg.value.length; i < ln; i++) {
+//					thumbhtml += "<li><img data-img=\"demo/carimg.jpg\" src='" + $scope.carinfoimg.value[i].PicAddr + "'></li>";
+//					if (i == 11) {
+//						thumbhtml += "</ul><ul class=\"display-ul d-thumb-img\">";
+//						tstatus = 1;
+//					} else {
+//						tstatus = 0;
+//					}
+//				}
+//				if (tstatus != 1) {
+//					thumbhtml += "</ul>";
+//				}
+//				$("#data-info-thumb").html(thumbhtml);
 				//console.log($scope.carinfodata);
 				//console.log($scope.carinfoimg);
 				//console.log($scope.carinfoimg.value);
@@ -790,33 +861,55 @@ function addReportController($scope, CTXService, $timeout, $filter, $routeParams
 	$scope.ReportData = {}
 	$scope.ReportData.version = "v1.0";
 	$scope.ReportData.report = {};
-	
+
 	$scope.ARSelect = function(divid) {
-		var dv = $("#"+divid).attr("data-value");
+		var dv = $("#report-" + divid).attr("data-value");
 		if (dv == "1") {
-			$("#"+divid).addClass("report-check-no");
-			$("#"+divid).attr("data-value","0");
+			$("#report-" + divid).addClass("report-check-no");
+			$("#report-" + divid).attr("data-value", "0");
 			$scope.ReportData.report[divid] = "1";
-		} else{
-			$("#"+divid).removeClass("report-check-no");
-			$("#"+divid).attr("data-value","1");
+		} else {
+			$("#report-" + divid).removeClass("report-check-no");
+			$("#report-" + divid).attr("data-value", "1");
 			delete $scope.ReportData.report[divid];
 		}
 		//console.log(dv);
 		//$("#ddmessage").html($scope.ReportData);
 		console.log($scope.ReportData);
 	}
-	
+
 	$scope.ARSubmit = function() {
-		
-		//$scope.ReportData;
-		console.log($scope.ReportData);
+		var obj = {
+				"AccidentCheckMemo": "车体骨架结构无变形、无扭曲、无更换、无烧焊、无褶皱；无火烧痕迹，无水泡痕迹。",
+				"AICheckMemo": "经检测左后翼板子喷漆，右前翼板子更换，左前大灯更换，其他无更换。",
+				"AppraiserCode": "1",
+				"SecurityCheckMemo": "经检测，胎纹深度、刹车片厚度、液位均正常。",
+				"TestDescription": "经过检测排除重大事故。排除水淹车和过火车，钣金喷漆部位比较多，内饰整洁干净，无异味。安全系统，刹车系统以及电子设备系统一切正常，发动机启动运行一切 正常，动力充沛，换挡平顺，一切正常。",
+				"ControlCheckMemo": "经试驾员专业测试，发动机、变速箱正常，无怠速抖动，变速时无闯档顿挫，转向无乏力感。",
+			}
+			//$scope.ReportData;
+			//console.log($scope.ReportData);
 		CTXService.PostReport($scope.ReportData).success(
-		function(retdata) {
-			console.log(retdata);
-		});
+			function(retdata) {
+				console.log(retdata);
+			});
 	}
-	
+
+
+	$("#report-safety .treelist").on("mousedown", function(e) {
+		var dn = $(this).attr("data-name");
+		var dh = Math.round($(this).attr("data-value"));
+		if (dh >= 100 || dh < 0) {
+			dh = 0;
+		} else {
+			dh = dh + 5;
+		}
+		$(this).attr("data-value", dh);
+		$("#report-" + dn).css("height", dh + "%");
+		console.log(dh);
+	});
+
+
 	//console.log($scope.ReportData);
 }
 addReportController.$inject = ["$scope", "CTXService", "$timeout", "$filter", "$routeParams", "$location", "ngDialog"];

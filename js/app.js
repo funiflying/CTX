@@ -88,13 +88,12 @@ config(['$routeProvider', 'ACCESS_LEVELS',
 	$rootScope.regularMembers = [];
 	$rootScope.regularPartner = [];
 	$rootScope.user = JSON.parse(SessionService.getSeesion("_AUTH"));
-	$rootScope.reg_phone = "18650320029";
+	$rootScope.reg_phone = "";
 	$rootScope.countdown = 5
 		//全信息提示层
 
-
 	//弹出层	
-	$rootScope.openModal = function(msg, closeback) {
+	$rootScope.openModal = function(msg, closecallback) {
 		var dialog = ngDialog.open({
 			template: '<p style="padding:60px 0; text-align:center">' + msg + '</p>',
 			plain: true,
@@ -104,19 +103,12 @@ config(['$routeProvider', 'ACCESS_LEVELS',
 		setTimeout(function() {
 			dialog.close();
 		}, 2000);
-		dialog.closePromise.then(closeback);
+		dialog.closePromise.then(closecallback);
 	};
 	$rootScope.Message = {
 		status: 0,
 		msg: ""
 	}
-	$rootScope.Modal = function() {
-		ngDialog.open({
-			template: 'partials/DialogMessage.html',
-			showClose: true,
-		});
-	}
-
 	$rootScope.Alert = function(_message) {
 			$rootScope.Message.status = 1;
 			$rootScope.Message.msg = _message;

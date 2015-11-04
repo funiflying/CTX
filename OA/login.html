@@ -7,7 +7,24 @@
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
 </head>
 <body>
-<div class="row col-md-8 col-md-offset-2" ng-controller="loginController">
+	<div class="tui-oa-navbar">
+      <div class="wrapper tui-oa-bar">
+          <i class="glyphicon glyphicon-envelope">
+              <span class="badge">13</span>
+          </i>
+          <i class="glyphicon glyphicon-bookmark">
+               <span class="badge">1</span>
+          </i>
+          <i class="glyphicon glyphicon-cog"></i>
+          <i class="glyphicon glyphicon-search"></i>
+         <span ng-click="loginOut()" style="cursor: pointer;">
+          	<i class="glyphicon glyphicon-off" ></i>
+          </span>
+          
+      </div>
+  
+  </div>
+<div class="row col-md-6 col-md-offset-3" ng-controller="loginController" style="margin-top:200px;">
 	<form role="form" class="col-md-offset-3" name="loginForm">
 	<div class="form-group text-center">
 					<div class="col-md-8">

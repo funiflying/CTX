@@ -4,7 +4,7 @@
 angular.module("chetongxiang.services",[]).service("AllianceRegService",function($http){
     return{
         Phone:function(_phone){
-            return $http("/user/CheckMoblie",{
+            return $http("/account/CheckIsExists",{
                 "Phone":_phone
             })
         },
@@ -12,7 +12,7 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
             return $http.get("/common/City/getcity")
         },
         checkAccout:function(_account){
-            return $http.post("/user/CheckAccount",_account);
+            return $http.post("/account/CheckIsExists",_account);
         },
         register:function(data){
             return $http.post("/account/AlliceRegister",data)
@@ -55,13 +55,16 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
 }).service("RegisterService",function($http){
     return {
         validPhone:function(_phone){
-            return $http.post("/user/CheckAccount",{
-                Phone:_phone
+            return $http.post("/account/CheckIsExists",{
+                Contact:_phone
             })
+        },
+        getCity: function () {
+            return $http.post("/common/City/getcity", {});
         },
         getCode:function(_phone){
              return $http.post("",{
-                Phone:_phone
+                Contact:_phone
             })
         },
         sendCode:function(data){

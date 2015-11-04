@@ -1,20 +1,29 @@
 <link rel="stylesheet" href="css/register.css">
+	<style>
+    .dropdown-menu {
+    background-clip: padding-box;
+    background-color: transparent;
+    border: none;
+    border-radius:0;
+    box-shadow: 0 0 0 ;
+    display: none;
+    float: left;
+    font-size: 14px;
+    left: 0;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+}
+
+</style>
 <!--for register-->
 <div class="container  tui-reg-container tc">
-	<!--<div class="tui-reg-step">
-		<ul class="tui-reg-items clearfix">
-			<li class="tui-reg-item tui-reg-step-1" data-step=1>
-				设置登录名
-			</li>
-			<li class="tui-reg-item tui-reg-step-2 tui-reg-active" data-step=2>
-				填写用户信息
-			</li>
-			<li class=" tui-reg-item tui-reg-step-3 " data-step="√">
-				注册成功
-			</li>
-		</ul>
-	</div>-->
-	<!--step2-->
+	
 	<div class="tui-reg-info-container">
 		<div class="tui-reg-step-content ">
 			<form action="" id="tui-reg-form" name="registerForm" class=" form-horizontal" role="form" novalidate>
@@ -27,6 +36,23 @@
    			  			    {{Message.msg}}
 						</div>
 		      		</div>
+						</div>
+						<div class="form-group">
+							<label for="City" class="col-md-2 control-label">所在城市：</label>
+							<div class="col-md-4 ">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle"  onclick="showCity()">
+										选择城市
+										<span class="caret"></span>
+									</button>
+									<div class="dropdown-menu"  style="border: none;" id="city-tree">
+									   	 <div id="treeview-city" class="treeview"  style="width: 300px;;"></div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2 " >
+								<span class="tui-tip" ng-show="cityIsNull">请选择所在城市</span>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="Account" class="col-md-2 control-label"> 用户名：</label>
@@ -52,8 +78,9 @@
 							<div class="col-md-4 ">
 								<input type="password" name="ConfigPwd" id="Pwd" value="" class="form-control" ng-model="ConfigPwd" required="required" />
 							</div>
-							<div class="col-md-2 " ng-show="registerForm.ConfigPwd.$dirty&&registerForm.ConfigPwd.$invalid">
-								<span class="tui-tip">确认密码</span>
+							<div class="col-md-2">
+								<span class="tui-tip" ng-show="registerForm.Pwd.$valid&&registerForm.ConfigPwd.$invalid">确认密码</span>
+								<span class="tui-tip" ng-if="registerForm.ConfigPwd.$valid&&ConfigPwd!==Pwd">两次密码输入不一致</span>
 							</div>
 						</div>
 
@@ -68,5 +95,16 @@
 <!--modal-->
 <!--end of register-->
 </div>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-treeview.css" />
+<script src="js/bootstrap-treeview.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	function showDirect(){
+		$('#direct-tree').toggle();
+	}
+	function showCity(){
+		$('#city-tree').toggle();
+	}
+</script>
+
 
 

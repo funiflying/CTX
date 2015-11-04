@@ -104,6 +104,7 @@ function ngDialogController($scope, ngDialog, $rootScope, AllianceRegService) {
  * ******************************/
 function registerController($scope,RegisterService,$rootScope,$location){
     $scope.reg = {};
+    $scope.cityIsNull=false;
 	$scope.area = ["中国+86", "香港+852", "澳门+853", "台湾+886"];
 	$scope.reg.IRC = $scope.area[0];
 	$scope.reg.contact = "";
@@ -116,13 +117,12 @@ function registerController($scope,RegisterService,$rootScope,$location){
     $scope.Phone=function(){
         if($scope.telephoneForm.Contact.$valid){
               RegisterService.validPhone($scope.reg.contact).success(function(d) {
-					if (d.status == 0) {
-						$rootScope.Alert(d.message)
+					if (d.status == 1) {
+						$rootScope.Alert(d.message);
 					}
 				}).error(function(e) {
 					$rootScope.Alert(e)
 				});
-        
         }
     }
     //获取短信验证码
@@ -165,15 +165,31 @@ function registerController($scope,RegisterService,$rootScope,$location){
 						else{
 							$rootScope.reg_phone=$scope.reg.contact
 						}
-
 				}).error(function(e) {
                     
 				});
-				$location.path('/registerinfo');
+				$rootScope.reg_phone=$scope.reg.contact
+					$location.path('/registerinfo');
 			}
 		}
+	//城市
+	RegisterService.getCity().success(function(d) {
+		var tree = d.data;
+		var citytree = $('#treeview-city').treeview({
+			data: tree,
+			onNodeSelected: function(event, node) {
+				$scope.cityIsNull=false;
+				$scope.CityID = node.CityID;
+				angular.element('#city-tree').hide();
+			},
+		});
+		$('#treeview-city').treeview('collapseAll', {
+			silent: true
+		});
+	});
+	
+	
     //验证用户名
-    
 	$scope.checkAccout = function() {
 			if ($scope.registerForm.Account.$valid) {
 				var  data={
@@ -189,20 +205,17 @@ function registerController($scope,RegisterService,$rootScope,$location){
 		}
 		//注册
 	$scope.register = function() {
-        if ($scope.registerForm.$valid&&!$scope.flg) {
+        if ($scope.registerForm.$valid&&!$scope.flg&&!$scope.cityIsNull) {
             var data = {
                 Account: $scope.Account,
                 Pwd: $scope.Pwd,
+                CityID:$scope.CityID, 
                 Contact:$rootScope.reg_phone
             }
             RegisterService.register(data).success(function(d) {
                 if (d.status == 0) {
                     $rootScope.Alert(d.message)
                 } else {
-                	$rootScope.user={
-                		name:d.Message.Account,
-                		contact:d.Message.Contact
-                	}
                     $location.path('/regsuccess');
                 }
             })
