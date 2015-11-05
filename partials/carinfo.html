@@ -6,7 +6,7 @@
 	<div class="wrapper">
 		<div class="d-info-w mt15 mb10">
 			<div class="d-info-left">
-				<div class="d-info-img" id="data-info-img"><img src="images/default.jpg" width="634"></div>
+				<div class="d-info-img" id="data-info-img"><img src="{{carinfodata.HomePicID}}" width="634"></div>
 				<div class="d-img-list mt15">
 					<a href="javascript:void(0);" class="fl thumb-arrow-prew prev" id="thumb-prev"></a>
 					<div class="d-thumb-list">
@@ -45,12 +45,12 @@
 				<div class="w mt5 clearfix">
 					<div class="d-price-wrap">
 						<div class="price-w">
-							<p class="d-price">￥{{carinfodata.Price | FormatPrice }}万</p>
+							<p class="d-price">￥{{carinfodata.Price}}万</p>
 							<p><span><strike>￥19.53</strike>万 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价格参考</span></p>
 						</div>
 						<div class="fr w270 f14 d-info-licheng">
 							<p>里程：{{carinfodata.Mileage}}万公里（<span>油耗平均7.7个</span>）</p>
-							<p>上牌：2011年10月（<span>至今4年</span>）</p>
+							<p>上牌：{{carinfodata.InitialDate}}（<span>至今4年</span>）</p>
 							<p>亮点：儿童锁 | 真皮座椅 | ESP</p>
 						</div>
 					</div>
@@ -115,22 +115,22 @@
 								<p>排除火烧（共2项）</p>
 							</li>
 							<li>
-								<p><strong>事故排查</strong></p>
-								<p>排除重大碰撞（共18项）</p>
-								<p>排除泡水（共8项）</p>
-								<p>排除火烧（共2项）</p>
+								<p><strong>外观内饰检测</strong></p>
+								<p>外观修复检查（共51项）</p>
+								<p>外观缺陷检查（共34项）</p>
+								<p>内饰缺陷检查（共29项）</p>
 							</li>
 							<li>
-								<p><strong>事故排查</strong></p>
-								<p>排除重大碰撞（共18项）</p>
-								<p>排除泡水（共8项）</p>
-								<p>排除火烧（共2项）</p>
+								<p><strong>系统设备检测</strong></p>
+								<p>安全系统检测（共6项）</p>
+								<p>刹车系统检测（共4项）</p>
+								<p>电子设备检测（共8项）</p>
 							</li>
 							<li>
-								<p><strong>事故排查</strong></p>
-								<p>排除重大碰撞（共18项）</p>
-								<p>排除泡水（共8项）</p>
-								<p>排除火烧（共2项）</p>
+								<p><strong>驾驶检测</strong></p>
+								<p>启动与起步（共5项）</p>
+								<p>加速与行驶（共8项）</p>
+								<p>减速与制动（共4项）</p>
 							</li>
 						</ul>
 					</div>
@@ -152,7 +152,7 @@
 				<a href="javascript:;">配置参数</a>
 			</div>
 			<div class="fr d-tab-buy">
-				<span>￥{{carinfodata.Price | FormatPrice }}万</span>
+				<span>￥{{carinfodata.Price}}万</span>
 				<button>立即购买</button>
 			</div>
 		</div>

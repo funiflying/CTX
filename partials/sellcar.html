@@ -13,36 +13,46 @@
 		<div class="">
 			<form class="tui-form-group tui-control-group" id="sellcarform">
 				<div class="d-form-div">
-					<label><span>*</span>车型：</label>
-					<div class="d-fr-div">
-						<input type="text" value="请选择品牌" ng-init="BrandList()" class="tui-form-border">
-						<span>找不到您的车？填写一个</span>
+					<label><span>*</span>品牌－车系－名称：</label>
+					<div class="d-fr-div" ng-init="BrandList()">
 						<section id="ChangeBrand" class="ChangeBrand">
 							<select name="Brand" class="tui-form-border" ng-model="selectedBrand" ng-change="selectedChexi=''" ng-options="(bd.AbcOrder+' -> '+bd.brandName) for bd in brandslist">
-								<option value="">---请选择品牌---</option>
+								<option value="">---请选择品牌---</option><!--selectedChexi=''-->
 							</select>
-							<select name="Series" class="tui-form-border" ng-model="selectedChexi" ng-options="cx.SeriesName for cx in selectedBrand.chexi">
+							<select class="tui-form-border" ng-model="selectedChexi" ng-change="CarNameLists()" ng-options="cx.SeriesName for cx in selectedBrand.chexi">
 								<option value="">---请选择车系---</option>
 							</select>
-							<select name="Series" class="tui-form-border">
-								<option value="">---请选择车型---</option>
-								<option value="0" selected="">不限</option>
-								<option value="1">小型车</option>
-								<option value="2">紧凑型车</option>
-								<option value="3">中型车</option>
-								<option value="4">豪华型车</option>
-								<option value="5">SUV</option>
-								<option value="6">MPV</option>
-								<option value="7">跑车</option>
-								<option value="8">商用车</option>
+							
+							<select class="tui-form-border" ng-model="CNLSpecName" >
+								<option value="">---请选择汽车名称---</option>
+								<option value="{{cnl.CatalogID}}||{{cnl.SpecName}}" ng-repeat="cnl in CNameList">{{cnl.SpecName}}</option>
 							</select>
+							<input type="hidden" id="textCatalogID" value="{{CNLSpecName | GetCatalog:0}}">
+							<input type="text" id="textSpecName" value="{{CNLSpecName | GetCatalog:1}}" placeholder="填写车名称，如：MG3 2011款 3 1.3 手动 舒适版" class="fl tui-form-border tui-control-big">
 						</section>
+						<!--<span>找不到您的车？填写一个</span>-->
 					</div>
+
+				</div>
+				<div class="d-form-div">
+					<label><span>*</span>车型：</label>
+					<select name="Style" ng-model="sellformdata.Style" class="tui-form-border">
+						<option value="">---请选择车型---</option>
+						<option value="0" selected="">不限</option>
+						<option value="1">小型车</option>
+						<option value="2">紧凑型车</option>
+						<option value="3">中型车</option>
+						<option value="4">豪华型车</option>
+						<option value="5">SUV</option>
+						<option value="6">MPV</option>
+						<option value="7">跑车</option>
+						<option value="8">商用车</option>
+					</select>
 
 				</div>
 				<div class="d-form-div" ng-init="ChangeCarColor()">
 					<label><span>*</span>车身颜色：</label>
-					<input name="color" class="tui-form-border" type="hidden" value="1" />
+					<input name="color" ng-model="sellformdata.Color" class="tui-form-border" type="hidden" value="1" />
 					<div class="d-color-change">
 						<a href="javascript:;" data-value="1" class="cborder"><i class="d-color-m color-01"></i>黑色<i class="d-color-check on"></i></a>
 						<a href="javascript:;" data-value="2"><i class="d-color-m color-02"></i>白色<i class="d-color-check"></i></a>
@@ -65,14 +75,14 @@
 				</div>
 				<div class="d-form-div">
 					<label><span>*</span>车牌所在地：</label>
-					<select name="RegisterPlace" class="tui-form-border">
+					<select name="RegisterPlace" ng-model="sellformdata.RegisterPlace" class="tui-form-border">
 						<option>厦门</option>
 						<option>福州</option>
 					</select>
 				</div>
 				<div class="d-form-div">
 					<label><span>*</span>行驶里程：</label>
-					<input type="text" name="Mileage" value="5.6" class="tui-form-border"><span class="input-right40">万公里</span>
+					<input type="text" ng-model="sellformdata.Mileage" name="Mileage" value="5.6" class="tui-form-border"><span class="input-right40">万公里</span>
 				</div>
 				<div class="d-form-div">
 					<label><span>*</span>首次上牌时间：</label>
@@ -89,14 +99,14 @@
 				</div>
 				<div class="d-form-div">
 					<label><span>*</span>预售价格：</label>
-					<input name="Price" class="tui-form-border" type="text" value="15" placeholder="想卖多少价格" /><span class="input-right30">万元</span>
-					<input name="WholesalePrice" class="tui-form-border ml15" type="text" placeholder="批发价格" value="12" /><span class="input-right30">万元</span>
+					<input name="Price" ng-model="sellformdata.Price" class="tui-form-border" type="text" value="15" placeholder="想卖多少价格" /><span class="input-right30">万元</span>
+					<input name="WholesalePrice" ng-model="sellformdata.WholesalePrice" class="tui-form-border ml15" type="text" placeholder="批发价格" value="12" /><span class="input-right30">万元</span>
 				</div>
 				<div class="d-form-div">
 					<label><span>*</span>购买年限：</label>
 					<div class="d-date-wrap w300">
 						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
-							<input class="form-control" size="16" type="text" value="" readonly>
+							<input class="form-control" ng-model="sellformdata.Buyyear" size="16" type="text" value="" readonly>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 						</div>
@@ -104,7 +114,7 @@
 				</div>
 				<div class="d-form-div">
 					<label><span>*</span>过户次数：</label>
-					<input name="TransferNo" class="tui-form-border" placeholder="次数" type="number" value="0" />
+					<input name="TransferNo" ng-model="sellformdata.TransferNo" class="tui-form-border" placeholder="次数" type="number" value="0" />
 				</div>
 				<div class="d-form-div d-line-grey"></div>
 				<div class="d-form-div">
@@ -140,7 +150,7 @@
 				<div class="d-form-div">
 					<label>车主自述：</label>
 					<div class="d-fr-div">
-						<textarea name="12" cols="87" rows="6" placeholder="例：我一直很爱惜自己的车，每次保养都是在4S店保养，小刮擦在所难免但绝对没有大事故。加装了自动大灯，门灯，点火线圈，胎压监测。保险还有9个月到期，可随时看车！">我一直很爱惜自己的车，每次保养都是在4S店保养，小刮擦在所难免但绝对没有大事故。加装了自动大灯，门灯，点火线圈，胎压监测。保险还有9个月到期，可随时看车！
+						<textarea name="12" ng-model="sellformdata.CarDemo" cols="87" rows="6" placeholder="例：我一直很爱惜自己的车，每次保养都是在4S店保养，小刮擦在所难免但绝对没有大事故。加装了自动大灯，门灯，点火线圈，胎压监测。保险还有9个月到期，可随时看车！">
 						</textarea>
 						<br>
 						<span>0  /  200  字，请不要输入与出售车辆无关内容或非法内容</span>
@@ -149,65 +159,65 @@
 				<div class="d-form-div d-line-grey"></div>
 				<div class="d-form-div">
 					<label>发动机号：</label>
-					<input name="EngineNo" class="tui-form-border" type="text" value="456123" />
+					<input name="EngineNo" ng-model="sellformdata.EngineNo" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label>车架号：</label>
-					<input name="FrameNumber" class="tui-form-border" type="text" value="123456" />
+					<input name="FrameNumber" ng-model="sellformdata.FrameNumber" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label>行驶证：</label>
-					<input name="DrivingLicense" class="tui-form-border" type="text" value="1" />
+					<input name="DrivingLicense" ng-model="sellformdata.DrivingLicense" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label>登记证：</label>
-					<input name="Registration" class="tui-form-border" type="text" value="1" />
+					<input name="Registration" ng-model="sellformdata.Registration" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label>初登日期：</label>
 					<div class="d-date-wrap w300">
 						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
-							<input name="InitialDate" class="form-control" size="16" type="text" value="" readonly>
+							<input name="InitialDate" ng-model="sellformdata.InitialDate" class="form-control" size="16" type="text" value="" readonly>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 						</div>
 					</div>
 				</div>
 				<div class="d-form-div">
-					<label>车身名牌：</label>
-					<input name="BodyBrand" class="tui-form-border" type="text" value="13" />
+					<label>车牌：</label>
+					<input name="BodyBrand" ng-model="sellformdata.BodyBrand" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label>购车发票：</label>
-					<input name="PurchaseInvoices" class="tui-form-border" type="text" value="1" />
+					<input name="PurchaseInvoices" ng-model="sellformdata.PurchaseInvoices" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label>违章记录：</label>
-					<input name="ViolationRecord" class="tui-form-border" type="text" value="0" />
+					<input name="ViolationRecord" ng-model="sellformdata.ViolationRecord" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div d-line-grey"></div>
 				<div class="d-form-div">
 					<label><span>*</span>联系人：</label>
-					<input name="ContactName" class="tui-form-border" type="text" value="车某某" />
+					<input name="ContactName" ng-model="sellformdata.ContactName" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label><span>*</span>手机号：</label>
-					<input name="MobilePhone" class="tui-form-border" type="text" value="158467953245" />
+					<input name="MobilePhone" ng-model="sellformdata.MobilePhone" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label><span>*</span>验证码：</label>
-					<input name="Code" class="tui-form-border" type="text" value="1234" />
+					<input name="Code" class="tui-form-border" type="text" value="" />
 				</div>
 				<div class="d-form-div">
 					<label>微信号：</label>
-					<input name="WeiXinNo" class="tui-form-border" type="text" value="weixinhao" />6-20个字母、数字下划线和减号，必须以字母开头
+					<input name="WeiXinNo" ng-model="sellformdata.WeiXinNo" class="tui-form-border" type="text" value="" />6-20个字母、数字下划线和减号，必须以字母开头
 				</div>
 				<div class="d-form-div d-line-grey"></div>
 				<div class="d-form-div">
 					<label>年检有效期至：</label>
 					<div class="d-date-wrap w300">
 						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
-							<input name="Annual_Inspect_Time" class="form-control" size="16" type="text" value="" readonly>
+							<input name="Annual_Inspect_Time" ng-model="sellformdata.Annual_Inspect_Time" class="form-control" size="16" type="text" value="" readonly>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 						</div>
@@ -217,7 +227,7 @@
 					<label>交强险到期时间：</label>
 					<div class="d-date-wrap w300">
 						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
-							<input name="Compulsory_insurance_Time" class="form-control" size="16" type="text" value="" readonly>
+							<input name="Compulsory_insurance_Time" ng-model="sellformdata.Compulsory_insurance_Time" class="form-control" size="16" type="text" value="" readonly>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 						</div>
@@ -227,7 +237,7 @@
 					<label>商业险到期时间：</label>
 					<div class="d-date-wrap w300">
 						<div class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
-							<input name="Commercial_Insurance_Time" class="form-control" size="16" type="text" value="" readonly>
+							<input name="Commercial_Insurance_Time" ng-model="sellformdata.Commercial_Insurance_Time" class="form-control" size="16" type="text" value="" readonly>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 						</div>
@@ -242,7 +252,7 @@
 						<a href="javascript:;" data-value="4">女车主<i class="d-color-check"></i></a>
 						<a href="javascript:;" data-value="5">7座车<i class="d-color-check"></i></a>
 					</div>
-					<input name="TeDian" class="tui-form-border" type="hidden" value="" />
+					<input name="TeDian" ng-model="sellformdata.TeDian" class="tui-form-border" type="hidden" value="" />
 				</div>
 				<div class="d-form-div">
 					<label>看车地点：</label>
@@ -281,7 +291,8 @@
 				</div>
 				<div class="d-form-div d-line-grey"></div>
 				<div class="d-form-div">
-					<button class="tui-btn-default" type="submit" >发布车源</button>
+					<input type="hidden" name="AllianceCode" value="1" />
+					<button class="tui-btn-default" type="submit">发布车源</button>
 				</div>
 			</form>
 		</div>

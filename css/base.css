@@ -7,7 +7,7 @@
 /* ================================ */
 /* ===============
  * 重新定义Html元素
- * =============== */
+ * =============== */navbar-bg
 
 @charset "utf-8";
 * {
@@ -920,14 +920,14 @@ menu {
 
 .navbar-bg {
 	background: #f0f0f0;
-	height: 35px;
+	height: 30px;
 }
 .navbar .tl span {
 	color: #e87627;
 }
 .navbar {
-	line-height: 35px;
-	font-size: 14px;
+	line-height: 28px;
+	font-size: 12px;
 }
 .navbar a {
 	padding: 0px 10px 0px 10px;

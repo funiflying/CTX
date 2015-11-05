@@ -196,6 +196,8 @@ color: #4c4c4c;
 .tui-admin-order-carinfo li>p{
     font-size: 12px;
     color: #333333;
+    height: 20px;
+    overflow: hidden;
 }
 /*
  * order pay

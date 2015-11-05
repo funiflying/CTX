@@ -75,7 +75,7 @@ config(['$routeProvider', 'ACCESS_LEVELS',
 			templateUrl: 'partials/order.html',
 			controller: orderController
 		});
-		$routeProvider.when('/orderremit', {
+		$routeProvider.when('/orderremit/:CarNo/', {
 			templateUrl: 'partials/orderremit.html',
 			controller: orderController
 		});

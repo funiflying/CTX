@@ -180,6 +180,7 @@ function registerController($scope,RegisterService,$rootScope,$location){
 			onNodeSelected: function(event, node) {
 				$scope.cityIsNull=false;
 				$scope.CityID = node.CityID;
+				angular.element("#city").text(node.Name)
 				angular.element('#city-tree').hide();
 			},
 		});
@@ -246,6 +247,7 @@ function allianceRegController($scope, AllianceRegService, $timeout, $filter, $l
 			data: tree,
 			onNodeSelected: function(event, node) {
 				$scope.CityID = node.CityID;
+				angular.element("#city").text(node.Name)
 				angular.element('#city-tree').hide();
 			},
 		});
@@ -322,6 +324,7 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 			data: tree,
 			onNodeSelected: function(event, node) {
 				$scope.DirectBusinessID = node.ID;
+				angular.element("#direct").text(node.Name)
 				angular.element('#direct-tree').hide();
 			},
 		});
@@ -336,6 +339,7 @@ function regularRegController($scope, RegularRegService, $timeout, $filter, $loc
 			data: tree,
 			onNodeSelected: function(event, node) {
 				$scope.CityID = node.CityID;
+				angular.element("#city").text(node.Name)
 				angular.element('#city-tree').hide();
 			},
 		});
@@ -463,12 +467,12 @@ function orderController($scope,OrderService,$rootScope,$routeParams,$location){
 		}
 		else{
 			var data={
-				CarNo:$scope.carNo
+				CarNo:_carNo
 			}
 			OrderService.submitOrder(data).success(function(d){
 				if(d.status){
 					$rootScope.openModal("恭喜，您已成功提交订单",function(){
-						$location.path("/orderremit");
+						$location.path("/orderremit/"+_carNo+"/");
 					});
 				}
 				else{

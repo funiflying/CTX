@@ -578,8 +578,12 @@
 	text-align: -moz-center;
 	text-align: -webkit-center;
 }
-.vehicle-safety-wrap .li32{ width: 32%;}
-.vehicle-safety-wrap .li36{ width: 36%;}
+.vehicle-safety-wrap .li32 {
+	width: 32%;
+}
+.vehicle-safety-wrap .li36 {
+	width: 36%;
+}
 .vehicle-safety-wrap .treelist-wrap {
 	width: 100%;
 	position: relative;
@@ -729,7 +733,7 @@
 	border-bottom: 1px solid #e6e6e6;
 	line-height: 25px;
 }
-.drive-list-w .drive-info i{
+.drive-list-w .drive-info i {
 	float: right;
 }
 .device-wrap {
@@ -737,14 +741,14 @@
 	margin-top: 25px;
 	float: left;
 }
-.item-list-text i{
+.item-list-text i {
 	float: right;
 	margin-top: 6px;
 	margin-right: 60px;
 }
 .device-wrap ul {} .device-wrap li {
 	width: 32.5%;
-	height: 481px;
+	/*height: 481px;*/
 	border: 1px solid #ececec;
 }
 .device-wrap .item-list-title {
@@ -787,7 +791,7 @@
 	font-size: 16px;
 	line-height: 35px;
 }
-.title-right .total-info i{
+.title-right .total-info i {
 	vertical-align: middle;
 	margin: 0px 5px 0px 5px;
 }
@@ -806,7 +810,6 @@
 .item-red {
 	color: #fb6464;
 }
-
 .report-check-yes {
 	background: url(../images/report-check-icon.png) no-repeat 0px -2px;
 	width: 25px;
@@ -817,4 +820,15 @@
 }
 .report-check-no {
 	background-position: 0px -43px;
+}
+.report-check-wu {
+	background-position: 0px -79px;
+}
+.report-input {
+	width: 660px;
+	height: 30px;
+	padding: 5px;
+	border: none;
+	font-size: 14px;
+	border: 1px solid #E5511D;
 }

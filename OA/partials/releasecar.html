@@ -1,26 +1,24 @@
 <ul class="tui-oa-orders">
     
     <li class="tui-oa-order-item" ng-repeat="obj in carList">
-        <div class="tui-oa-order-caption">
-            <div class="col-md-2">
-                车辆图片
-            </div>
-            <div class="col-md-5">
-                车辆信息
-            </div>
-            <div class="col-md-3">
-                车辆编号
-            </div>
-            <div class="col-md-2">
-                操作
-            </div>
-        </div>
-         <div class="tui-oa-order-body">
-            <div class="col-md-2">
-                <img ng-src="{{obj.HomePicID}}" alt="">
-            </div>
-            <div class="col-md-5 tui-order-car">
-                <h2 ng-bind="obj.SpecName"></h2>
+    	<table>
+			<tr class="tui-oa-order-caption">
+				<td class="col-md-3 " >
+					车辆图片
+				</td>
+				<td class="col-md-4">
+					车辆信息
+				</td>
+				<td class="col-md-2">车辆编号</td>
+				<td class="col-md-1">状态</td>
+				<td class="col-md-2">操作</td>
+			</tr>
+			<tr class="tui-oa-order-body">
+				<td class="col-md-3">
+					<img alt="" src="../demo/carimg.jpg" ng-src="../{{obj.HomePicID}}">
+				</td>
+				<td class="col-md-4">
+					<h2 ng-bind="obj.SpecName"></h2>
                 <p><strong ng-bind="obj.Price/10000| currency : '￥'"></strong><label>万</label></p>
                 <!--<ul class="tui-order-carinfo">
                     <li>
@@ -40,17 +38,19 @@
                         归属地
                     </li>
                 </ul>-->
-            </div>
-            <div class="col-md-3" ng-bind="obj.CarNo">
-                
-            </div>
-            <div class="col-md-2" style="line-height:30px;padding-top:60px;">
-               <button type="button" class="btn btn-info" ng-click="permit(obj.CarNo,1)">通过</button>
+				</td>
+				<td class="col-md-2" ng-bind="obj.CarNo"></td>
+				<td class="col-md-1" ng-bind="obj.OrderFlag">
+					
+				</td>
+				<td class="col-md-2">
+				<button type="button" class="btn btn-info" ng-click="permit(obj.CarNo,1)">通过</button>
 				<button type="button" class="btn btn-warning" ng-click="permit(obj.CarNo,0)">禁止</button>
                <br>
                 <a href="">查看详情</a>
-            </div>
-        </div>
+				</td>
+			</tr>
+		</table>
     </li>
 </ul>
 <!--<di class="tui-pager">

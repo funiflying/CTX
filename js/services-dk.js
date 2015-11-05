@@ -15,7 +15,7 @@ angular.module('chetongxiang.services-dk', []).service("CTXService", function($h
 		},
 		//获取品牌接口数据
 		GetCarNameLists: function(obj) {
-			return $http.get('http://192.168.0.218/carbrand/GetSpecByBrandSeries?brandid=' + obj.brandidd + '&seriesid=' + obj.seriesid);
+			return $http.get('http://192.168.0.218/carbrand/GetSpecByBrandSeries?brandid=' + obj.brandid + '&seriesid=' + obj.seriesid);
 		},
 		//获取首页推荐汽车接口数据
 		GetIndexHot: function(obj) {
@@ -48,7 +48,8 @@ angular.module('chetongxiang.services-dk', []).service("CTXService", function($h
 		},
 
 		PostReport: function(obj) {
-			return $http.post('http://192.168.0.218/common/car/Publish', obj);
+			return $http.post('http://192.168.0.218/Alliance/TestReport/WriteTestReport', obj);
+			//return $http.post('http://192.168.0.218/TestReport/WriteTestReport', obj);
 			//			return $.ajax({
 			//				type: "POST",
 			//				//url: "http://192.168.0.180/PostReport.php",

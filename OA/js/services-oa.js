@@ -121,7 +121,7 @@ angular.module('chetongxiang.services-admin', []).service('AllianceAuditService'
 }).service("AssessService",function($http){
 	return{
 		getSellAssessList:function(data){
-			return $http.post("/order/SellDirectGetOrderLis",data);
+			return $http.post("/order/SellDirectGetOrderList",data);
 		},
 		getBuyAssessList:function(data){
 			return $http.post("/order/BuyDirectGetOrderList",data);

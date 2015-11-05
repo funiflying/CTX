@@ -153,10 +153,10 @@
 	line-height: 30px;
 }
 .d-form-div .ChangeBrand{
-	display: none;
+	/*display: none;
 	position: absolute;
 	left: 0px;
-	top: 0px;
+	top: 0px;*/
 }
 .d-line-grey {
 	border-bottom: 1px solid #dedede;

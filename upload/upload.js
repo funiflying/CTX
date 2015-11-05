@@ -151,7 +151,7 @@
             swf: 'lib/webuploader/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: 'http://ctx/server/fileupload.php',
+            server: 'http://192.168.0.180/server/fileupload.php',
             //server: 'http://192.168.0.105/common/car/UpLoadProcess',
             // runtimeOrder: 'flash',
 

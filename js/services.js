@@ -94,9 +94,7 @@ angular.module("chetongxiang.services",[]).service("AllianceRegService",function
 }).service("OrderService",function($http){
 	return {
 		getCarInfo:function(data){
-			
 			return $http.post("/order/GetCarInfo",data)
-			
 		},
 		submitOrder:function(data){
 			return $http.post("/Order/userbuy",data)

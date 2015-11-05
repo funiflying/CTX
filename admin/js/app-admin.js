@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'ngRoute','ngDialog']).constant('ACCESS_LEVELS', {
+angular.module('chetongxiang', [ 'chetongxiang.services-admin', 'chetongxiang.filters','ngRoute','ngDialog']).constant('ACCESS_LEVELS', {
     pub: 0,
     user: 1,
     admin: 2

@@ -4,7 +4,7 @@
 			<tr class="tui-admin-order-caption">
 				<td class="col-md-3 text-left" ng-bind="obj.OrderTime"></td>
 				<td class="col-md-4 text-left">订单号：<span ng-bind="obj.OrderCode"></span></td>
-				<td class="col-md-2">车标号</td>
+				<td class="col-md-2">车辆编号</td>
 				<td class="col-md-1">状态</td>
 				<td class="col-md-2">操作</td>
 			</tr>
@@ -13,14 +13,14 @@
 					<img alt="" src="../demo/carimg.jpg" ng-src="../{{obj.HomePicID}}">
 				</td>
 				<td class="col-md-4">
-					<h2 ng-bind="obj.SpecName"> jklsdjkfsdjklfsdjkf jklsdfj </h2>
+					<h2 ng-bind="obj.SpecName"> </h2>
 					<p><strong ng-bind="obj.DealPrice/10000|currency:'￥'"></strong>
 						<label>万</label>
 						<!--(新车价24.1万，比新车<label>省16.3万</label>)-->
 					</p>
 					<ul class="tui-admin-order-carinfo">
 						<li>
-							<p ng-bind="obj.InitialDate|date:'yyyy-mm'">2015-9</p>
+							<p ng-bind="obj.InitialDate|date:'yyyy-MM-dd'">2015-9</p>
 							上牌时间
 						</li>
 						<li>
@@ -32,13 +32,13 @@
 							变速箱
 						</li>
 						<li style="border:none;">
-							<p ng-bind="obj.City">厦门</p>
+							<p ng-bind="obj.CityName">厦门</p>
 							归属地
 						</li>
 					</ul>
 				</td>
 				<td class="col-md-2" ng-bind="obj.CarNo"></td>
-				<td class="col-md-1" ng-bind="obj.OrderFlag"></td>
+				<td class="col-md-1" ng-bind="obj.OrderFlag|orderStatus"></td>
 				<td class="col-md-2">
 					<p><a href="#/orderremit/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==0">支付预付款</a></p>
 					<p><a href="#/payfull/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==4">支付车款</a></p>

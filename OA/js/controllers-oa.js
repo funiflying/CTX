@@ -33,13 +33,18 @@ function allianceAuditController($scope, ngDialog, AllianceAuditService, $rootSc
 	$scope.openDialog = function(obj) {
 		$scope.member = obj;
 		ngDialog.open({
-			template: 'partials/membersInfo.html',
+			template: 'partials/membersinfo.html',
 			showClose: true,
 			scope: $scope
 		});
 	}
 	AllianceAuditService.getMembers(1, 3).success(function(d) {
+		if(d.status){
 		$scope.alliance = d.data;
+		}
+		else{
+			$rootScope.openModal(d.message);
+		}
 	});
 
 	//审核
@@ -69,8 +74,12 @@ function carAuditControllerfunction($scope, ngDialog, CarAuditService, $rootScop
 	//获取车源
 	$scope.carList = "";
 	CarAuditService.getCarList(1, 5).success(function(d) {
-		
-			$scope.carList = d;
+		  if (d.status) {
+		  	$scope.carList = d.data;
+		  } else{
+		  	$rootScope.openModal(d.message);
+		  }
+			
 		
 	})
 
@@ -88,8 +97,6 @@ function carAuditControllerfunction($scope, ngDialog, CarAuditService, $rootScop
 			} else {
 				$rootScope.openModal(d.mesage);
 			}
-
-
 		}).error(function(e) {
 			$rootScope.Alert(e)
 		})
@@ -114,6 +121,9 @@ function prePayListController($scope, PayAuditService, $rootScope, $routeParams,
 		if (d.status) {
 			$scope.prePayList = d.data.rows;
 		}
+		else{
+			$rootScope.openModal(d.mesage);
+		}
 	}).error(function() {
 		$rootScope.openModal("系统错误")
 
@@ -129,6 +139,9 @@ function prePayAuditController($scope, PayAuditService, $rootScope, $routeParams
 		PayAuditService.getPrePayOrder(data).success(function(d) {
 			if (d.status) {
 				$scope.prePayList = d.data[0];
+			}
+			else{
+				$rootScope.openModal(d.mesage);
 			}
 		}).error(function() {
 			$rootScope.openModal("系统错误")
@@ -243,6 +256,7 @@ function assessSellController($scope,$rootScope,AssessService){
 		pageNum:3,
 		orderStatus:2
 	}
+
 	AssessService.getSellAssessList(data).success(function(d){
 		if(d.status){
 			$scope.assesslist=d.data;

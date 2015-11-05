@@ -2,12 +2,10 @@
 <html lang="en" ng-app="chetongxiang">
 <head>
   <meta charset="utf-8">
-  <title>车同享</title>
+  <title>厦门车同享二手车交易平台</title>
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../lib/ngDialog/css/ngDialog.css" />
   <link rel="stylesheet" href="../lib/ngDialog/css/ngDialog-theme-default.css">
-  <link rel="stylesheet" href="../lib/ngDialog/css/ngDialog-theme-plain.css">
-  <link rel="stylesheet" href="../lib/ngDialog/css/ngDialog-custom-width.css">
   <link rel="stylesheet" href="../css/base.css"/>
   <link rel="stylesheet" href="css/admin.css">
   <link rel="stylesheet" type="text/css" href="../css/rewirte.css"/>
@@ -16,6 +14,7 @@
   
   <div class="tui-admin-navbar">
       <div class="wrapper tui-admin-bar">
+      	  <a href="../index.html" class="pull-left" style="display: inline-block;height: 60px;width: 180px;"></a>
           <i class="glyphicon glyphicon-envelope">
               <span class="badge">13</span>
           </i>
@@ -36,8 +35,7 @@
           <div class="col-md-2 tui-admin-sidebar">
               <div class="tui-admin-aside">
                   <img src="images/1.jpg" alt="" class="tui-admim-headIcon">
-                  <p class="tui-admin-name">
-                      吴添祥    
+                  <p class="tui-admin-name" ng-bind="user.Account">
                   </p>
                   <a href="">账号设置</a>|<a href="">消息</a>
               </div>
@@ -132,11 +130,6 @@
           
       </div>
       
-      
-      
-      
-      
-      
   </div>    
  
   	
@@ -151,6 +144,7 @@
   <script type="text/javascript" src="../js/util.js"></script>
   <script src="js/app-admin.js"></script>
   <script src="js/services-admin.js"></script>
+  <script src="../js/filters.js"></script>
   <script src="js/controllers-admin.js"></script>
 </body>
 </html>

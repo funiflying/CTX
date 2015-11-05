@@ -52,7 +52,7 @@
 	        <div class="col-md-4 text-right tui-order-collect clearfix ">
 	        	<div>
 	        		<p class="col-md-8 text-right "><span class="font-orange">1</span>件商品，商品总金额：</p>
-	        		<p class="col-md-4 text-left tui-p0" ng-bind="carInfo.DealPrice|currency:'￥'"></p>
+	        		<p class="col-md-4 text-left tui-p0" ng-bind="carInfo.Price|currency:'￥'"></p>
 	        	</div>
 	        	<div>
 	        		<p class="col-md-8  text-right ">预付金额：</p>
@@ -61,18 +61,15 @@
 	        	<div>
 	        		
 	        		<p class="col-md-8 text-right ">应付款总金额：</p>
-	        		<p class="col-md-4 text-left tui-p0" ng-bind="carInfo.DealPrice|currency:'￥'"></p>
+	        		<p class="col-md-4 text-left tui-p0" ng-bind="carInfo.Price|currency:'￥'"></p>
 	        	</div>
 	        </div>
         </div>
         <div style="border-top: 1px solid #dedede;" class="col-md-10 col-md-offset-1">
         	<p style="text-align: right;height: 50px;line-height: 50px;padding-right: 35px;font-size: 16px;">应付预约金：<span class="font-orange" ng-bind="carInfo.PrePayMoney|currency:'￥'"></span></p>
         	<p style="text-align: center;padding: 30px 0;">
-        		<button  class="tui-btn-default tui-btn-big tui-submit-order" ng-click="submitOrder()">提交订单</button>
+        		<button  class="tui-btn-default tui-btn-big tui-submit-order" ng-click="submitOrder(carInfo.CarNo)">提交订单</button>
         	</p>
-        	
-        	
-        	
         </div>
         
     </div>

@@ -11,7 +11,7 @@ angular.module('chetongxiang.services-admin', []).service("ShoppcarService",func
 			
 		},
 		submitShoppcar:function(_carId){
-			return $http.post("",{
+			return $http.post("/Order/userbuy",{
 					CarNo:_carId
 			})
 		}

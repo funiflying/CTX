@@ -13,14 +13,14 @@
 					<img alt="" src="../demo/carimg.jpg">
 				</td>
 				<td class="col-md-4">
-					<h2 > jklsdjkfsdjklfsdjkf jklsdfj </h2>
+					<h2> jklsdjkfsdjklfsdjkf jklsdfj </h2>
 					<p><strong ng-bind="obj.DealPrice/10000|currency:'￥'"></strong>
 						<label>万</label>
 						<!--(新车价24.1万，比新车<label>省16.3万</label>)-->
 					</p>
 					<ul class="tui-admin-order-carinfo">
 						<li>
-							<p ng-bind="obj.InitialDate|date:'yyyy-mm'">2015-9</p>
+							<p ng-bind="obj.InitialDate|date:'yyyy-MM'">2015-9</p>
 							上牌时间
 						</li>
 						<li>
@@ -40,13 +40,31 @@
 				<td class="col-md-2">车标号</td>
 				<td class="col-md-1">状态</td>
 				<td class="col-md-2">
-					<p><a href="#/orderremit/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==0">支付预付款</a></p>
-					<p><a href="#/payfull/{{obj.OrderCode}}/" ng-if="obj.OrderFlag==4">支付车款</a></p>
-					<p><a href="">撤单申请</a></p>
 					<p class="small"><a href="../index.html#/carinfo/{{obj.CarNo}}/" target="_blank">查看订单详情</a></p>
-
 				</td>
 			</tr>
 		</table>
-</li>
+	</li>
 </ul>
+<div class="col-md-10 pt30">
+	<div class="col-md-8col-md-offset-2">
+		对卖方评价：<label for=""><input type="radio" />411</label> <label for=""><input type="radio" />411</label><label for=""><input type="radio" />411</label>
+	</div>
+	<div class="col-md-8col-md-offset-2">
+		
+		
+		
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</div>

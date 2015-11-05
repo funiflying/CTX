@@ -166,23 +166,23 @@ a:hover{
     text-align: center;
     color: #333333;
 }
-.tui-oa-order-body>div h2{
+.tui-oa-order-body h2{
     font-size: 18px;
     color: #333333;
 }
-.tui-oa-order-body>div p strong{
+.tui-oa-order-body p strong{
     font-size: 18px;
     font-weight: bold;
     color: #ff6a00;
 }
-.tui-oa-order-body>div p label{
+.tui-oa-order-body p label{
     color: #ff6a00;
 }
 .tui-oa-order-body img{
    width: 190px;
    height: 130px;
 }
-.tui-oa-order-body>div a{
+.tui-oa-order-body a{
    color: #3250be;
     vertical-align:middle;
 }
